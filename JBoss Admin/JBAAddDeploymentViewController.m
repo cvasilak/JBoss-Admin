@@ -149,7 +149,7 @@
                 otherButtonTitles:nil
              ];
         
-        [yesno showInView:self.parentViewController.tabBarController.view];       
+        [yesno showInView:self.view];
     }   
 }
     
