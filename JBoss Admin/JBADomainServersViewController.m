@@ -88,7 +88,7 @@
     if ([[serverInfo objectForKey:@"status"] isEqualToString:@"STARTED"]) {
         cell.imageView.image = [UIImage imageNamed:@"up.png"];
         
-        UIImage *buttonDisableImage = [UIImage imageNamed:@"button_disable.png"];
+        UIImage *buttonDisableImage = [UIImage imageNamed:@"disable.png"];
         [button setBackgroundImage:buttonDisableImage forState:UIControlStateNormal];
         [button setTitle:@"Stop" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(enableDisableButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -100,7 +100,7 @@
               || [[serverInfo objectForKey:@"status"] isEqualToString:@"FAILED"] ) {
         cell.imageView.image = [UIImage imageNamed:@"down.png"];   
         
-        UIImage *buttonEnableImage = [UIImage imageNamed:@"button_enable.png"];
+        UIImage *buttonEnableImage = [UIImage imageNamed:@"enable.png"];
         [button setBackgroundImage:buttonEnableImage forState:UIControlStateNormal];
         [button setTitle:@"Start" forState:UIControlStateNormal];
         [button addTarget:self action:@selector(enableDisableButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
