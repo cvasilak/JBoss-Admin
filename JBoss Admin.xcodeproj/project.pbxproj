@@ -842,6 +842,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christos Vasilakis";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christos Vasilakis";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
 				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
@@ -852,6 +853,7 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "7C91D8BF-D762-4598-9B83-43CD20498630";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7C91D8BF-D762-4598-9B83-43CD20498630";
 				WRAPPER_EXTENSION = app;
 			};
 			name = "Ad Hoc Distribution";
@@ -920,6 +922,8 @@
 		6F29155814AD30F800C43FDE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Christos Vasilakis";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christos Vasilakis";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
 				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
@@ -929,6 +933,8 @@
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "24463F13-215D-45A5-8C53-378248BD87BC";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "24463F13-215D-45A5-8C53-378248BD87BC";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
