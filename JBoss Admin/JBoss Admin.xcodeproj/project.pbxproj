@@ -1,0 +1,537 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6F01FA1214AE314D00C10AF1 /* TODO in Resources */ = {isa = PBXBuildFile; fileRef = 6F01FA1114AE314D00C10AF1 /* TODO */; };
+		6F29153D14AD30F800C43FDE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F29153C14AD30F800C43FDE /* UIKit.framework */; };
+		6F29153F14AD30F800C43FDE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F29153E14AD30F800C43FDE /* Foundation.framework */; };
+		6F29154114AD30F800C43FDE /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F29154014AD30F800C43FDE /* CoreGraphics.framework */; };
+		6F29154714AD30F800C43FDE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6F29154514AD30F800C43FDE /* InfoPlist.strings */; };
+		6F29154914AD30F800C43FDE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F29154814AD30F800C43FDE /* main.m */; };
+		6F29154D14AD30F800C43FDE /* JBAAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F29154C14AD30F800C43FDE /* JBAAppDelegate.m */; };
+		6F29155D14AD321C00C43FDE /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F29155914AD311000C43FDE /* icon.png */; };
+		6F29155E14AD322100C43FDE /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F29155B14AD311800C43FDE /* icon@2x.png */; };
+		6F69156C14F5016E000D58AC /* JBAProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6F69156B14F5016E000D58AC /* JBAProgressView.xib */; };
+		6F6BE47814F6402000CCF62C /* summary.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6BE47614F6402000CCF62C /* summary.png */; };
+		6F6BE47914F6402000CCF62C /* operations.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6BE47714F6402000CCF62C /* operations.png */; };
+		6F6BE47A14F641F300CCF62C /* JBARootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BE46F14F63B8B00CCF62C /* JBARootController.m */; };
+		6F6BE47B14F641F300CCF62C /* JBARuntimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BE47114F63BA600CCF62C /* JBARuntimeController.m */; };
+		6F6BE47C14F641F300CCF62C /* JBAProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BE47314F63BA600CCF62C /* JBAProfileController.m */; };
+		6F6BE49414F6883200CCF62C /* JBADeploymentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BE49314F6883100CCF62C /* JBADeploymentsViewController.m */; };
+		6F7F123114F51F190053C6C9 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC51CD714F51CDE00B976C6 /* Reachability.m */; };
+		6F7F123814F521740053C6C9 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F123714F521740053C6C9 /* SystemConfiguration.framework */; };
+		6F7F127914F53A000053C6C9 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F123314F520F90053C6C9 /* CFNetwork.framework */; };
+		6F7F127A14F53A170053C6C9 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F123514F521430053C6C9 /* MobileCoreServices.framework */; };
+		6F7F127C14F53A2D0053C6C9 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F127B14F53A2D0053C6C9 /* CoreData.framework */; };
+		6F7F127E14F53A3C0053C6C9 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F127D14F53A3C0053C6C9 /* libxml2.dylib */; };
+		6F7F127F14F53A770053C6C9 /* libRestKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F127014F539BF0053C6C9 /* libRestKit.a */; };
+		6F7F128114F53AB50053C6C9 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F128014F53AB40053C6C9 /* Security.framework */; };
+		6F9C6CF214F589DB00DA3D9B /* TestTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F9C6CF114F589DB00DA3D9B /* TestTableViewController.m */; };
+		6FFDD09614F50FB000915F38 /* JBAServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F69155A14F4F309000D58AC /* JBAServer.m */; };
+		6FFDD09814F50FB000915F38 /* JBAServersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F69155C14F4F309000D58AC /* JBAServersManager.m */; };
+		6FFDD09A14F50FB000915F38 /* JBAServersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F69155D14F4F309000D58AC /* JBAServersViewController.m */; };
+		6FFDD09C14F50FB000915F38 /* JBAServerDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F69155B14F4F309000D58AC /* JBAServerDetailController.m */; };
+		6FFDD09E14F50FB000915F38 /* JBAProgressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F69155914F4F309000D58AC /* JBAProgressViewController.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6F7F126F14F539BF0053C6C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D1614564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+		6F7F127114F539BF0053C6C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160D2614564E820060A5C5;
+			remoteInfo = RestKitTests;
+		};
+		6F7F127314F539BF0053C6C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E62145651060060A5C5;
+			remoteInfo = RestKitFramework;
+		};
+		6F7F127514F539BF0053C6C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 25160E78145651060060A5C5;
+			remoteInfo = RestKitFrameworkTests;
+		};
+		6F7F128214F53ADC0053C6C9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 25160D1514564E810060A5C5;
+			remoteInfo = RestKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6F01FA1114AE314D00C10AF1 /* TODO */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TODO; sourceTree = "<group>"; };
+		6F29153814AD30F800C43FDE /* JBoss Admin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "JBoss Admin.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6F29153C14AD30F800C43FDE /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		6F29153E14AD30F800C43FDE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6F29154014AD30F800C43FDE /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6F29154414AD30F800C43FDE /* JBoss Admin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JBoss Admin-Info.plist"; sourceTree = "<group>"; };
+		6F29154614AD30F800C43FDE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6F29154814AD30F800C43FDE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6F29154A14AD30F800C43FDE /* JBoss Admin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JBoss Admin-Prefix.pch"; sourceTree = "<group>"; };
+		6F29154B14AD30F800C43FDE /* JBAAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAAppDelegate.h; sourceTree = "<group>"; };
+		6F29154C14AD30F800C43FDE /* JBAAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAAppDelegate.m; sourceTree = "<group>"; };
+		6F29155914AD311000C43FDE /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		6F29155B14AD311800C43FDE /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		6F69155914F4F309000D58AC /* JBAProgressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAProgressViewController.m; sourceTree = "<group>"; };
+		6F69155A14F4F309000D58AC /* JBAServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAServer.m; sourceTree = "<group>"; };
+		6F69155B14F4F309000D58AC /* JBAServerDetailController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAServerDetailController.m; sourceTree = "<group>"; };
+		6F69155C14F4F309000D58AC /* JBAServersManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAServersManager.m; sourceTree = "<group>"; };
+		6F69155D14F4F309000D58AC /* JBAServersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAServersViewController.m; sourceTree = "<group>"; };
+		6F69155E14F4F309000D58AC /* JBAProgressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAProgressViewController.h; sourceTree = "<group>"; };
+		6F69155F14F4F309000D58AC /* JBAServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAServer.h; sourceTree = "<group>"; };
+		6F69156014F4F309000D58AC /* JBAServerDetailController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAServerDetailController.h; sourceTree = "<group>"; };
+		6F69156114F4F309000D58AC /* JBAServersManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAServersManager.h; sourceTree = "<group>"; };
+		6F69156214F4F309000D58AC /* JBAServersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAServersViewController.h; sourceTree = "<group>"; };
+		6F69156B14F5016E000D58AC /* JBAProgressView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JBAProgressView.xib; sourceTree = "<group>"; };
+		6F6BE46E14F63B8B00CCF62C /* JBARootController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBARootController.h; sourceTree = "<group>"; };
+		6F6BE46F14F63B8B00CCF62C /* JBARootController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBARootController.m; sourceTree = "<group>"; };
+		6F6BE47014F63BA600CCF62C /* JBARuntimeController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBARuntimeController.h; sourceTree = "<group>"; };
+		6F6BE47114F63BA600CCF62C /* JBARuntimeController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBARuntimeController.m; sourceTree = "<group>"; };
+		6F6BE47214F63BA600CCF62C /* JBAProfileController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAProfileController.h; sourceTree = "<group>"; };
+		6F6BE47314F63BA600CCF62C /* JBAProfileController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAProfileController.m; sourceTree = "<group>"; };
+		6F6BE47614F6402000CCF62C /* summary.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = summary.png; sourceTree = "<group>"; };
+		6F6BE47714F6402000CCF62C /* operations.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = operations.png; sourceTree = "<group>"; };
+		6F6BE49214F6883100CCF62C /* JBADeploymentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBADeploymentsViewController.h; sourceTree = "<group>"; };
+		6F6BE49314F6883100CCF62C /* JBADeploymentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBADeploymentsViewController.m; sourceTree = "<group>"; };
+		6F7F123314F520F90053C6C9 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6F7F123514F521430053C6C9 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6F7F123714F521740053C6C9 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RestKit.xcodeproj; path = ../../RestKit/RestKit.xcodeproj; sourceTree = "<group>"; };
+		6F7F127B14F53A2D0053C6C9 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6F7F127D14F53A3C0053C6C9 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		6F7F128014F53AB40053C6C9 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6F9C6CF014F589DB00DA3D9B /* TestTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestTableViewController.h; sourceTree = "<group>"; };
+		6F9C6CF114F589DB00DA3D9B /* TestTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestTableViewController.m; sourceTree = "<group>"; };
+		6FC51CD614F51CDE00B976C6 /* Reachability.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		6FC51CD714F51CDE00B976C6 /* Reachability.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6F29153514AD30F800C43FDE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F7F128114F53AB50053C6C9 /* Security.framework in Frameworks */,
+				6F7F127F14F53A770053C6C9 /* libRestKit.a in Frameworks */,
+				6F7F127E14F53A3C0053C6C9 /* libxml2.dylib in Frameworks */,
+				6F7F127C14F53A2D0053C6C9 /* CoreData.framework in Frameworks */,
+				6F7F123814F521740053C6C9 /* SystemConfiguration.framework in Frameworks */,
+				6F7F127A14F53A170053C6C9 /* MobileCoreServices.framework in Frameworks */,
+				6F7F127914F53A000053C6C9 /* CFNetwork.framework in Frameworks */,
+				6F29153D14AD30F800C43FDE /* UIKit.framework in Frameworks */,
+				6F29153F14AD30F800C43FDE /* Foundation.framework in Frameworks */,
+				6F29154114AD30F800C43FDE /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6F29152D14AD30F800C43FDE = {
+			isa = PBXGroup;
+			children = (
+				6F01FA1114AE314D00C10AF1 /* TODO */,
+				6F29155B14AD311800C43FDE /* icon@2x.png */,
+				6F29155914AD311000C43FDE /* icon.png */,
+				6F29154214AD30F800C43FDE /* JBoss Admin */,
+				6F7F125514F5385C0053C6C9 /* Libraries */,
+				6F29153B14AD30F800C43FDE /* Frameworks */,
+				6F29153914AD30F800C43FDE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6F29153914AD30F800C43FDE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F29153814AD30F800C43FDE /* JBoss Admin.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6F29153B14AD30F800C43FDE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6F7F123714F521740053C6C9 /* SystemConfiguration.framework */,
+				6F7F123514F521430053C6C9 /* MobileCoreServices.framework */,
+				6F7F123314F520F90053C6C9 /* CFNetwork.framework */,
+				6F29153C14AD30F800C43FDE /* UIKit.framework */,
+				6F29153E14AD30F800C43FDE /* Foundation.framework */,
+				6F7F127B14F53A2D0053C6C9 /* CoreData.framework */,
+				6F29154014AD30F800C43FDE /* CoreGraphics.framework */,
+				6F7F128014F53AB40053C6C9 /* Security.framework */,
+				6F7F127D14F53A3C0053C6C9 /* libxml2.dylib */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F29154214AD30F800C43FDE /* JBoss Admin */ = {
+			isa = PBXGroup;
+			children = (
+				6F69156914F500FB000D58AC /* Model */,
+				6F69156A14F5011D000D58AC /* Controllers */,
+				6F69156414F4F356000D58AC /* Utility Controllers */,
+				6FC51CD414F51CA100B976C6 /* Utilities */,
+				6F29154B14AD30F800C43FDE /* JBAAppDelegate.h */,
+				6F29154C14AD30F800C43FDE /* JBAAppDelegate.m */,
+				6F6BE47514F6401300CCF62C /* Images */,
+				6F29154314AD30F800C43FDE /* Supporting Files */,
+			);
+			path = "JBoss Admin";
+			sourceTree = "<group>";
+		};
+		6F29154314AD30F800C43FDE /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6F29154414AD30F800C43FDE /* JBoss Admin-Info.plist */,
+				6F29154514AD30F800C43FDE /* InfoPlist.strings */,
+				6F29154814AD30F800C43FDE /* main.m */,
+				6F29154A14AD30F800C43FDE /* JBoss Admin-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6F69156414F4F356000D58AC /* Utility Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F69155E14F4F309000D58AC /* JBAProgressViewController.h */,
+				6F69155914F4F309000D58AC /* JBAProgressViewController.m */,
+				6F69156B14F5016E000D58AC /* JBAProgressView.xib */,
+			);
+			name = "Utility Controllers";
+			sourceTree = "<group>";
+		};
+		6F69156914F500FB000D58AC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6F69155F14F4F309000D58AC /* JBAServer.h */,
+				6F69155A14F4F309000D58AC /* JBAServer.m */,
+				6F69156114F4F309000D58AC /* JBAServersManager.h */,
+				6F69155C14F4F309000D58AC /* JBAServersManager.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		6F69156A14F5011D000D58AC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				6F69156014F4F309000D58AC /* JBAServerDetailController.h */,
+				6F69155B14F4F309000D58AC /* JBAServerDetailController.m */,
+				6F69156214F4F309000D58AC /* JBAServersViewController.h */,
+				6F69155D14F4F309000D58AC /* JBAServersViewController.m */,
+				6F6BE46E14F63B8B00CCF62C /* JBARootController.h */,
+				6F6BE46F14F63B8B00CCF62C /* JBARootController.m */,
+				6F6BE47014F63BA600CCF62C /* JBARuntimeController.h */,
+				6F6BE47114F63BA600CCF62C /* JBARuntimeController.m */,
+				6F6BE47214F63BA600CCF62C /* JBAProfileController.h */,
+				6F6BE47314F63BA600CCF62C /* JBAProfileController.m */,
+				6F6BE49214F6883100CCF62C /* JBADeploymentsViewController.h */,
+				6F6BE49314F6883100CCF62C /* JBADeploymentsViewController.m */,
+				6F9C6CF014F589DB00DA3D9B /* TestTableViewController.h */,
+				6F9C6CF114F589DB00DA3D9B /* TestTableViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		6F6BE47514F6401300CCF62C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				6F6BE47614F6402000CCF62C /* summary.png */,
+				6F6BE47714F6402000CCF62C /* operations.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		6F7F125514F5385C0053C6C9 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */,
+			);
+			name = Libraries;
+			path = "JBoss Admin";
+			sourceTree = "<group>";
+		};
+		6F7F126614F539BE0053C6C9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6F7F127014F539BF0053C6C9 /* libRestKit.a */,
+				6F7F127214F539BF0053C6C9 /* RestKitTests.octest */,
+				6F7F127414F539BF0053C6C9 /* RestKit.framework */,
+				6F7F127614F539BF0053C6C9 /* RestKitFrameworkTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6FC51CD414F51CA100B976C6 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6FC51CD614F51CDE00B976C6 /* Reachability.h */,
+				6FC51CD714F51CDE00B976C6 /* Reachability.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6F29153714AD30F800C43FDE /* JBoss Admin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6F29155614AD30F800C43FDE /* Build configuration list for PBXNativeTarget "JBoss Admin" */;
+			buildPhases = (
+				6F29153414AD30F800C43FDE /* Sources */,
+				6F29153514AD30F800C43FDE /* Frameworks */,
+				6F29153614AD30F800C43FDE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6F7F128314F53ADC0053C6C9 /* PBXTargetDependency */,
+			);
+			name = "JBoss Admin";
+			productName = "JBoss Admin";
+			productReference = 6F29153814AD30F800C43FDE /* JBoss Admin.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6F29152F14AD30F800C43FDE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "forthnet S.A";
+			};
+			buildConfigurationList = 6F29153214AD30F800C43FDE /* Build configuration list for PBXProject "JBoss Admin" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 6F29152D14AD30F800C43FDE;
+			productRefGroup = 6F29153914AD30F800C43FDE /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6F7F126614F539BE0053C6C9 /* Products */;
+					ProjectRef = 6F7F126514F539BE0053C6C9 /* RestKit.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				6F29153714AD30F800C43FDE /* JBoss Admin */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6F7F127014F539BF0053C6C9 /* libRestKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRestKit.a;
+			remoteRef = 6F7F126F14F539BF0053C6C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6F7F127214F539BF0053C6C9 /* RestKitTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitTests.octest;
+			remoteRef = 6F7F127114F539BF0053C6C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6F7F127414F539BF0053C6C9 /* RestKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = RestKit.framework;
+			remoteRef = 6F7F127314F539BF0053C6C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6F7F127614F539BF0053C6C9 /* RestKitFrameworkTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = RestKitFrameworkTests.octest;
+			remoteRef = 6F7F127514F539BF0053C6C9 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6F29153614AD30F800C43FDE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F29154714AD30F800C43FDE /* InfoPlist.strings in Resources */,
+				6F29155D14AD321C00C43FDE /* icon.png in Resources */,
+				6F29155E14AD322100C43FDE /* icon@2x.png in Resources */,
+				6F01FA1214AE314D00C10AF1 /* TODO in Resources */,
+				6F69156C14F5016E000D58AC /* JBAProgressView.xib in Resources */,
+				6F6BE47814F6402000CCF62C /* summary.png in Resources */,
+				6F6BE47914F6402000CCF62C /* operations.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6F29153414AD30F800C43FDE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F6BE47A14F641F300CCF62C /* JBARootController.m in Sources */,
+				6F6BE47B14F641F300CCF62C /* JBARuntimeController.m in Sources */,
+				6F6BE47C14F641F300CCF62C /* JBAProfileController.m in Sources */,
+				6F7F123114F51F190053C6C9 /* Reachability.m in Sources */,
+				6FFDD09614F50FB000915F38 /* JBAServer.m in Sources */,
+				6FFDD09814F50FB000915F38 /* JBAServersManager.m in Sources */,
+				6FFDD09A14F50FB000915F38 /* JBAServersViewController.m in Sources */,
+				6FFDD09C14F50FB000915F38 /* JBAServerDetailController.m in Sources */,
+				6FFDD09E14F50FB000915F38 /* JBAProgressViewController.m in Sources */,
+				6F29154914AD30F800C43FDE /* main.m in Sources */,
+				6F29154D14AD30F800C43FDE /* JBAAppDelegate.m in Sources */,
+				6F9C6CF214F589DB00DA3D9B /* TestTableViewController.m in Sources */,
+				6F6BE49414F6883200CCF62C /* JBADeploymentsViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6F7F128314F53ADC0053C6C9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = RestKit;
+			targetProxy = 6F7F128214F53ADC0053C6C9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		6F29154514AD30F800C43FDE /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6F29154614AD30F800C43FDE /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		6F29155414AD30F800C43FDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		6F29155514AD30F800C43FDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6F29155714AD30F800C43FDE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
+				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		6F29155814AD30F800C43FDE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
+				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6F29153214AD30F800C43FDE /* Build configuration list for PBXProject "JBoss Admin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F29155414AD30F800C43FDE /* Debug */,
+				6F29155514AD30F800C43FDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6F29155614AD30F800C43FDE /* Build configuration list for PBXNativeTarget "JBoss Admin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6F29155714AD30F800C43FDE /* Debug */,
+				6F29155814AD30F800C43FDE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6F29152F14AD30F800C43FDE /* Project object */;
+}

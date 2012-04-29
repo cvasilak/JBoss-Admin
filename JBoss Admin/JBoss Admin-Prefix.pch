@@ -1,0 +1,24 @@
+//
+// Prefix header for all source files of the 'JBoss Admin' target in the 'JBoss Admin' project
+//
+
+#import <Availability.h>
+
+#ifndef __IPHONE_4_0
+#warning "This project uses features only available in iOS SDK 4.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+#endif
+
+// cater for debug/release mode of logging
+// see http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/
+#ifdef DEBUG
+#    define DLog(...) NSLog(__VA_ARGS__)
+#else
+#    define DLog(...) /* */
+#endif
+#define ALog(...) NSLog(__VA_ARGS__)
+
