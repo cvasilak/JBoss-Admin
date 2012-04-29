@@ -70,21 +70,7 @@ static JBAServersManager *SharedJBAServersManager = nil;
  
     } else {
         // initialize an empty list
-        // and add the AccessJ-demo site 
-        // as a showcase for new users
-        
-        NSMutableArray *array = [[NSMutableArray alloc] init];
-        _list = array;
-
-        JBAServer *server = [[JBAServer alloc] init];
-        server.name = @"JBoss Admin Demo";
-        server.hostname = @"cvasilak.org";
-        server.port = @"9990";
-        server.username = @"tester";
-        server.password = @"123456";
-        
-        [self addServer:server];
-        [self save];
+        _list = [[NSMutableArray alloc] init];
     }
 }
 
