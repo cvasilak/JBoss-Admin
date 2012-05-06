@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-//BIG_DECIMAL, BIG_INTEGER, BOOLEAN, BYTES, DOUBLE, INT, LIST, LONG, OBJECT, PROPERTY, STRING.
 typedef enum {
     STRING,
     INT,
