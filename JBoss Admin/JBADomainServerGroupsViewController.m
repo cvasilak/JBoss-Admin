@@ -11,9 +11,15 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "SubtitleCell.h"
 #import "SVProgressHUD.h"
 #import "UIActionSheet+BlockExtensions.h"
+
+@interface JBADomainServerGroupsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBADomainServerGroupsViewController {
     NSArray *_names;

@@ -13,6 +13,12 @@
 
 static JBAServersManager *SharedJBAServersManager = nil;
 
+@interface JBAServersManager()
+
+- (void)load;
+
+@end
+
 @implementation JBAServersManager {
     NSMutableArray *_list;
 }

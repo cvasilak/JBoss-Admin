@@ -11,8 +11,14 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "DefaultCell.h"
 #import "SVProgressHUD.h"
+
+@interface JBADomainHostsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBADomainHostsViewController {
     NSArray *_hosts;

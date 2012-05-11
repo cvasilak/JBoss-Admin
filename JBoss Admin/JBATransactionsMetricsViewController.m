@@ -11,6 +11,8 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "MetricInfoCell.h"
 #import "SVProgressHUD.h"
 
@@ -35,6 +37,10 @@ enum JBATranFailureOriginRows {
     JBATranTableSecResourcesRow,
     JBATranTableSecFailureOriginNumRows
 };
+
+@interface JBATransactionsMetricsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBATransactionsMetricsViewController {
     NSDictionary *_metrics;

@@ -62,6 +62,12 @@ enum JBARuntimeDeploymentDomainRows {
     JBARuntimeTableSecDeploymentDomainNumRows
 };
 
+@interface JBARuntimeController()
+
+- (IBAction)chooseServer;
+
+@end
+
 @implementation JBARuntimeController
 
 -(void)dealloc {

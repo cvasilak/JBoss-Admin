@@ -11,6 +11,8 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "MetricInfoCell.h"
 #import "SVProgressHUD.h"
 
@@ -39,6 +41,10 @@ enum JBAJMSConsumerRows {
     JBAJMSTableSecNumberOfConsumersRow = 0,
     JBAJMSTableSecConsumerNumRows
 };
+
+@interface JBAJMSQueueMetricsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBAJMSQueueMetricsViewController {
     NSDictionary *_metrics;

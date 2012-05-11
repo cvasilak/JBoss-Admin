@@ -27,6 +27,12 @@ enum JBADeploymentsTableSections {
     JBADeploymentNumSections
 };
 
+@interface JBADeploymentsViewController()
+
+- (IBAction)addContentButtonTapped;
+
+@end
+
 @implementation JBADeploymentsViewController {
     NSMutableArray *_names;
     NSMutableDictionary *_deployments;
@@ -365,7 +371,7 @@ enum JBADeploymentsTableSections {
     
     NSIndexPath *index = [NSIndexPath indexPathForRow:[_deployments count]-1 inSection:JBADeploymentTableListSection];
 
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewScrollPositionBottom];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 @end

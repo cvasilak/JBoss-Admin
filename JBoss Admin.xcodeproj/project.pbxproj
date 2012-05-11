@@ -280,6 +280,7 @@
 		6FF9096F1534771100477A59 /* SCNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCNavigationBar.m; sourceTree = "<group>"; };
 		6FF9E2E2150BF10C00616169 /* JBossValue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBossValue.h; sourceTree = "<group>"; };
 		6FF9E2E3150BF10C00616169 /* JBossValue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBossValue.m; sourceTree = "<group>"; };
+		9391920C155D64F50022495A /* JBARefreshable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBARefreshable.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -524,6 +525,7 @@
 				6FE4D36C1527AC920043BEE6 /* JBAOperationExecViewController.m */,
 				6F7B06BA152E3B89005B32D2 /* JBAServerReplyViewController.h */,
 				6F7B06BB152E3B89005B32D2 /* JBAServerReplyViewController.m */,
+				9391920C155D64F50022495A /* JBARefreshable.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

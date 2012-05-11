@@ -12,6 +12,8 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "SVProgressHUD.h"
 
 // Table Sections
@@ -36,6 +38,10 @@ enum JBAWebConRequestPerConnectorRows {
     JBAWebConTableSecMaxTimeRow,
     JBAWebConTableSecRequestPerConnectorNumRows
 };
+
+@interface JBAWebConnectorMetricsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBAWebConnectorMetricsViewController {
     NSDictionary *_metrics;

@@ -11,6 +11,8 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "MetricInfoCell.h"
 #import "SVProgressHUD.h"
 
@@ -42,6 +44,10 @@ enum JBAJMSSubscriptionsRows {
     JBAJMSTableSecNoNDurableSubscribersRow, 
     JBAJMSTableSecConsumerNumRows
 };
+
+@interface JBAJMSTopicMetricsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBAJMSTopicMetricsViewController {
     NSDictionary *_metrics;

@@ -23,6 +23,12 @@ enum JBAListEditorTableSections {
     JBATableListEditorNumSections
 };
 
+@interface JBAListEditor()
+
+- (IBAction)addValue;
+
+@end
+
 @implementation JBAListEditor {
     UITextField *_textFieldBeingEdited;
 }
@@ -254,7 +260,7 @@ enum JBAListEditorTableSections {
     
     NSIndexPath *index = [NSIndexPath indexPathForRow:[self.items count]-1 inSection:JBATableEditorSection];
     
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewScrollPositionBottom];
+    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 @end

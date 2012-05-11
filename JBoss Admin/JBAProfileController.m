@@ -15,6 +15,8 @@
 #import "JBAManagementModel.h"
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "SubtitleCell.h"
 #import "ButtonCell.h"
 #import "SVProgressHUD.h"
@@ -26,6 +28,12 @@ enum JBAProfileTableSections {
     JBATableOperationsSection,
     JBATableProfileNumSections
 };
+
+@interface JBAProfileController()<JBARefreshable>
+
+- (void)displayAttributeEditorForNode:(JBAAttribute *)node;
+
+@end
 
 @implementation JBAProfileController {
     NSArray *_attrs;
