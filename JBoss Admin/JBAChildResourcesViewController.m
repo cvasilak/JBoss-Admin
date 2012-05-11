@@ -13,6 +13,8 @@
 #import "JBAManagementModel.h"
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "SVProgressHUD.h"
 
 #import "DefaultCell.h"
@@ -25,6 +27,10 @@ enum JBAChildTypesTableSections {
     JBATableGenericOpsSection,
     JBATableChildTypesNumSections
 };
+
+@interface JBAChildResourcesViewController()<JBARefreshable>
+
+@end
 
 @implementation JBAChildResourcesViewController {
     NSArray *_names;

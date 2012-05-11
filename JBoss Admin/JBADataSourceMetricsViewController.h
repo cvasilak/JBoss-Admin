@@ -13,6 +13,6 @@
 @interface JBADataSourceMetricsViewController : UITableViewController
 
 @property(strong, nonatomic) NSString *dataSourceName;
-@property(nonatomic) JMSType dataSourceType;
+@property(nonatomic) DataSourceType dataSourceType;
 
 @end

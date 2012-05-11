@@ -12,6 +12,12 @@
 #import "Reachability.h"
 #import "CommonUtil.h"
 
+@interface JBAAppDelegate()
+
+-(void)checkInternetReachability;
+
+@end
+
 @implementation JBAAppDelegate
 
 @synthesize window = _window;

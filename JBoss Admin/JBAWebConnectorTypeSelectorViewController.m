@@ -11,8 +11,14 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "DefaultCell.h"
 #import "SVProgressHUD.h"
+
+@interface JBAWebConnectorTypeSelectorViewController()<JBARefreshable>
+
+@end
 
 @implementation JBAWebConnectorTypeSelectorViewController {
     NSArray *_connectors;

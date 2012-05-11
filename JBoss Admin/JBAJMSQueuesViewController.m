@@ -11,8 +11,14 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "DefaultCell.h"
 #import "SVProgressHUD.h"
+
+@interface JBAJMSQueuesViewController()<JBARefreshable>
+
+@end
 
 @implementation JBAJMSQueuesViewController {
     NSArray *_queues;
