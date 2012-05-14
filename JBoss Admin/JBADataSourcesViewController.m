@@ -93,6 +93,8 @@
     
     if ([[_datasources objectForKey:name] objectForKey:@"xa-datasource-class"] != nil) {
         cell.imageView.image = [UIImage imageNamed:@"xa-ds.png"];
+    } else {
+        cell.imageView.image = nil;
     }
     
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;    
