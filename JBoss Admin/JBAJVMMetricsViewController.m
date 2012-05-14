@@ -11,8 +11,11 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "MetricInfoCell.h"
 #import "SVProgressHUD.h"
+#import "JBARefreshable.h"
 
 //#import "F3PlotStrip.h"
 
@@ -47,6 +50,10 @@ enum JBAJVMThreadUsageRows {
     JBAJVMTableSecThreadUsageDaemonRow,
     JBAJVMTableSecThreadUsageNumRows
 };
+
+@interface JBAJVMMetricsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBAJVMMetricsViewController {
     NSDictionary *_metrics;

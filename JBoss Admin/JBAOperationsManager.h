@@ -28,6 +28,8 @@ typedef enum {
 
 + (JBAOperationsManager *)clientWithJBossServer:(JBAServer *)server;
 
+- (id)initWithJBossServer:(JBAServer *)server;
+
 - (void)postJBossRequestWithParams:(NSDictionary *)params
                            success:(void (^)(id result))success
                            failure:(void (^)(NSError *error))failure;

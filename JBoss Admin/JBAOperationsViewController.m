@@ -12,8 +12,16 @@
 #import "JBAManagementModel.h"
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "DefaultCell.h"
 #import "SVProgressHUD.h"
+
+@interface JBAOperationsViewController()<JBARefreshable>
+
+-(void)displayEditorForOperation:(JBAOperation *)operation;
+
+@end
 
 @implementation JBAOperationsViewController {
     NSArray *_operations;

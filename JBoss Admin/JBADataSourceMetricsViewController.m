@@ -11,6 +11,8 @@
 
 #import "JBAOperationsManager.h"
 
+#import "JBARefreshable.h"
+
 #import "MetricInfoCell.h"
 #import "SVProgressHUD.h"
 
@@ -35,6 +37,10 @@ enum JBADataSourcePreparedStatementPoolUsageRows {
     JBADataSourceMissUsedRow,
     JBADataSourceTableSecDataSourcePreparedStatementPoolUsageNumRows
 };
+
+@interface JBADataSourceMetricsViewController()<JBARefreshable>
+
+@end
 
 @implementation JBADataSourceMetricsViewController {
     NSDictionary *_metrics;
