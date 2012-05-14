@@ -148,11 +148,11 @@
 }
 
 #pragma mark - Actions
--(IBAction)cancel {
+-(void)cancel {
     [self dismissModalViewControllerAnimated:YES];   
 }
 
-- (IBAction)refresh {
+- (void)refresh {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
     
     [[JBAOperationsManager sharedManager]
@@ -197,7 +197,7 @@
      }];
 }
 
-- (IBAction)addToGroups {
+- (void)addToGroups {
     UIActionSheet *yesno = [[UIActionSheet alloc]
                             initWithTitle:@"Please choose deployment operation:"
                             completionBlock:^(NSUInteger buttonIndex, UIActionSheet *actionSheet) {

@@ -197,7 +197,7 @@ enum JBAHelpRows {
 }
 
 #pragma mark - Actions
--(IBAction)save {
+-(void)save {
     NSUInteger editorRow[] = {JBATableEditorSection, JBAEditorRow};
     NSIndexPath *onlyRowPath = [NSIndexPath indexPathWithIndexes:editorRow length:2];
     
@@ -260,7 +260,7 @@ enum JBAHelpRows {
     [super updateWithValue:value];
 }
 
-- (IBAction)displayListEditor:(id)sender {
+- (void)displayListEditor:(id)sender {
     JBAListEditor *listEditorController = [[JBAListEditor alloc] initWithStyle:UITableViewStyleGrouped];
     listEditorController.title = self.node.name;
     

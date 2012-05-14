@@ -107,7 +107,7 @@
 }
 
 #pragma mark - Action Methods
-- (IBAction)refresh {
+- (void)refresh {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
     
     [[JBAOperationsManager sharedManager]

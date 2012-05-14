@@ -141,7 +141,7 @@
 }
 
 #pragma mark - Action Calls
-- (IBAction)finish {
+- (void)finish {
 	if (_textFieldBeingEdited != nil) {
 		NSNumber *tagAsNum = [[NSNumber alloc] initWithInt:_textFieldBeingEdited.tag];
 		[_tempValues setObject:_textFieldBeingEdited.text forKey:tagAsNum];
@@ -208,7 +208,7 @@
         }];
 }
 
-- (IBAction)cancel {
+- (void)cancel {
     [self dismissModalViewControllerAnimated:YES];
 }
 

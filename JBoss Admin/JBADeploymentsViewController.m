@@ -43,7 +43,7 @@ enum JBADeploymentsTableSections {
 
 @interface JBADeploymentsViewController()
 
-- (IBAction)addContentButtonTapped;
+- (void)addContentButtonTapped;
 
 @end
 
@@ -284,7 +284,7 @@ enum JBADeploymentsTableSections {
 }
 
 #pragma mark - Action Methods
-- (IBAction)enableDisableButtonTapped:(id)sender {
+- (void)enableDisableButtonTapped:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
     
     UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];
@@ -335,7 +335,7 @@ enum JBADeploymentsTableSections {
     [yesno showInView:self.parentViewController.tabBarController.view];
 }
 
-- (IBAction)addContentButtonTapped {
+- (void)addContentButtonTapped {
     id controller;
     
     if (self.mode == STANDALONE_MODE || self.mode == DOMAIN_MODE) {
@@ -356,7 +356,7 @@ enum JBADeploymentsTableSections {
     [delegate.navController presentModalViewController:navigationController animated:YES];
 }
 
-- (IBAction)addContentToGroupButtonTapped:(id)sender {
+- (void)addContentToGroupButtonTapped:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
     
     UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];

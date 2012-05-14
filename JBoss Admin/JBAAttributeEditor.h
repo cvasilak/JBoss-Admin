@@ -28,6 +28,6 @@
 
 @property (nonatomic, strong) JBAAttribute *node;
 
--(IBAction)updateWithValue:(id)value;
+-(void)updateWithValue:(id)value;
 
 @end

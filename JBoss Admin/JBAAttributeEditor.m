@@ -66,7 +66,7 @@
 }
 
 #pragma mark - Actions
--(IBAction)updateWithValue:(id)value; {
+-(void)updateWithValue:(id)value; {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];                
     
     NSDictionary *params = 

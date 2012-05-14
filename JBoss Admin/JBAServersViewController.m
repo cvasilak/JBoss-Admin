@@ -189,14 +189,14 @@
 }
 
 #pragma mark - Action Methods
-- (IBAction)addServer {
+- (void)addServer {
 	JBAServerDetailController *detailController = [[JBAServerDetailController alloc] initWithStyle:UITableViewStyleGrouped];
 	detailController.title = @"New Server";
 	
 	[self.navigationController pushViewController:detailController animated:YES];
 }
 
-- (IBAction)toggleEdit {
+- (void)toggleEdit {
     BOOL editing = !self.tableView.editing;
     self.navigationItem.rightBarButtonItem.enabled = !editing;
     self.navigationItem.leftBarButtonItem.title = (editing) ? @"Done" :  @"Edit";

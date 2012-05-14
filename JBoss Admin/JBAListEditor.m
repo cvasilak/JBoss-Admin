@@ -39,7 +39,7 @@ enum JBAListEditorTableSections {
 
 @interface JBAListEditor()
 
-- (IBAction)addValue;
+- (void)addValue;
 
 @end
 
@@ -253,7 +253,7 @@ enum JBAListEditorTableSections {
 }
 
 #pragma mark - Actions
-- (IBAction)close {
+- (void)close {
     if (!self.isReadOnlyMode) {
         // if the keyboard is open
         // on a textfield textFieldDidEndEditing will be called
@@ -265,7 +265,7 @@ enum JBAListEditorTableSections {
     [self dismissModalViewControllerAnimated:YES];
 }
 
-- (IBAction)addValue {
+- (void)addValue {
     // TODO couldn't find value to test, need more checks
     if (self.valueType == BOOLEAN)
         [self.items addObject:[NSNumber numberWithBool:NO]];

@@ -207,7 +207,7 @@ enum JBAChildTypesTableSections {
 }
 
 #pragma mark - Actions
--(IBAction)refresh {
+-(void)refresh {
     _hasGenericOperations = NO;
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];                

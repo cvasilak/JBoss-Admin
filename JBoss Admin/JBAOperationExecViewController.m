@@ -232,7 +232,7 @@ enum JBAHelpRows {
 }
 
 #pragma mark - Actions
-- (IBAction)save {
+- (void)save {
     // handle the case where the keyboard is open
     // and user clicks Execute
     if (_textFieldBeingEdited != nil) {
@@ -311,7 +311,7 @@ enum JBAHelpRows {
      ];     
 }
 
-- (IBAction) showParameterInfo:(id)sender {
+- (void)showParameterInfo:(id)sender {
     id cell = [sender superview];
     
     NSInteger tag;
@@ -340,7 +340,7 @@ enum JBAHelpRows {
 
 }
 
-- (IBAction)displayListEditor:(id)sender {
+- (void)displayListEditor:(id)sender {
     // if any textfield is in edit mode, hide the
     // keyboard prior to display the list editor
     // not to annoy user

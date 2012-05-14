@@ -84,7 +84,7 @@
 }
 
 #pragma mark - Action Methods
--(IBAction)close {
+-(void)close {
     [self dismissModalViewControllerAnimated:YES];   
 }
 

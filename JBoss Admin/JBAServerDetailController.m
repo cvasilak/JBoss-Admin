@@ -264,7 +264,7 @@
 }
 
 #pragma mark - Action Methods
-- (IBAction)save {
+- (void)save {
 	if (_textFieldBeingEdited != nil) {
 		NSNumber *tagAsNum = [[NSNumber alloc] initWithInt:_textFieldBeingEdited.tag];
 		[_tempValues setObject:_textFieldBeingEdited.text forKey:tagAsNum];
@@ -332,7 +332,7 @@
 	[self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)cancel {
+- (void)cancel {
 	[self.navigationController popViewControllerAnimated:YES];
 }
 @end

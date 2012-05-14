@@ -189,11 +189,11 @@
 }
 
 #pragma mark - Action Methods
--(IBAction)cancel {
+-(void)cancel {
      [self dismissModalViewControllerAnimated:YES];   
 }
 
--(IBAction)upload {
+-(void)upload {
     NSString *name = [_files objectAtIndex:[_lastIndexPath row]];
 
     NSString *filename = [[[NSFileManager defaultManager] documentsDirectory] stringByAppendingPathComponent:name];

@@ -164,7 +164,7 @@
 }
 
 #pragma mark - Actions
-- (IBAction)addToServerGroup {
+- (void)addToServerGroup {
     NSString *deploymentName = [_names objectAtIndex:[_lastIndexPath row]];
     NSMutableDictionary *deploymentInfo = [_deployments objectForKey:deploymentName];
 
@@ -220,7 +220,7 @@
     [yesno showInView:self.view];
 }
 
-- (IBAction)cancel {
+- (void)cancel {
     [self dismissModalViewControllerAnimated:YES];
 }
 

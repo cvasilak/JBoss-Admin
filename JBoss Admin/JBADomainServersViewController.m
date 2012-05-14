@@ -165,7 +165,7 @@
 }
 
 #pragma mark - Action Methods
-- (IBAction)refresh {
+- (void)refresh {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
     
     [[JBAOperationsManager sharedManager]
@@ -190,7 +190,7 @@
      }];
 }
 
-- (IBAction)enableDisableButtonTapped:(id)sender {
+- (void)enableDisableButtonTapped:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
     
     UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];

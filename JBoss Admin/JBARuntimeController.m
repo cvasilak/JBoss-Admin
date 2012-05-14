@@ -78,7 +78,7 @@ enum JBARuntimeDeploymentDomainRows {
 
 @interface JBARuntimeController()
 
-- (IBAction)chooseServer;
+- (void)chooseServer;
 
 @end
 
@@ -406,7 +406,7 @@ enum JBARuntimeDeploymentDomainRows {
 }
 
 #pragma mark - Action Methods
--(IBAction)logout {
+-(void)logout {
     JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
     
     UIViewAnimationTransition trans = UIViewAnimationTransitionFlipFromLeft;
@@ -420,7 +420,7 @@ enum JBARuntimeDeploymentDomainRows {
     [UIView commitAnimations];
 }
 
-- (IBAction)chooseServer {
+- (void)chooseServer {
     JBADomainHostsViewController *hostViewController = [[JBADomainHostsViewController alloc] initWithStyle:UITableViewStyleGrouped];
     
     UINavigationController *navigationController = [CommonUtil customizedNavigationController];
