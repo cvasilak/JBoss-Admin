@@ -138,7 +138,7 @@ enum JBAListEditorTableSections {
         {
             ButtonCell *addCell = [ButtonCell cellForTableView:tableView];
             
-            addCell.imageView.image = [UIImage imageNamed:@"AddCircle.png"];
+            addCell.imageView.image = [UIImage imageNamed:@"add.png"];
             
             addCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
             addCell.textLabel.textAlignment = UITextAlignmentCenter;
