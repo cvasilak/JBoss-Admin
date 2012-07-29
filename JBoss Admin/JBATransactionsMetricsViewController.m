@@ -164,7 +164,7 @@ enum JBATranFailureOriginRows {
                     break;
                 case JBATranTableSecResourcesRow:
                     cell.metricNameLabel.text = @"Resources";                    
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-resource-rollbacks"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"max"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-resource-rollbacks"] cellDisplay];
                     break;
                }
             break;            
