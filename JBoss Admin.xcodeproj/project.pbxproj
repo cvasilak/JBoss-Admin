@@ -34,6 +34,7 @@
 		6F4F01C1152753A900F532B4 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F01B6152753A900F532B4 /* AFXMLRequestOperation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6F4F01C2152753A900F532B4 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F01B8152753A900F532B4 /* UIImageView+AFNetworking.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6F4F01C61527548800F532B4 /* JSONKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4F01C51527548800F532B4 /* JSONKit.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6F52BB9417129DF200F123E2 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F50956417129B5000896DA4 /* Default-568h@2x.png */; };
 		6F5684941520C0D500034C62 /* folder.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F5684931520C0D500034C62 /* folder.png */; };
 		6F5CD3B915051802004EDE85 /* UIActionSheet+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5CD3B615051802004EDE85 /* UIActionSheet+BlockExtensions.m */; };
 		6F5CD3BA15051802004EDE85 /* UIAlertView+BlockExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F5CD3B815051802004EDE85 /* UIAlertView+BlockExtensions.m */; };
@@ -45,6 +46,9 @@
 		6F6BE47B14F641F300CCF62C /* JBARuntimeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BE47114F63BA600CCF62C /* JBARuntimeController.m */; };
 		6F6BE47C14F641F300CCF62C /* JBAProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F6BE47314F63BA600CCF62C /* JBAProfileController.m */; };
 		6F6F25C414FBCB6900E75330 /* disable.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F6F25C314FBCB6900E75330 /* disable.png */; };
+		6F7141B6156176B1005D491C /* copyright.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F7141B4156176A0005D491C /* copyright.txt */; };
+		6F7141B7156176B1005D491C /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 6F7141B5156176A6005D491C /* LICENSE.txt */; };
+		6F7141B915617A0E005D491C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 6F7141B815617A06005D491C /* README.md */; };
 		6F7179A415051388003994FA /* NSFileManager+DirectoryLocations.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7179A315051388003994FA /* NSFileManager+DirectoryLocations.m */; };
 		6F7179A7150516C2003994FA /* JBAAddDeploymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7179A615051673003994FA /* JBAAddDeploymentViewController.m */; };
 		6F725C3F151574DD003757A5 /* JBAExtensionsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F725C3E151574D2003757A5 /* JBAExtensionsListViewController.m */; };
@@ -156,6 +160,7 @@
 		6F4F01B8152753A900F532B4 /* UIImageView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+AFNetworking.m"; sourceTree = "<group>"; };
 		6F4F01C41527548800F532B4 /* JSONKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONKit.h; sourceTree = "<group>"; };
 		6F4F01C51527548800F532B4 /* JSONKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONKit.m; sourceTree = "<group>"; };
+		6F50956417129B5000896DA4 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6F5684931520C0D500034C62 /* folder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = folder.png; sourceTree = "<group>"; };
 		6F5CD3B515051802004EDE85 /* UIActionSheet+BlockExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+BlockExtensions.h"; sourceTree = "<group>"; };
 		6F5CD3B615051802004EDE85 /* UIActionSheet+BlockExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+BlockExtensions.m"; sourceTree = "<group>"; };
@@ -183,6 +188,9 @@
 		6F6BE47714F6402000CCF62C /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		6F6BE49214F6883100CCF62C /* JBADeploymentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBADeploymentsViewController.h; sourceTree = "<group>"; };
 		6F6F25C314FBCB6900E75330 /* disable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = disable.png; sourceTree = "<group>"; };
+		6F7141B4156176A0005D491C /* copyright.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = copyright.txt; sourceTree = "<group>"; };
+		6F7141B5156176A6005D491C /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		6F7141B815617A06005D491C /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
 		6F7179A215051388003994FA /* NSFileManager+DirectoryLocations.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSFileManager+DirectoryLocations.h"; sourceTree = "<group>"; };
 		6F7179A315051388003994FA /* NSFileManager+DirectoryLocations.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSFileManager+DirectoryLocations.m"; sourceTree = "<group>"; };
 		6F7179A515051673003994FA /* JBAAddDeploymentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAAddDeploymentViewController.h; sourceTree = "<group>"; };
@@ -337,10 +345,14 @@
 		6F29152D14AD30F800C43FDE = {
 			isa = PBXGroup;
 			children = (
+				6F50956417129B5000896DA4 /* Default-568h@2x.png */,
 				6F85B258153394960051C53B /* Default@2x.png */,
 				6F85B25415338F1E0051C53B /* Default.png */,
 				6F29155B14AD311800C43FDE /* icon@2x.png */,
 				6F29155914AD311000C43FDE /* icon.png */,
+				6F7141B4156176A0005D491C /* copyright.txt */,
+				6F7141B5156176A6005D491C /* LICENSE.txt */,
+				6F7141B815617A06005D491C /* README.md */,
 				6F29154214AD30F800C43FDE /* JBoss Admin */,
 				6F29154B14AD30F800C43FDE /* JBAAppDelegate.h */,
 				6F29154C14AD30F800C43FDE /* JBAAppDelegate.m */,
@@ -449,6 +461,14 @@
 			path = UIAlertViewExtentsions;
 			sourceTree = "<group>";
 		};
+		6F63380615614BEE0090C797 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9391920C155D64F50022495A /* JBARefreshable.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
 		6F69156914F500FB000D58AC /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -525,7 +545,6 @@
 				6FE4D36C1527AC920043BEE6 /* JBAOperationExecViewController.m */,
 				6F7B06BA152E3B89005B32D2 /* JBAServerReplyViewController.h */,
 				6F7B06BB152E3B89005B32D2 /* JBAServerReplyViewController.m */,
-				9391920C155D64F50022495A /* JBARefreshable.h */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -592,6 +611,7 @@
 		6FC51CD414F51CA100B976C6 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6F63380615614BEE0090C797 /* Protocols */,
 				6FF9E2E0150BF0E100616169 /* Categories */,
 				6F6B877A14F97A4F00DFF744 /* CommonUtil.h */,
 				6F6B877B14F97A4F00DFF744 /* CommonUtil.m */,
@@ -675,7 +695,7 @@
 		6F29152F14AD30F800C43FDE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "forthnet S.A";
 			};
 			buildConfigurationList = 6F29153214AD30F800C43FDE /* Build configuration list for PBXProject "JBoss Admin" */;
@@ -720,6 +740,10 @@
 				6F85B25B153396970051C53B /* Default.png in Resources */,
 				6FF9096615345DF100477A59 /* navigation-bar-bg.png in Resources */,
 				6FF9096715345DF100477A59 /* navigation-bar-bg-landscape.png in Resources */,
+				6F7141B6156176B1005D491C /* copyright.txt in Resources */,
+				6F7141B7156176B1005D491C /* LICENSE.txt in Resources */,
+				6F7141B915617A0E005D491C /* README.md in Resources */,
+				6F52BB9417129DF200F123E2 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -824,6 +848,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Christos Vasilakis (88ADQ92W7X)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
@@ -831,6 +859,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
@@ -866,6 +895,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -879,6 +912,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
@@ -891,12 +925,17 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";

@@ -13,6 +13,8 @@
     #import <Foundation/Foundation.h>
 #endif
 
+#define IS_WIDESCREEN ( [ [ UIScreen mainScreen ] bounds ].size.height == 568 )
+
 // cater for debug/release mode of logging
 // see http://www.cimgf.com/2009/01/24/dropping-nslog-in-release-builds/
 #ifdef DEBUG

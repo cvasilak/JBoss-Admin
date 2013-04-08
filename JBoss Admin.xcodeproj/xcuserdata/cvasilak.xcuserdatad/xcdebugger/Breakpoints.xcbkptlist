@@ -12,22 +12,7 @@
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
          startingLineNumber = "15"
-         endingLineNumber = "15"
-         landmarkName = "node"
-         landmarkType = "19">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "JBoss Admin/JBAOperationsManager.m"
-         timestampString = "355748701.485814"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "86"
-         endingLineNumber = "86"
-         landmarkName = "-createError:"
-         landmarkType = "5">
+         endingLineNumber = "15">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
