@@ -322,7 +322,7 @@ enum JBAHelpRows {
     } else if ([cell isKindOfClass:[ToggleSwitchCell class]]) {
         ToggleSwitchCell *toggleCell = (ToggleSwitchCell *)cell;
         tag = toggleCell.toggler.tag;
-    } else if ([cell isKindOfClass:[LabelButtonCell class]]) {
+    } else {
         LabelButtonCell *listCell = (LabelButtonCell *)cell;
         tag = listCell.button.tag;
     }
