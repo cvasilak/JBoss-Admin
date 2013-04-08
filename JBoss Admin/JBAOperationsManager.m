@@ -500,7 +500,7 @@ static JBAOperationsManager *sharedManager;
         
         if (enable) {
             groupParams = [NSDictionary dictionaryWithObjectsAndKeys:
-                      (enable ? @"deploy": @"undeploy"), @"operation",
+                      @"deploy", @"operation",
                       [self prefixAddressWithDomainGroup:group address:[NSArray arrayWithObjects:@"deployment", name, nil]], @"address", nil];
             
             [steps addObject:groupParams];
