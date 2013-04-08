@@ -68,8 +68,8 @@ static JBAServersManager *SharedJBAServersManager = nil;
 }
 
 -(NSString *)dataFilePath {
-	NSString *appicationSuupportDirectory = [[NSFileManager defaultManager] applicationSupportDirectory];
-	return [appicationSuupportDirectory stringByAppendingPathComponent:@"Servers.archive"];
+	NSString *appicationSupportDirectory = [[NSFileManager defaultManager] applicationSupportDirectory];
+	return [appicationSupportDirectory stringByAppendingPathComponent:@"Servers.archive"];
 }
 
 - (void)load {
@@ -94,7 +94,7 @@ static JBAServersManager *SharedJBAServersManager = nil;
     }
 }
 
-// TODO: If there are no updates do not save  (Called in applicationWillTerminate at AccessJAppDelegate)
+// TODO: If there are no updates do not save  (Called in applicationWillTerminate at JBAAppDelegate)
 - (void)save {
     NSMutableData *data = [[NSMutableData alloc] init];
     NSKeyedArchiver *archiver = [[NSKeyedArchiver alloc] initForWritingWithMutableData:data];
