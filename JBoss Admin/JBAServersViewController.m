@@ -70,6 +70,10 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+-(NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 #pragma mark - Table Data Source Methods
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [[JBAServersManager sharedJBAServersManager] count];

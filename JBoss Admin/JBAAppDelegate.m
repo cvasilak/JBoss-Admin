@@ -34,7 +34,7 @@
 
 @implementation JBAAppDelegate
 
-@synthesize window = _window;
+@synthesize window;
 @synthesize navController;
 @synthesize reachability;
 
@@ -42,13 +42,17 @@
     [self checkInternetReachability];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    
-    JBAServersViewController *serversViewController = [[JBAServersViewController alloc] initWithStyle:UITableViewStylePlain];
+
+    // initialize our custom ("jboss themed") navigation controller.
     self.navController = [CommonUtil customizedNavigationController];
+    
+    // the first screen is the Server's list
+    JBAServersViewController *serversViewController = [[JBAServersViewController alloc]
+                                                       initWithStyle:UITableViewStylePlain];
     [self.navController pushViewController:serversViewController animated:NO];
     
-    [self.window addSubview:self.navController.view];
+    self.window.rootViewController = self.navController;
+    
     [self.window makeKeyAndVisible];
     
     return YES;
@@ -78,6 +82,21 @@
     DLog(@"applicationWillTerminate called");
     
     [self.reachability stopNotifier];
+}
+
+#pragma mark -
+#pragma mark Orientation Support
+// this method will ensure childs controllers  "supportedInterfaceOrientations" method
+// will be called (ios 6 only). See JBAServersViewController that disables landscape mode.
+- (NSUInteger)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window{
+    NSUInteger orientations = UIInterfaceOrientationMaskAll;
+    
+    if(self.window.rootViewController){
+        UIViewController *presentedViewController = [[(UINavigationController *)self.window.rootViewController viewControllers] lastObject];
+        orientations = [presentedViewController supportedInterfaceOrientations];
+    }
+    
+    return orientations;
 }
 
 #pragma mark -

@@ -77,12 +77,13 @@ typedef enum {
 	// Set each tab to show an appropriate view controller
     [_tabBarController setViewControllers: [NSArray arrayWithObjects:runtimeNavigationController, profileNavigationController, nil]];
 
+    // TODO: revisit this
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
     if((interfaceOrientation == UIInterfaceOrientationLandscapeLeft)||
        (interfaceOrientation == UIInterfaceOrientationLandscapeRight)) {
-      	_tabBarController.view.frame = CGRectMake(0, 0, 320, 480);
+      	_tabBarController.view.frame = CGRectMake(0, 0, 320, IS_WIDESCREEN? 568: 480);
     } else if ((interfaceOrientation == UIInterfaceOrientationPortrait) || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
-        _tabBarController.view.frame = CGRectMake(0, 0, 320, 460);
+        _tabBarController.view.frame = CGRectMake(0, 0, 320, IS_WIDESCREEN? 550: 460);
     }
 
     // Finally, add the tab controller view to the parent view
