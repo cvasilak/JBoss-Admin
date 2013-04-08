@@ -243,7 +243,7 @@ enum JBAChildTypesTableSections {
           success:^(NSArray *names) {
               [SVProgressHUD dismiss];
 
-              // operations found, check if they contain 
+              // operations found, check if they contain
               // generic add
               for (NSString *name in names) {
                   if ([name isEqualToString:@"add"]) {
