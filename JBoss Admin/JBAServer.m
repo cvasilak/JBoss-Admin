@@ -58,7 +58,7 @@
     // (RestKit doesn't support it yet as a conf parameter
     // and this is a handy workaround)
     if (username != nil && ![username isEqualToString:@""]) {
-        [hostport appendFormat:@"%@:%@@", username, password];
+        [hostport appendFormat:@"%@:%@@", [username stringByURLEncoding], [password stringByURLEncoding] ];
     }
 
     [hostport appendFormat:@"%@:%@", hostname, port];

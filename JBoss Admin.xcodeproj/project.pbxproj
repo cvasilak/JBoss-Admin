@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		163769F61798B47600D2B0F3 /* NSString+URLEncode.m in Sources */ = {isa = PBXBuildFile; fileRef = 163769F51798B47600D2B0F3 /* NSString+URLEncode.m */; };
 		6F0C3F7E14FCEB7900BA2863 /* JBAOperationsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F0C3F7D14FCEB7900BA2863 /* JBAOperationsManager.m */; };
 		6F21C70D1524E90C00814B76 /* EditCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F21C70C1524E90C00814B76 /* EditCell.m */; };
 		6F21C7121524EB4600814B76 /* ToggleSwitchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F21C7111524EABA00814B76 /* ToggleSwitchCell.m */; };
@@ -105,6 +106,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		163769F41798B47600D2B0F3 /* NSString+URLEncode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncode.h"; sourceTree = "<group>"; };
+		163769F51798B47600D2B0F3 /* NSString+URLEncode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncode.m"; sourceTree = "<group>"; };
 		6F0C3F7C14FCEB7900BA2863 /* JBAOperationsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAOperationsManager.h; sourceTree = "<group>"; };
 		6F0C3F7D14FCEB7900BA2863 /* JBAOperationsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAOperationsManager.m; sourceTree = "<group>"; };
 		6F21C70C1524E90C00814B76 /* EditCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditCell.m; sourceTree = "<group>"; };
@@ -643,6 +646,8 @@
 			children = (
 				6FF9E2E2150BF10C00616169 /* JBossValue.h */,
 				6FF9E2E3150BF10C00616169 /* JBossValue.m */,
+				163769F41798B47600D2B0F3 /* NSString+URLEncode.h */,
+				163769F51798B47600D2B0F3 /* NSString+URLEncode.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -799,6 +804,7 @@
 				6FA884C815321D97003BD2CF /* JBADeploymentsViewController.m in Sources */,
 				6FF909581534498F00477A59 /* Reachability.m in Sources */,
 				6FF909701534771100477A59 /* SCNavigationBar.m in Sources */,
+				163769F61798B47600D2B0F3 /* NSString+URLEncode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
