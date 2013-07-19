@@ -20,25 +20,31 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-#import <Foundation/Foundation.h>
+//
+//  NSString+URLEncode.m
+//  JBoss Admin
+//
+//  Created by Darrin Mison on 19/07/13.
+//
+
 #import "NSString+URLEncode.h"
 
-#define kServerNameKey          @"Name"
-#define kServerHostnameKey      @"Hostname"
-#define kServerPortKey          @"Port"
-#define kisSSLSecured           @"isSSLSecured"
-#define kServerUsernameKey      @"Username"
-#define kServerPasswordKey      @"Password"
+@implementation NSString (URLEncode)
 
-@interface JBAServer : NSObject <NSCoding> 
-    
-@property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *hostname;
-@property (strong, nonatomic) NSString *port;
-@property (nonatomic) BOOL isSSLSecured;
-@property (strong, nonatomic) NSString *username;
-@property (strong, nonatomic) NSString *password;
 
-- (NSString *)hostport;
+-(NSString*)stringByURLEncoding
+{
+    return (NSString*)CFBridgingRelease(
+                            CFURLCreateStringByAddingPercentEscapes(
+                                kCFAllocatorDefault,
+                                (CFStringRef)self,
+                                NULL,
+                                CFSTR(":/?#[]@!$&'()*+,;="),
+                                kCFStringEncodingUTF8
+                            )
+                        );
+}
+
+
 
 @end
