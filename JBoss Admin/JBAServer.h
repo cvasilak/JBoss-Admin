@@ -21,6 +21,7 @@
  */
 
 #import <Foundation/Foundation.h>
+#import "NSString+URLEncode.h"
 
 #define kServerNameKey          @"Name"
 #define kServerHostnameKey      @"Hostname"
