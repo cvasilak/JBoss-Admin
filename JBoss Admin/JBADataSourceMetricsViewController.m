@@ -173,7 +173,7 @@ enum JBADataSourcePreparedStatementPoolUsageRows {
         }
             
     }
-    
+    cell.maxNameWidth = ([@"Current Size" sizeWithFont:cell.metricNameLabel.font]).width;
     return cell;
 }
 

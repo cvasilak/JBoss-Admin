@@ -178,7 +178,7 @@ enum JBAWebConRequestPerConnectorRows {
             break;
         }
       }
-
+    cell.maxNameWidth = ([@"Processing Time (ms)" sizeWithFont:cell.metricNameLabel.font]).width;
     return cell;
 }
 

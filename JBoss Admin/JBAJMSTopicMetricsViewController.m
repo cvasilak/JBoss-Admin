@@ -198,7 +198,7 @@ enum JBAJMSSubscriptionsRows {
             break;
         }
     }
-    
+    cell.maxNameWidth = ([@"Number NoN-Durable Messages" sizeWithFont:cell.metricNameLabel.font]).width;
     return cell;
 }
 

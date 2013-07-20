@@ -256,7 +256,7 @@ enum JBAJVMThreadUsageRows {
             break;
         }
     }
-
+    cell.maxNameWidth = ([@"Commited" sizeWithFont:cell.metricNameLabel.font]).width;
     return cell;
 }
 
