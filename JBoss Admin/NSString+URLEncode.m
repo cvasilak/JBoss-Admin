@@ -1,6 +1,6 @@
 /*
  * JBoss Admin
- * Copyright 2012, Christos Vasilakis, and individual contributors.
+ * Copyright 2012, Darrin Mison
  * See the copyright.txt file in the distribution for a full
  * listing of individual contributors.
  *
@@ -19,13 +19,6 @@
  * Software Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
-
-//
-//  NSString+URLEncode.m
-//  JBoss Admin
-//
-//  Created by Darrin Mison on 19/07/13.
-//
 
 #import "NSString+URLEncode.h"
 
