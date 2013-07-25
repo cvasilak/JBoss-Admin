@@ -89,8 +89,6 @@ static JBAOperationsManager *sharedManager;
         [self setDefaultHeader:@"Content-Type" value:@"application/json"];
         [self setDefaultHeader:@"Accept" value:@"application/json"];
         
-        // X-UDID HTTP Header
-        [self setDefaultHeader:@"X-UDID" value:[[UIDevice currentDevice] uniqueIdentifier]];
     }
     
     return self;
