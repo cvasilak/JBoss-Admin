@@ -182,7 +182,7 @@ enum JBAJMSConsumerRows {
             break;
         }
     }
-    
+    cell.maxNameWidth = ([@"Number of Consumer" sizeWithFont:cell.metricNameLabel.font]).width;
     return cell;
 }
 

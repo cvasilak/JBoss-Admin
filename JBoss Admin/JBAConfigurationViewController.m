@@ -157,7 +157,7 @@ enum JBAServerConfRows {
                     metricCell.metricValueLabel.text = [[info objectForKey:@"server-state"] cellDisplay];
                     break;
             }
-            
+            metricCell.maxNameWidth = ([@"release-codename" sizeWithFont:metricCell.metricNameLabel.font]).width;
             cell = metricCell;
             break;
         }

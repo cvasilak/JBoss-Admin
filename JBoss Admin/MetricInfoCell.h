@@ -31,4 +31,6 @@
 @property(strong, readonly, nonatomic)UILabel *metricNameLabel;
 @property(strong, readonly, nonatomic)UILabel *metricValueLabel;
 
+@property(nonatomic)CGFloat maxNameWidth;
+
 @end

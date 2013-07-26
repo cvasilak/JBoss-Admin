@@ -170,7 +170,7 @@ enum JBATranFailureOriginRows {
             break;            
         }
     }
-
+    
     return cell;
 }
 
