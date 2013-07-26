@@ -65,11 +65,11 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
+
     CGSize metricValueSize = [_metricValueLabel.text sizeWithFont:_metricValueLabel.font];
 
-    self.metricNameLabel.frame = CGRectMake(10, 10, self.maxNameWidth+20, 25);
-    self.metricValueLabel.frame = CGRectMake(self.maxNameWidth+20+20, 9, metricValueSize.width, 25);
+    self.metricNameLabel.frame = CGRectMake(10, 10, self.maxNameWidth, 25);
+    self.metricValueLabel.frame = CGRectMake(self.maxNameWidth+20, 9, metricValueSize.width, 25);
 
 }
 

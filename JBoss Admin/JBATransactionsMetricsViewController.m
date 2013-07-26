@@ -170,7 +170,7 @@ enum JBATranFailureOriginRows {
             break;            
         }
     }
-    cell.maxNameWidth = ([@"Applications" sizeWithFont:cell.metricNameLabel.font]).width;
+    
     return cell;
 }
 
