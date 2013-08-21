@@ -1,7 +1,6 @@
 ![JBoss Admin][0]
 
-The app will allow you to remotely administer a JBoss 7 server using the
-server's exposed http management interface.
+The app will allow you to remotely administer JBoss 7 or JBoss EAP 6.1 using the server's exposed http management interface.
 
 Features
 --------
