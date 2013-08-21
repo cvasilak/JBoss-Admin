@@ -17,7 +17,7 @@ The application supports the following features:
 
 * __Browse the management tree__
 
-    The whole management tree is exposed for you to configure, similar to the JBoss-cli {-gui} tool provided by the server. You can easily modify attributes and execute operations. Documentation of attributes and operation parameters (as provided by the JBoss 7 server) is easily accessed for you to refer.
+    The whole management tree is exposed for you to configure, similar to the JBoss-cli {-gui} tool provided by the server. You can easily modify attributes and execute operations. Documentation of attributes and operation parameters is easily accessed for you to refer.
 
 Note that both operating modes (Standalone/Domain) of the server are supported. If running in "Domain" mode, you can easily switch the server you want to monitor its metrics, as well as manage deployments on each individual server-group.
 
