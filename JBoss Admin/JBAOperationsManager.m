@@ -497,11 +497,11 @@ static JBAOperationsManager *sharedManager;
         [steps addObject:groupParams];
         
         if (enable) {
-            groupParams = [NSDictionary dictionaryWithObjectsAndKeys:
+            NSDictionary *enableParams = [NSDictionary dictionaryWithObjectsAndKeys:
                       @"deploy", @"operation",
                       [self prefixAddressWithDomainGroup:group address:[NSArray arrayWithObjects:@"deployment", name, nil]], @"address", nil];
             
-            [steps addObject:groupParams];
+            [steps addObject:enableParams];
         }
     }
     
