@@ -20,8 +20,10 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-#import "JBAAttributeEditor.h"
+#import "JBAManagementModel.h"
 
-@interface JBAAttributeGenericTypeEditor : JBAAttributeEditor
+@interface JBAAttributeGenericTypeEditor : UITableViewController
+
+@property (nonatomic, strong) JBAAttribute *node;
 
 @end
