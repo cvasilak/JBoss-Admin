@@ -264,8 +264,6 @@ enum JBAHelpRows {
         // during the keyboard dismissing from screen
         if ([editCell.txtField isFirstResponder]) {
             [editCell.txtField resignFirstResponder];
-            [self performSelector:@selector(updateWithValue:) withObject:value afterDelay:0.3];
-            return;
         } else {
             value = editCell.txtField.text;
         }
