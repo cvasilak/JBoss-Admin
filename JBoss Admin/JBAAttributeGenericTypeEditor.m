@@ -218,7 +218,7 @@ enum JBAHelpRows {
             if (self.node.type == INT)
                 value = [NSNumber numberWithInt:[textFieldValue integerValue]];
             else if (self.node.type == LONG || self.node.type == BIG_INTEGER)
-                value = [NSNumber numberWithLong:[textFieldValue longLongValue]];
+                value = [NSNumber numberWithLongLong:[textFieldValue longLongValue]];
             else if (self.node.type== DOUBLE || self.node.type == BIG_DECIMAL)
                 value = [NSNumber numberWithDouble:[textFieldValue doubleValue]];
             else if (self.node.type == OBJECT) { // TODO: better handling

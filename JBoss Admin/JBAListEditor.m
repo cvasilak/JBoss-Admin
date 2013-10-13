@@ -224,7 +224,7 @@ enum JBAListEditorTableSections {
         if (self.valueType == INT)
             [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithInt:[textField.text integerValue]]];
         else if (self.valueType == LONG || self.valueType == BIG_INTEGER)
-            [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithLong:[textField.text longLongValue]]];
+            [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithLongLong:[textField.text longLongValue]]];
         else if (self.valueType == DOUBLE || self.valueType == BIG_DECIMAL)
             [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithDouble:[textField.text doubleValue]]];
         else if (self.valueType == OBJECT) { // TODO: better handling
