@@ -138,11 +138,6 @@
 @synthesize defaultValue;
 @synthesize isAddParameter;
 
-// sort by name
-- (NSComparisonResult)compare:(JBAAttribute *)otherObject {
-    return [self.name compare:otherObject.name];
-}
-
 // sort by required parameter
 - (NSComparisonResult)compareRequired:(JBAOperationParameter *)otherObject {
     if (self.required && !otherObject.required)

@@ -86,6 +86,8 @@ typedef enum {
 // parameter list
 @property(assign, nonatomic) BOOL isAddParameter;
 
+- (NSComparisonResult)compareRequired:(JBAOperationParameter *)otherObject;
+
 @end
 
 @interface JBAOperationReply : JBAManagementModel

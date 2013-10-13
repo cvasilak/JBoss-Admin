@@ -172,11 +172,10 @@
                         [parameters addObject:param];
                     }
                     
-                    // sort by name
-                    [parameters sortUsingSelector:@selector(compare:)];                    
+                    [parameters sortUsingSelector:@selector(compare:)];
                     // sort by required parameter set
                     [parameters sortUsingSelector:@selector(compareRequired:)];
-                    
+
                     // for "add" operation insert a fake parameter that denotes the resource path
                     if ([operation.name isEqualToString:@"add"]) {
                         JBAOperationParameter *param = [[JBAOperationParameter alloc] init];
