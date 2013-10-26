@@ -34,6 +34,7 @@
 #import "ButtonCell.h"
 #import "SVProgressHUD.h"
 #import "UIActionSheet+BlockExtensions.h"
+#import "UIView+ParentView.h"
 
 enum JBADeploymentsTableSections {
     JBADeploymentTableListSection = 0,
@@ -286,7 +287,8 @@ enum JBADeploymentsTableSections {
 - (void)enableDisableButtonTapped:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
     
-    UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];
+    UITableViewCell *buttonCell = (UITableViewCell *) [senderButton findParentViewWithClass:[UITableViewCell class]];
+    
     NSUInteger buttonRow = [[self.tableView indexPathForCell:buttonCell] row];
     
     NSString *deploymentName = [_names objectAtIndex:buttonRow];

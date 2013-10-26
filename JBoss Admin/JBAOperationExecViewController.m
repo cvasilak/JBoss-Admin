@@ -38,6 +38,7 @@
 #import "TextViewCell.h"
 #import "DefaultCell.h"
 #import "SVProgressHUD.h"
+#import "UIView+ParentView.h"
 
 // Table Sections
 enum JBAOperationTableSections {
@@ -312,7 +313,7 @@ enum JBAHelpRows {
 }
 
 - (void)showParameterInfo:(id)sender {
-    id cell = [sender superview];
+    id cell = [sender findParentViewWithClass:[UITableViewCell class]];
     
     NSInteger tag;
     
