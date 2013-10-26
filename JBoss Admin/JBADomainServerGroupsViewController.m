@@ -149,7 +149,7 @@
 
 #pragma mark - Actions
 -(void)cancel {
-    [self dismissModalViewControllerAnimated:YES];   
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)refresh {
@@ -219,7 +219,7 @@
                                          [SVProgressHUD 
                                           dismissWithSuccess:[NSString stringWithFormat:@"Successfully Added%@", (enable? @" and Enabled!":@"!")]];
                                          
-                                         [self dismissModalViewControllerAnimated:YES];
+                                         [self dismissViewControllerAnimated:YES completion:nil];
                                          
                                      } andFailure:^(NSError *error) {
                                          [SVProgressHUD dismiss];

@@ -310,7 +310,7 @@ enum JBAHelpRows {
          [navigationController pushViewController:replyController animated:NO];
          
          JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
-         [delegate.navController presentModalViewController:navigationController animated:YES];
+         [delegate.navController presentViewController:navigationController animated:YES completion:nil];
          
      } failure:^(NSError *error) {
          [SVProgressHUD dismiss];
@@ -337,7 +337,7 @@ enum JBAHelpRows {
     [navigationController pushViewController:listEditorController animated:NO];
 
     JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
-    [delegate.navController presentModalViewController:navigationController animated:YES];   
+    [delegate.navController presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - TextField methods

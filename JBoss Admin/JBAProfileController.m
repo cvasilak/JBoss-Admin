@@ -173,7 +173,7 @@ enum JBAProfileTableSections {
 
             operationsCell.imageView.image = [UIImage imageNamed:@"operations.png"];
             operationsCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
-            operationsCell.textLabel.textAlignment = UITextAlignmentCenter;
+            operationsCell.textLabel.textAlignment = NSTextAlignmentCenter;
             operationsCell.textLabel.text = @"Operations";
             operationsCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 

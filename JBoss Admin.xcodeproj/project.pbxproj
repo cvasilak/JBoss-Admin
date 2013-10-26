@@ -54,7 +54,6 @@
 		6F7179A7150516C2003994FA /* JBAAddDeploymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7179A615051673003994FA /* JBAAddDeploymentViewController.m */; };
 		6F725C3F151574DD003757A5 /* JBAExtensionsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F725C3E151574D2003757A5 /* JBAExtensionsListViewController.m */; };
 		6F725C4515157AB3003757A5 /* JBAEnvironmentPropertiesListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F725C4415157AB3003757A5 /* JBAEnvironmentPropertiesListViewController.m */; };
-		6F7474E9152481C40041C615 /* JBAAttributeEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7474E215247D290041C615 /* JBAAttributeEditor.m */; };
 		6F7474EF15248A1E0041C615 /* JBAManagementModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7474EE15248A1E0041C615 /* JBAManagementModel.m */; };
 		6F7B06BD152E3B99005B32D2 /* JBAServerReplyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F7B06BB152E3B89005B32D2 /* JBAServerReplyViewController.m */; };
 		6F8327F3151680AA001F705A /* servers_selection.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F8327F2151680AA001F705A /* servers_selection.png */; };
@@ -63,6 +62,8 @@
 		6F86AAA214FBA06900BA4B9A /* enable.png in Resources */ = {isa = PBXBuildFile; fileRef = 6F86AAA014FBA06900BA4B9A /* enable.png */; };
 		6F8FD4F0152316BA0008A6C7 /* JBARootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD29F9A15231636007F775E /* JBARootController.m */; };
 		6F917A5C152F52F800B9D13F /* JBAChildResourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F917A5A152F52E600B9D13F /* JBAChildResourcesViewController.m */; };
+		6F93DA3F181C115700596A22 /* UIView+ParentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F93DA3E181C115700596A22 /* UIView+ParentView.m */; };
+		6F93DA41181C228200596A22 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6F93DA40181C228200596A22 /* Images.xcassets */; };
 		6FA5825A150EADB9004C66CA /* JBAJMSQueuesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA58259150EADB8004C66CA /* JBAJMSQueuesViewController.m */; };
 		6FA82ABC151505500040806D /* JBATransactionsMetricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA82ABB151505330040806D /* JBATransactionsMetricsViewController.m */; };
 		6FA82ABF15150D850040806D /* JBAWebConnectorTypeSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FA82ABE15150C1A0040806D /* JBAWebConnectorTypeSelectorViewController.m */; };
@@ -97,7 +98,7 @@
 		6FF37D6015128DDC00E89B4C /* JBADataSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37D5E15128DC300E89B4C /* JBADataSourcesViewController.m */; };
 		6FF37D621512A49900E89B4C /* xa-ds.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF37D611512A49900E89B4C /* xa-ds.png */; };
 		6FF8672B1532CFF400737CD0 /* JBAListEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF867291532CFE700737CD0 /* JBAListEditor.m */; };
-		6FF909581534498F00477A59 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF909571534498F00477A59 /* Reachability.m */; };
+		6FF909581534498F00477A59 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF909571534498F00477A59 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6FF9095A15344B1600477A59 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F123714F521740053C6C9 /* SystemConfiguration.framework */; };
 		6FF9096615345DF100477A59 /* navigation-bar-bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9096415345DF100477A59 /* navigation-bar-bg.png */; };
 		6FF9096715345DF100477A59 /* navigation-bar-bg-landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 6FF9096515345DF100477A59 /* navigation-bar-bg-landscape.png */; };
@@ -118,7 +119,6 @@
 		6F21C70F1524E92400814B76 /* EditCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditCell.h; sourceTree = "<group>"; };
 		6F21C7101524EABA00814B76 /* ToggleSwitchCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ToggleSwitchCell.h; sourceTree = "<group>"; };
 		6F21C7111524EABA00814B76 /* ToggleSwitchCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ToggleSwitchCell.m; sourceTree = "<group>"; };
-		6F21C7141524EF4200814B76 /* JBAAttributeGenericTypeEditor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAAttributeGenericTypeEditor.h; sourceTree = "<group>"; };
 		6F21C7151524EF4200814B76 /* JBAAttributeGenericTypeEditor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAAttributeGenericTypeEditor.m; sourceTree = "<group>"; };
 		6F21C7171524F99900814B76 /* PRPSmartTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PRPSmartTableViewCell.h; sourceTree = "<group>"; };
 		6F21C7181524F99900814B76 /* PRPSmartTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PRPSmartTableViewCell.m; sourceTree = "<group>"; };
@@ -140,6 +140,7 @@
 		6F29155B14AD311800C43FDE /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		6F2AE3F7151D2EF20097FEB5 /* JBAAddServerGroupDeploymentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAAddServerGroupDeploymentViewController.h; sourceTree = "<group>"; };
 		6F2AE3F8151D2EF30097FEB5 /* JBAAddServerGroupDeploymentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAAddServerGroupDeploymentViewController.m; sourceTree = "<group>"; };
+		6F3C0200180B0FF600FD0B06 /* JBAAttributeGenericTypeEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAAttributeGenericTypeEditor.h; sourceTree = "<group>"; };
 		6F4F01A4152753A900F532B4 /* AFHTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPClient.h; sourceTree = "<group>"; };
 		6F4F01A5152753A900F532B4 /* AFHTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPClient.m; sourceTree = "<group>"; };
 		6F4F01A6152753A900F532B4 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -202,8 +203,6 @@
 		6F725C3E151574D2003757A5 /* JBAExtensionsListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAExtensionsListViewController.m; sourceTree = "<group>"; };
 		6F725C4015157899003757A5 /* JBAEnvironmentPropertiesListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAEnvironmentPropertiesListViewController.h; sourceTree = "<group>"; };
 		6F725C4415157AB3003757A5 /* JBAEnvironmentPropertiesListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAEnvironmentPropertiesListViewController.m; sourceTree = "<group>"; };
-		6F7474E115247D290041C615 /* JBAAttributeEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAAttributeEditor.h; sourceTree = "<group>"; };
-		6F7474E215247D290041C615 /* JBAAttributeEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAAttributeEditor.m; sourceTree = "<group>"; };
 		6F7474ED15248A1E0041C615 /* JBAManagementModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAManagementModel.h; sourceTree = "<group>"; };
 		6F7474EE15248A1E0041C615 /* JBAManagementModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAManagementModel.m; sourceTree = "<group>"; };
 		6F7B06BA152E3B89005B32D2 /* JBAServerReplyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAServerReplyViewController.h; sourceTree = "<group>"; };
@@ -220,6 +219,9 @@
 		6F86AAA014FBA06900BA4B9A /* enable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enable.png; sourceTree = "<group>"; };
 		6F917A59152F52E600B9D13F /* JBAChildResourcesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAChildResourcesViewController.h; sourceTree = "<group>"; };
 		6F917A5A152F52E600B9D13F /* JBAChildResourcesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAChildResourcesViewController.m; sourceTree = "<group>"; };
+		6F93DA3D181C115700596A22 /* UIView+ParentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ParentView.h"; sourceTree = "<group>"; };
+		6F93DA3E181C115700596A22 /* UIView+ParentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ParentView.m"; sourceTree = "<group>"; };
+		6F93DA40181C228200596A22 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6F9FBCA6153DF284002E31AD /* JBoss Admin.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "JBoss Admin.entitlements"; sourceTree = "<group>"; };
 		6FA58258150EADB8004C66CA /* JBAJMSQueuesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAJMSQueuesViewController.h; sourceTree = "<group>"; };
 		6FA58259150EADB8004C66CA /* JBAJMSQueuesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAJMSQueuesViewController.m; sourceTree = "<group>"; };
@@ -399,6 +401,7 @@
 				6F21C7131524ED4B00814B76 /* Table Cells */,
 				6FC51CD414F51CA100B976C6 /* Utilities */,
 				6F6BE47514F6401300CCF62C /* Images */,
+				6F93DA40181C228200596A22 /* Images.xcassets */,
 				6F29154314AD30F800C43FDE /* Supporting Files */,
 			);
 			path = "JBoss Admin";
@@ -585,9 +588,7 @@
 		6F7474E015247D0F0041C615 /* Editors */ = {
 			isa = PBXGroup;
 			children = (
-				6F7474E115247D290041C615 /* JBAAttributeEditor.h */,
-				6F7474E215247D290041C615 /* JBAAttributeEditor.m */,
-				6F21C7141524EF4200814B76 /* JBAAttributeGenericTypeEditor.h */,
+				6F3C0200180B0FF600FD0B06 /* JBAAttributeGenericTypeEditor.h */,
 				6F21C7151524EF4200814B76 /* JBAAttributeGenericTypeEditor.m */,
 				6FF867281532CFE700737CD0 /* JBAListEditor.h */,
 				6FF867291532CFE700737CD0 /* JBAListEditor.m */,
@@ -670,6 +671,8 @@
 				6FF9E2E3150BF10C00616169 /* JBossValue.m */,
 				163769F41798B47600D2B0F3 /* NSString+URLEncode.h */,
 				163769F51798B47600D2B0F3 /* NSString+URLEncode.m */,
+				6F93DA3D181C115700596A22 /* UIView+ParentView.h */,
+				6F93DA3E181C115700596A22 /* UIView+ParentView.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -700,7 +703,7 @@
 		6F29152F14AD30F800C43FDE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "forthnet S.A";
 			};
 			buildConfigurationList = 6F29153214AD30F800C43FDE /* Build configuration list for PBXProject "JBoss Admin" */;
@@ -726,6 +729,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6F29154714AD30F800C43FDE /* InfoPlist.strings in Resources */,
+				6F93DA41181C228200596A22 /* Images.xcassets in Resources */,
 				6F29155D14AD321C00C43FDE /* icon.png in Resources */,
 				6F29155E14AD322100C43FDE /* icon@2x.png in Resources */,
 				6F6BE47814F6402000CCF62C /* summary.png in Resources */,
@@ -766,13 +770,13 @@
 				6F7B06BD152E3B99005B32D2 /* JBAServerReplyViewController.m in Sources */,
 				6FB008AA152876620055379B /* ButtonCell.m in Sources */,
 				6FC2DA591528575D00708FF2 /* DefaultCell.m in Sources */,
+				6F93DA3F181C115700596A22 /* UIView+ParentView.m in Sources */,
 				6FC2DA5A1528575D00708FF2 /* SubtitleCell.m in Sources */,
 				6FE4D36D1527AD090043BEE6 /* JBAOperationExecViewController.m in Sources */,
 				6F27408C15278DA6007CC3CC /* JBAOperationsViewController.m in Sources */,
 				6F21C7261524FD9D00814B76 /* TextViewCell.m in Sources */,
 				6F21C7191524F9AF00814B76 /* PRPSmartTableViewCell.m in Sources */,
 				6F21C7121524EB4600814B76 /* ToggleSwitchCell.m in Sources */,
-				6F7474E9152481C40041C615 /* JBAAttributeEditor.m in Sources */,
 				6F8FD4F0152316BA0008A6C7 /* JBARootController.m in Sources */,
 				6F2AE3FA151D2F4F0097FEB5 /* JBAAddServerGroupDeploymentViewController.m in Sources */,
 				6F678646151C86B400E3BBA0 /* JBADomainServerGroupsViewController.m in Sources */,
@@ -852,9 +856,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -863,11 +868,14 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "06C4C279-9BC8-4C78-82F5-65F0D145CFC1";
 				SDKROOT = iphoneos;
@@ -878,12 +886,14 @@
 		6F01C088153DECC700875D80 /* Ad Hoc Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christos Vasilakis";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christos Vasilakis";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
 				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -899,9 +909,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -916,11 +927,15 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -929,9 +944,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -940,11 +956,14 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -956,10 +975,12 @@
 		6F29155714AD30F800C43FDE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
 				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -972,12 +993,14 @@
 		6F29155814AD30F800C43FDE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
 				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

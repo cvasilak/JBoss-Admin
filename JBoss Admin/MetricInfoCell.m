@@ -38,8 +38,8 @@
         
         _metricNameLabel.font = [UIFont boldSystemFontOfSize:12.0];
         _metricNameLabel.adjustsFontSizeToFitWidth = YES;
-        _metricNameLabel.minimumFontSize = 8;
-        _metricNameLabel.textAlignment = UITextAlignmentRight;
+        _metricNameLabel.minimumScaleFactor = 8;
+        _metricNameLabel.textAlignment = NSTextAlignmentRight;
         _metricNameLabel.textColor = kNonEditableTextColor;
         _metricNameLabel.backgroundColor = [UIColor clearColor];
 
@@ -49,8 +49,8 @@
         _metricValueLabel.autoresizingMask = (UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleRightMargin);
         _metricValueLabel.font = [UIFont boldSystemFontOfSize:14.0];
         _metricNameLabel.adjustsFontSizeToFitWidth = YES;
-        _metricNameLabel.minimumFontSize = 8;
-        _metricValueLabel.textAlignment = UITextAlignmentLeft;
+        _metricNameLabel.minimumScaleFactor = 8;
+        _metricValueLabel.textAlignment = NSTextAlignmentLeft;
         _metricValueLabel.backgroundColor = [UIColor clearColor];
         
         [self.contentView addSubview:_metricValueLabel];

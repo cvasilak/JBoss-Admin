@@ -157,7 +157,7 @@
     
     NSDictionary *server = [NSDictionary dictionaryWithObjectsAndKeys:self.belongingHost, @"host", serverName, @"server", nil ];
     
-    [self dismissModalViewControllerAnimated:YES];    
+    [self dismissViewControllerAnimated:YES completion:nil];
     
     // ok inform runtime for server changed
     NSNotification *notification = [NSNotification notificationWithName:@"ServerChangedNotification" object:server];

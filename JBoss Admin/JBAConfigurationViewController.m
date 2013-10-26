@@ -166,7 +166,7 @@ enum JBAServerConfRows {
         {
             DefaultCell *labelCell = [DefaultCell cellForTableView:tableView];
 
-            labelCell.textLabel.textAlignment = UITextAlignmentCenter;
+            labelCell.textLabel.textAlignment = NSTextAlignmentCenter;
             labelCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             
             switch (row) {

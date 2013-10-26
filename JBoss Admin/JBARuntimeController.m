@@ -229,7 +229,7 @@ enum JBARuntimeDeploymentDomainRows {
             serverCell.accessoryView = button;
 
             serverCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
-            serverCell.textLabel.textAlignment = UITextAlignmentCenter;
+            serverCell.textLabel.textAlignment = NSTextAlignmentCenter;
         }
 
         serverCell.textLabel.text = 
@@ -427,7 +427,7 @@ enum JBARuntimeDeploymentDomainRows {
     [navigationController pushViewController:hostViewController animated:NO];
 
     JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
-    [delegate.navController presentModalViewController:navigationController animated:YES];
+    [delegate.navController presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - Notification Listeners

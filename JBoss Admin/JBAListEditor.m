@@ -141,7 +141,7 @@ enum JBAListEditorTableSections {
             addCell.imageView.image = [UIImage imageNamed:@"add.png"];
             
             addCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
-            addCell.textLabel.textAlignment = UITextAlignmentCenter;
+            addCell.textLabel.textAlignment = NSTextAlignmentCenter;
             
             addCell.textLabel.text = @"Add Value";                        
             
@@ -262,7 +262,7 @@ enum JBAListEditorTableSections {
             [_textFieldBeingEdited resignFirstResponder];
         }
     
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)addValue {

@@ -66,10 +66,12 @@ typedef enum {
     runtimeController.tabBarItem.image = [UIImage imageNamed:@"summary.png"];
 	profileController.tabBarItem.image = [UIImage imageNamed:@"profile.png"];
     
-    UINavigationController *runtimeNavigationController = [CommonUtil customizedNavigationController];
+    //UINavigationController *runtimeNavigationController = [CommonUtil customizedNavigationController];
+    UINavigationController *runtimeNavigationController = [[UINavigationController alloc] init];
     [runtimeNavigationController pushViewController:runtimeController animated:NO];
     
-    UINavigationController *profileNavigationController = [CommonUtil customizedNavigationController];
+    //UINavigationController *profileNavigationController = [CommonUtil customizedNavigationController];
+    UINavigationController *profileNavigationController = [[UINavigationController alloc] init];
     [profileNavigationController pushViewController:profileController animated:NO];
     
     _tabBarController = [[UITabBarController alloc] init];

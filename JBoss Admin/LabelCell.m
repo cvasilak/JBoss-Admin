@@ -34,7 +34,7 @@
      
         _label = [[UILabel alloc] initWithFrame:CGRectZero];
         _label.backgroundColor = [UIColor clearColor];
-        _label.textAlignment = UITextAlignmentRight;
+        _label.textAlignment = NSTextAlignmentCenter;
         _label.textColor = kNonEditableTextColor;
         _label.font = [UIFont boldSystemFontOfSize:12.0];
         _label.adjustsFontSizeToFitWidth = YES;

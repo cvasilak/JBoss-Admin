@@ -189,7 +189,7 @@
     
             [SVProgressHUD dismissWithSuccess:@"Successfully Added!"];
 
-            [self dismissModalViewControllerAnimated:YES];
+            [self dismissViewControllerAnimated:YES completion:nil];
             
             // ok inform JBADeploymentsViewController of the 
             // new deployment so it can update model and table view
@@ -209,7 +209,7 @@
 }
 
 - (void)cancel {
-    [self dismissModalViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

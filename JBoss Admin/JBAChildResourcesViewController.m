@@ -126,7 +126,7 @@ enum JBAChildTypesTableSections {
             if ([name isEqualToString:@"<undefined>"]) {
                 DefaultCell *undefinedCell = [DefaultCell cellForTableView:tableView];                
                 undefinedCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
-                undefinedCell.textLabel.textAlignment = UITextAlignmentCenter;
+                undefinedCell.textLabel.textAlignment = NSTextAlignmentCenter;
                 undefinedCell.textLabel.text = name;
                 
                 cell = undefinedCell;
@@ -147,7 +147,7 @@ enum JBAChildTypesTableSections {
             
             operationsCell.imageView.image = [UIImage imageNamed:@"operations.png"];
             operationsCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
-            operationsCell.textLabel.textAlignment = UITextAlignmentCenter;
+            operationsCell.textLabel.textAlignment = NSTextAlignmentCenter;
             operationsCell.textLabel.text = @"Generic Operations";
             operationsCell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 

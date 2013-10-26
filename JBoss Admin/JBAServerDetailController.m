@@ -95,7 +95,7 @@
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 110, 25)];
             label.tag = kLabelTag;
-            label.textAlignment = UITextAlignmentRight;
+            label.textAlignment = NSTextAlignmentCenter;
             label.font = [UIFont boldSystemFontOfSize:12.0];
             label.textColor = kNonEditableTextColor;
             label.backgroundColor = [UIColor clearColor];
@@ -111,7 +111,7 @@
             
             UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 10, 110, 25)];
             label.tag = kLabelTag;
-            label.textAlignment = UITextAlignmentRight;
+            label.textAlignment = NSTextAlignmentCenter;
             label.font = [UIFont boldSystemFontOfSize:12.0];
             label.textColor = kNonEditableTextColor;
             label.backgroundColor = [UIColor clearColor];

@@ -44,7 +44,10 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 
     // initialize our custom ("jboss themed") navigation controller.
-    self.navController = [CommonUtil customizedNavigationController];
+    //self.navController = [CommonUtil customizedNavigationController];
+    self.navController = [[UINavigationController alloc] init];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
     // the first screen is the Server's list
     JBAServersViewController *serversViewController = [[JBAServersViewController alloc]

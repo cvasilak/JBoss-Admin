@@ -199,7 +199,7 @@ enum JBADeploymentsTableSections {
                 addCell.imageView.image = [UIImage imageNamed:@"add.png"];
                 
                 addCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
-                addCell.textLabel.textAlignment = UITextAlignmentCenter;
+                addCell.textLabel.textAlignment = NSTextAlignmentCenter;
                 
                 if (self.mode == DOMAIN_MODE)
                     addCell.textLabel.text = @"Add Content...";
@@ -354,7 +354,7 @@ enum JBADeploymentsTableSections {
     [navigationController pushViewController:controller animated:NO];
     
     JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
-    [delegate.navController presentModalViewController:navigationController animated:YES];
+    [delegate.navController presentViewController:navigationController animated:YES completion:nil];
 }
 
 - (void)addContentToGroupButtonTapped:(id)sender {
@@ -374,7 +374,7 @@ enum JBADeploymentsTableSections {
     [navigationController pushViewController:groupsController animated:NO];
     
     JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
-    [delegate.navController presentModalViewController:navigationController animated:YES];
+    [delegate.navController presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - Notification

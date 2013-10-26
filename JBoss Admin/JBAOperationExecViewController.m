@@ -136,7 +136,7 @@ enum JBAHelpRows {
                 DefaultCell *labelCell = [DefaultCell cellForTableView:tableView];
                 labelCell.textLabel.text = @"empty parameter list";
                 labelCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
-                labelCell.textLabel.textAlignment = UITextAlignmentCenter;
+                labelCell.textLabel.textAlignment = NSTextAlignmentCenter;
                 labelCell.accessoryType = UITableViewCellAccessoryNone;
                 labelCell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
@@ -297,7 +297,7 @@ enum JBAHelpRows {
          [navigationController pushViewController:replyController animated:NO];
          
          JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
-         [delegate.navController presentModalViewController:navigationController animated:YES];
+         [delegate.navController presentViewController:navigationController animated:YES completion:nil];
          
      } failure:^(NSError *error) {
          [SVProgressHUD dismiss];
@@ -368,7 +368,7 @@ enum JBAHelpRows {
     [navigationController pushViewController:listEditorController animated:NO];
     
     JBAAppDelegate *delegate = (JBAAppDelegate *)[UIApplication sharedApplication].delegate;
-    [delegate.navController presentModalViewController:navigationController animated:YES];    
+    [delegate.navController presentViewController:navigationController animated:YES completion:nil];
 }
 
 #pragma mark - Update the model as the "widget values" change
