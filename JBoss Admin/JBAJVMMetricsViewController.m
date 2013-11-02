@@ -28,10 +28,9 @@
 #import "JBARefreshable.h"
 
 #import "MetricInfoCell.h"
-#import "SVProgressHUD.h"
 #import "JBARefreshable.h"
 
-//#import "F3PlotStrip.h"
+#import "SVProgressHUD.h"
 
 // Table Sections
 enum JBAJVMMetricsTableSections {
@@ -91,11 +90,11 @@ enum JBAJVMThreadUsageRows {
     
     self.title = @"Java VM Metrics";
     
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                   target:self
-                                                                                   action:@selector(refresh)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
     
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
     [self refresh];
     
     [super viewDidLoad];    
@@ -151,7 +150,7 @@ enum JBAJVMThreadUsageRows {
         
         // Create label with section title
         UILabel *label = [[UILabel alloc] init];
-        label.frame = CGRectMake(16, 10, 300, 10);
+        label.frame = CGRectMake(16, 10, 300, 12);
         label.backgroundColor = [UIColor clearColor];
         label.textColor = [UIColor blackColor];
         label.font = [UIFont boldSystemFontOfSize:14];
@@ -262,21 +261,18 @@ enum JBAJVMThreadUsageRows {
 
 #pragma mark - Actions
 - (void)refresh {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
-    
     [[JBAOperationsManager sharedManager]
      fetchJavaVMMetricsWithSuccess:^(NSDictionary *metrics) {
          [SVProgressHUD dismiss];
          
          _metrics = metrics;
-         
-         // time to reload table
          [self.tableView reloadData];
          
-         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:JBATableMetricOSSection] withRowAnimation:UITableViewRowAnimationFade];
-         
+         [self.refreshControl endRefreshing];
+
      } andFailure:^(NSError *error) {
          [SVProgressHUD dismiss];
+         [self.refreshControl endRefreshing];
          
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                          message:[error localizedDescription]

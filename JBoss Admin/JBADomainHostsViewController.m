@@ -56,11 +56,11 @@
 
     self.title = @"Select Host";
     
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                   target:self
-                                                                                   action:@selector(refresh)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
     
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
     [self refresh];
     
     [super viewDidLoad];
@@ -108,18 +108,18 @@
 
 #pragma mark - Action Methods
 - (void)refresh {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
-    
     [[JBAOperationsManager sharedManager]
      fetchDomainHostInfoWithSuccess:^(NSArray *hosts) {
          [SVProgressHUD dismiss];
          
          _hosts = [hosts sortedArrayUsingSelector:@selector(compare:)];
-
          [self.tableView reloadData];
          
+         [self.refreshControl endRefreshing];
+
      } andFailure:^(NSError *error) {
          [SVProgressHUD dismiss];
+         [self.refreshControl endRefreshing];
          
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                          message:[error localizedDescription]

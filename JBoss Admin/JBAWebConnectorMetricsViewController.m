@@ -81,11 +81,11 @@ enum JBAWebConRequestPerConnectorRows {
     
     self.title = self.connectorName;
     
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                   target:self
-                                                                                   action:@selector(refresh)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
-
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
+    
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
     [self refresh];
     
     [super viewDidLoad];    
@@ -185,21 +185,20 @@ enum JBAWebConRequestPerConnectorRows {
 
 #pragma mark - Actions
 - (void)refresh {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
-    
     [[JBAOperationsManager sharedManager]
      fetchWebConnectorMetricsForName:self.connectorName
      withSuccess:^(NSDictionary *metrics) {
          [SVProgressHUD dismiss];
          
          _metrics = metrics;
-         
-         // time to reload table
          [self.tableView reloadData];
+         
+         [self.refreshControl endRefreshing];
          
      } andFailure:^(NSError *error) {
          [SVProgressHUD dismiss];
-         
+         [self.refreshControl endRefreshing];
+                  
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                          message:[error localizedDescription]
                                                         delegate:nil 

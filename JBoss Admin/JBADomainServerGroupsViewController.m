@@ -79,9 +79,12 @@
         
     } else {
         self.title = @"Server Groups";
-        UIBarButtonItem *refreshButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                           target:self action:@selector(refresh)];                                                                         
-        self.navigationItem.rightBarButtonItem = refreshButtonItem;
+        UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+        [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+        [self setRefreshControl:refreshControl];
+        
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+        [self refresh];
     }
     
     [self refresh];
@@ -153,8 +156,6 @@
 }
 
 - (void)refresh {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
-    
     [[JBAOperationsManager sharedManager]
      fetchDomainGroupInfoWithSuccess:^(NSMutableDictionary *groups) {
          [SVProgressHUD dismiss];
@@ -181,12 +182,14 @@
          } else {
              _groups = groups; 
              _names = [[_groups allKeys] sortedArrayUsingSelector:@selector(compare:)];
-             
              [self.tableView reloadData];
+             
+             [self.refreshControl endRefreshing];
          }
          
      } andFailure:^(NSError *error) {
          [SVProgressHUD dismiss];
+         [self.refreshControl endRefreshing];
          
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                          message:[error localizedDescription]

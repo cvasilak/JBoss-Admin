@@ -58,11 +58,11 @@
     
     self.title = @"Data Sources";
     
-    UIBarButtonItem *refreshButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemRefresh
-                                                                                   target:self
-                                                                                   action:@selector(refresh)];
-    self.navigationItem.rightBarButtonItem = refreshButton;
+    UIRefreshControl *refreshControl = [[UIRefreshControl alloc] init];
+    [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    [self setRefreshControl:refreshControl];
 
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
     [self refresh];
     
     [super viewDidLoad];
@@ -124,19 +124,19 @@
 
 #pragma mark - Actions
 - (void)refresh {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
-    
     [[JBAOperationsManager sharedManager]
      fetchDataSourcesListWithSuccess:^(NSDictionary *datasources) {
          [SVProgressHUD dismiss];
          
          _names = [[datasources allKeys] sortedArrayUsingSelector:@selector(compare:)];
          _datasources = datasources;
-         
          [self.tableView reloadData];
+         
+         [self.refreshControl endRefreshing];
          
      } andFailure:^(NSError *error) {
          [SVProgressHUD dismiss];
+         [self.refreshControl endRefreshing];
          
          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                          message:[error localizedDescription]
