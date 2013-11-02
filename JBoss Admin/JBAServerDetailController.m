@@ -25,6 +25,8 @@
 #import "JBAServer.h"
 #import "JBAServersManager.h"
 
+#import "UIView+ParentView.h"
+
 @implementation JBAServerDetailController {
     NSArray *_fieldLabels;
     NSMutableDictionary *_tempValues;
@@ -133,7 +135,7 @@
             else 
                 [textField setKeyboardType:UIKeyboardTypeDefault];
             
-            textField.returnKeyType = UIReturnKeyDone;
+            textField.returnKeyType = UIReturnKeyNext;
             textField.autocapitalizationType = UITextAutocapitalizationTypeNone;
             [textField addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditingDidEndOnExit];
             
@@ -240,9 +242,8 @@
 }
 
 - (void)textFieldDone:(id)sender {
-	UITableViewCell *cell = (UITableViewCell *)[[sender superview] superview];
-	UITableView *table = (UITableView *)[cell superview];
-	NSIndexPath *textFieldIndexPath = [table indexPathForCell:cell];
+	UITableViewCell *cell = (UITableViewCell *)[sender findParentViewWithClass:[UITableViewCell class]];
+    NSIndexPath *textFieldIndexPath = [self.tableView indexPathForCell:cell];
 	NSUInteger row = [textFieldIndexPath row];
 	
 	row++;
