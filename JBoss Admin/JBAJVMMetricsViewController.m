@@ -203,11 +203,11 @@ enum JBAJVMThreadUsageRows {
                     break;
                 case JBAJVMTableSecHeapUsageCommitedRow:
                     cell.metricNameLabel.text = @"Commited";
-                    cell.metricValueLabel.text = [[heap objectForKey:@"committed"] cellDisplayMB];
+                    cell.metricValueLabel.text = [[heap objectForKey:@"committed"] cellDisplayPercentFromTotal:[heap objectForKey:@"max"] withMBConversion:YES];
                     break;
                 case JBAJVMTableSecHeapUsageInitRow:
                     cell.metricNameLabel.text = @"Init";
-                    cell.metricValueLabel.text = [[heap objectForKey:@"init"] cellDisplayMB];
+                    cell.metricValueLabel.text = [[heap objectForKey:@"init"] cellDisplayPercentFromTotal:[heap objectForKey:@"max"] withMBConversion:YES];
                     break;
             }   
             break;
@@ -228,11 +228,11 @@ enum JBAJVMThreadUsageRows {
                     break;
                 case JBAJVMTableSecHeapUsageCommitedRow:
                     cell.metricNameLabel.text = @"Commited";                    
-                    cell.metricValueLabel.text = [[nonheap objectForKey:@"committed"] cellDisplayMB];
+                    cell.metricValueLabel.text = [[nonheap objectForKey:@"committed"] cellDisplayPercentFromTotal:[nonheap objectForKey:@"max"] withMBConversion:YES];
                     break;
                 case JBAJVMTableSecHeapUsageInitRow:
                     cell.metricNameLabel.text = @"Init";                    
-                    cell.metricValueLabel.text = [[nonheap objectForKey:@"init"] cellDisplayMB];
+                    cell.metricValueLabel.text = [[nonheap objectForKey:@"init"] cellDisplayPercentFromTotal:[nonheap objectForKey:@"max"] withMBConversion:YES];
                     break;
             }
             break;            
