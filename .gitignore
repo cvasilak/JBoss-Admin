@@ -7,6 +7,9 @@ build/*
  
 # Exclude OS X folder attributes
 .DS_Store
+
+# Exclude .idea ide configuration
+.idea
  
 # Exclude user-specific XCode 3 and 4 files
 *.mode1
