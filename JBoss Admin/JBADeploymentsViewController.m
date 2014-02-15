@@ -61,16 +61,6 @@ enum JBADeploymentsTableSections {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBADeploymentsViewController viewDidUnload");
-    
-    _names = nil;
-    _deployments = nil;
-
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"DeploymentAddedNotification" object:nil];
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
   	DLog(@"JBADeploymentsViewController viewDidLoad");

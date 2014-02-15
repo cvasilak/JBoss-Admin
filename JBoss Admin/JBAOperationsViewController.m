@@ -52,14 +52,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAOperationsViewController viewDidUnLoad");
-    
-    _operations = nil;
-    _genericOps = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAOperationsViewController viewDidLoad");

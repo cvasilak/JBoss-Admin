@@ -89,13 +89,6 @@ enum JBARuntimeDeploymentDomainRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-  	DLog(@"JBARuntimeController viewDidUnload");
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"ServerChangedNotification" object:nil];
-
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBARuntimeController viewDidLoad");

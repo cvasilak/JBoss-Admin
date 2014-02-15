@@ -77,13 +77,6 @@ enum JBAJVMThreadUsageRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAJVMMetricsViewController viewDidUnLoad");
- 
-    _metrics = nil;
-
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAJVMMetricsViewController viewDidLoad");

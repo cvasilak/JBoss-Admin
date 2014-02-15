@@ -68,13 +68,6 @@ enum JBAWebConRequestPerConnectorRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAWebConnectorMetricsViewController viewDidUnLoad");
- 
-    _metrics = nil;
-
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAWebConnectorMetricsViewController viewDidLoad");

@@ -56,11 +56,7 @@ enum JBAListEditorTableSections {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAListEditor viewDidUnLoad");
-    
-    [super viewDidUnload];
-}
+
 
 - (void)viewDidLoad {
     DLog(@"JBAListEditor viewDidLoad");

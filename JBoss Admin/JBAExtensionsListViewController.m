@@ -33,11 +33,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAExtensionsListViewController viewDidUnLoad");
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAExtensionsListViewController viewDidLoad");

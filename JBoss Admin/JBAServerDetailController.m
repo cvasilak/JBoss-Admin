@@ -40,17 +40,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-	DLog(@"JBAServerDetailController viewDidUnload");
-    
-    self.server = nil;
-    
-    _fieldLabels = nil;
-    _tempValues = nil;
-    _textFieldBeingEdited = nil;
-
- 	[super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAServerDetailController viewDidLoad");

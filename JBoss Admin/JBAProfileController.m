@@ -61,14 +61,6 @@ enum JBAProfileTableSections {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-  	DLog(@"JBAProfileController viewDidUnload");
-
-    _attrs = nil;
-    _childTypes = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAProfileController viewDidLoad");

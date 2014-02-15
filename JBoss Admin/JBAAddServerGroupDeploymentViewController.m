@@ -45,15 +45,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAAddServerGroupDeploymentViewController viewDidUnLoad");
-    
-    _names = nil;
-    _deployments = nil;
-    _lastIndexPath = nil;
-
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAAddServerGroupDeploymentViewController viewDidLoad");

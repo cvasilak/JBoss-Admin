@@ -68,13 +68,6 @@ enum JBADataSourcePreparedStatementPoolUsageRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBADataSourceMetricsViewController viewDidUnLoad");
-    
-    _metrics = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBADataSourceMetricsViewController viewDidLoad");

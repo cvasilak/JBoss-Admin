@@ -42,11 +42,6 @@ typedef enum {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-	DLog(@"JBARootController viewDidUnload");
-    
-    [super viewDidUnload];
-}
 
 - (void)loadView {
     DLog(@"JBARootController loadView");

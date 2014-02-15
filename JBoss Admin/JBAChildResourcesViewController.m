@@ -59,13 +59,6 @@ enum JBAChildTypesTableSections {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAChildResourcesViewController viewDidUnLoad");
-    
-    _names = nil;
-
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAChildResourcesViewController viewDidLoad");

@@ -43,13 +43,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBADomainHostsViewController viewDidUnLoad");
-    
-    _hosts = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBADomainHostsViewController viewDidLoad");

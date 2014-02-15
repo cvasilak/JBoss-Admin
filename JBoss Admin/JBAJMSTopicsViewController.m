@@ -43,13 +43,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAJMSTopicsViewController viewDidUnLoad");
-    
-    _topics = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAJMSTopicsViewController viewDidLoad");

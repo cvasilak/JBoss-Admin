@@ -63,11 +63,6 @@ enum JBAHelpRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAOperationExecViewController viewDidUnLoad");
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAOperationExecViewController viewDidLoad");

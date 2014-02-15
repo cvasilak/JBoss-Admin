@@ -66,11 +66,7 @@ enum JBAHelpRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAAttributeGenericTypeEditor viewDidUnLoad");
-    
-    [super viewDidUnload];
-}
+
 
 - (void)viewDidLoad {
     DLog(@"JBAAttributeGenericTypeEditor viewDidLoad");

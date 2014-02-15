@@ -50,15 +50,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBADomainServerGroupsViewController viewDidUnLoad");
-    
-    _names = nil;
-    _groups = nil;
-    _selectedGroups = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBADomainServerGroupsViewController viewDidLoad");

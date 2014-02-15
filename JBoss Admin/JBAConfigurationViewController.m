@@ -61,13 +61,6 @@ enum JBAServerConfRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAConfigurationViewController viewDidUnLoad");
- 
-    _serverInfo = nil;
-
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAConfigurationViewController viewDidLoad");

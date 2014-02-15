@@ -44,14 +44,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBADataSourcesViewController viewDidUnLoad");
-    
-    _names = nil;
-    _datasources = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBADataSourcesViewController viewDidLoad");

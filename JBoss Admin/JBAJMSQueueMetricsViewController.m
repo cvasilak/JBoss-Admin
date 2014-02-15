@@ -71,13 +71,6 @@ enum JBAJMSConsumerRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAJMSQueueMetricsViewController viewDidUnLoad");
-    
-    _metrics = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAJMSQueueMetricsViewController viewDidLoad");

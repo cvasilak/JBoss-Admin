@@ -44,15 +44,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBADeploymentDetailsViewController viewDidUnLoad");
-    
-    _fieldLabels = nil;
-    _tempValues = nil;
-    _textFieldBeingEdited = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBADeploymentDetailsViewController viewDidLoad");

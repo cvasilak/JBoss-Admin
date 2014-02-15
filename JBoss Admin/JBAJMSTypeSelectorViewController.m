@@ -40,11 +40,6 @@ enum JBAJMSTypeRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAJMSTypeSelectorViewController viewDidUnLoad");
-
-    [super viewDidUnload];    
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAJMSTypeSelectorViewController viewDidLoad");

@@ -74,13 +74,6 @@ enum JBAJMSSubscriptionsRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAJMSTopicMetricsViewController viewDidUnLoad");
-    
-    _metrics = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAJMSTopicMetricsViewController viewDidLoad");

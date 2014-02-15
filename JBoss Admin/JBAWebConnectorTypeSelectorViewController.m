@@ -43,13 +43,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAWebConnectorTypeSelectorViewController viewDidUnLoad");
-
-    _connectors = nil;
-    
-    [super viewDidUnload];    
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAWebConnectorTypeSelectorViewController viewDidLoad");

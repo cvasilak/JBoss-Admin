@@ -43,13 +43,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAJMSQueuesViewController viewDidUnLoad");
-    
-    _queues = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAJMSQueuesViewController viewDidLoad");

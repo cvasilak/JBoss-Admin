@@ -65,13 +65,6 @@ enum JBATranFailureOriginRows {
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBATransactionsMetricsViewController viewDidUnLoad");
- 
-    _metrics = nil;
-
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBATransactionsMetricsViewController viewDidLoad");

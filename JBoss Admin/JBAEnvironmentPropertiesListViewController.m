@@ -35,13 +35,6 @@
 }
 
 #pragma mark - View lifecycle
-- (void)viewDidUnload {
-    DLog(@"JBAEnvironmentPropertiesListViewController viewDidUnLoad");
-    
-    _keys = nil;
-    
-    [super viewDidUnload];
-}
 
 - (void)viewDidLoad {
     DLog(@"JBAEnvironmentPropertiesListViewController viewDidLoad");
