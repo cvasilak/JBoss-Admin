@@ -110,9 +110,9 @@
     [JBAOperationsManager clientWithJBossServer:server];    
     
     // Check if we have connectivity to the server
-    // by reading the 'release-version' attribute
+    // by reading the 'management-major-version' attribute
     [[JBAOperationsManager sharedManager]
-     fetchJBossVersionWithSuccess:^(NSString *version) {
+     fetchJBossManagementVersionWithSuccess:^(NSNumber *version) {
          // OK we have successfuly connected
          // let the ball rolling...
          JBARootController *rootController = [[JBARootController alloc] init];

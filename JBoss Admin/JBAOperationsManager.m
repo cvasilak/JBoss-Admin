@@ -34,6 +34,8 @@ static JBAOperationsManager *sharedManager;
     
     NSString *_domainServer;
     NSString *_domainHost;
+    
+    NSNumber *_managementVersion;
 }
 
 + (JBAOperationsManager *)sharedManager {
@@ -238,16 +240,18 @@ static JBAOperationsManager *sharedManager;
 
 
 #pragma mark - JBoss Request Types
-- (void)fetchJBossVersionWithSuccess:(void (^)(NSString *version))success
+- (void)fetchJBossManagementVersionWithSuccess:(void (^)(NSNumber *version))success
                                 andFailure:(void (^)(NSError *error))failure {
     
     NSDictionary *params = 
         [NSDictionary dictionaryWithObjectsAndKeys:
          @"read-attribute", @"operation",
-         @"release-version", @"name", nil];
+         @"management-major-version", @"name", nil];
     
     [self postJBossRequestWithParams:params
-                             success:^(NSString *version) {
+                             success:^(NSNumber *version) {
+                                 _managementVersion = version;
+
                                  success(version);
                              } failure:^(NSError *error) {
                                  failure(error);
