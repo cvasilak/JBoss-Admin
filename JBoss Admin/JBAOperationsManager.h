@@ -66,6 +66,8 @@ typedef NS_ENUM(NSUInteger, DataSourceType) {
 
 - (NSString *)domainCurrentServer;
 
+- (ManagementVersion)managementVersion;
+
 - (BOOL)isDomainController;
 
 - (void)fetchJBossManagementVersionWithSuccess:(void (^)(NSNumber *version))success

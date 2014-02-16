@@ -73,6 +73,10 @@ static JBAOperationsManager *sharedManager;
     return _domainHost;
 }
 
+- (ManagementVersion)managementVersion {
+    return [_managementVersion unsignedIntValue];
+}
+
 - (id)initWithJBossServer:(JBAServer *)server{
     self = [super initWithBaseURL:[NSURL URLWithString:server.hostport]];
     

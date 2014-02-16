@@ -191,7 +191,10 @@ typedef NS_ENUM(NSUInteger, JBARuntimeDeploymentDomainRows) {
         case JBATableRuntimeServerStatusSection:
             return JBARuntimeTableSecServerStatusNumRows;
         case JBATableRuntimeSubsystemMetricsSection:
-            return JBARuntimeTableSecSubsystemMetricsNumRows;
+            if ([[JBAOperationsManager sharedManager] managementVersion] < MANAGEMENT_VERSION_2)
+                return JBARuntimeTableSecSubsystemMetricsNumRows;
+            else
+                return JBARuntimeTableSecSubsystemMetricsNumRows - 1;  // exclude "Web" (for now)
         case JBATableRuntimeDeploymentsSection:
             
             if ([[JBAOperationsManager sharedManager] isDomainController])
