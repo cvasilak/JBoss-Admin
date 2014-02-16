@@ -31,22 +31,22 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBAWebConMetricsTableSections {
-    JBATableMetricGeneralSection = 0,
+typedef NS_ENUM(NSUInteger, JBAWebConMetricsTableSections) {
+    JBATableMetricGeneralSection,
     JBATableMetricRequestPerConnectorSection,
     JBATableMetricNumSections
 };
 
 // Table Rows
-enum JBAWebConGeneralRows {
-    JBAWebConTableSecProtocolRow = 0,
+typedef NS_ENUM(NSUInteger, JBAWebConGeneralRows) {
+    JBAWebConTableSecProtocolRow,
     JBAWebConTableSecBytesSentRow,
     JBAWebConTableSecBytesReceivedRow,
     JBAWebConTableSecGeneralNumRows
 };
 
-enum JBAWebConRequestPerConnectorRows {
-    JBAWebConTableSecRequestCountRow = 0,
+typedef NS_ENUM(NSUInteger, JBAWebConRequestPerConnectorRows) {
+    JBAWebConTableSecRequestCountRow,
     JBAWebConTableSecErrorCountRow,
     JBAWebConTableSecProcessingTimeRow,
     JBAWebConTableSecMaxTimeRow,

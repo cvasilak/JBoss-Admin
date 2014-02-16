@@ -31,22 +31,22 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBADataSourceTableSections {
-    JBATableDataSourcePoolUsageSection = 0,
+typedef NS_ENUM(NSUInteger, JBADataSourceTableSections) {
+    JBATableDataSourcePoolUsageSection,
     JBATableDataSourcePreparedStatementPoolUsage,
     JBATableDataSourceNumSections
 };
 
 // Table Rows
-enum JBADataSourcePoolUsageRows {
-    JBADataSourceTableSecAvailableRow = 0,
+typedef NS_ENUM(NSUInteger, JBADataSourcePoolUsageRows) {
+    JBADataSourceTableSecAvailableRow,
     JBADataSourceTableSecActiveCountRow,
     JBADataSourceTableSecMaxUsedRow,
     JBADataSourceTableSecDataSourcePoolUsageNumRows
 };
 
-enum JBADataSourcePreparedStatementPoolUsageRows {
-    JBADataSourceCurrentSizeRow = 0,
+typedef NS_ENUM(NSUInteger, JBADataSourcePreparedStatementPoolUsageRows) {
+    JBADataSourceCurrentSizeRow,
     JBADataSourceHitCountRow,
     JBADataSourceMissUsedRow,
     JBADataSourceTableSecDataSourcePreparedStatementPoolUsageNumRows

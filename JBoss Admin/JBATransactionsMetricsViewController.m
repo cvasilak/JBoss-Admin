@@ -31,14 +31,14 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBATranMetricsTableSections {
-    JBATableMetricSuccessFailureSection = 0,
+typedef NS_ENUM(NSUInteger, JBATranMetricsTableSections) {
+    JBATableMetricSuccessFailureSection,
     JBATableMetricFailureOriginSection,
     JBATableMetricNumSections
 };
 
 // Table Rows
-enum JBATranSuccessFailureRows {
+typedef NS_ENUM(NSUInteger, JBATranSuccessFailureRows) {
     JBATranTableSecTotalRow = 0,
     JBATranTableSecCommitedRow,
     JBATranTableSecAbortedRow,
@@ -46,7 +46,7 @@ enum JBATranSuccessFailureRows {
     JBATranTableSecSuccessFailureNumRows
 };
 
-enum JBATranFailureOriginRows {
+typedef NS_ENUM(NSUInteger, JBATranFailureOriginRows) {
     JBATranTableSecApplicationsRow,
     JBATranTableSecResourcesRow,
     JBATranTableSecFailureOriginNumRows

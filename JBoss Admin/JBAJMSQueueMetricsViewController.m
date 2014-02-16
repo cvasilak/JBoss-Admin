@@ -31,28 +31,28 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBAJMSQueueTableSections {
-    JBATableQueueInFlightMessagesSection = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSQueueTableSections) {
+    JBATableQueueInFlightMessagesSection,
     JBATableQueueMessagesProcessedSection,
     JBATableQueueConsumerSection,
     JBATableQueueNumSections
 };
 
 // Table Rows
-enum JBAJMSInFlightMessagesRows {
-    JBAJMSTableSecMessagesInQueue = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSInFlightMessagesRows) {
+    JBAJMSTableSecMessagesInQueue,
     JBAJMSTableSecInDelivery,
     JBAJMSTableSecInFlightMessagesNumRows
 };
 
-enum JBAJMSMessagesProcessedRows {
-    JBAJMSTableSecMessagesAddedRow = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSMessagesProcessedRows) {
+    JBAJMSTableSecMessagesAddedRow,
     JBAJMSTableSecMessagesScheduledRow,
     JBAJMSTableSecMessagesProcessedNumRows
 };
 
-enum JBAJMSConsumerRows {
-    JBAJMSTableSecNumberOfConsumersRow = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSConsumerRows) {
+    JBAJMSTableSecNumberOfConsumersRow,
     JBAJMSTableSecConsumerNumRows
 };
 

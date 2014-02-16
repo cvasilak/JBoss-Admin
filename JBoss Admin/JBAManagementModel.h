@@ -22,7 +22,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, JBAType) {
     STRING,
     INT,
     LONG,
@@ -35,8 +35,7 @@ typedef enum {
     BYTES,
     LIST,
     UNDEFINED
-} JBAType;
-
+};
 
 @interface JBAManagementModel : NSObject
 

@@ -31,8 +31,8 @@
 #import "ButtonCell.h"
 
 // Table Sections
-enum JBAListEditorTableSections {
-    JBATableEditorSection = 0,
+typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
+    JBATableEditorSection,
     JBATableAddSection,
     JBATableListEditorNumSections
 };

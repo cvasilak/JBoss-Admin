@@ -39,19 +39,19 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBAGenericAttributeEditorTableSections {
-    JBATableEditorSection = 0,
+typedef NS_ENUM(NSUInteger, JBAGenericAttributeEditorTableSections) {
+    JBATableEditorSection,
     JBATableHelpSection,
     JBATableGenericNumSections
 };
 
 // Table Rows
-enum JBAEditorRows {
+typedef NS_ENUM(NSUInteger, JBAEditorRows) {
     JBAEditorRow = 0,
     JBAEditorTableSecNumRows
 };
 
-enum JBAHelpRows {
+typedef NS_ENUM(NSUInteger, JBAHelpRows) {
     JBAHelpRow = 0,
     JBAHelpTableSecNumRows
 };
@@ -66,7 +66,6 @@ enum JBAHelpRows {
 }
 
 #pragma mark - View lifecycle
-
 
 - (void)viewDidLoad {
     DLog(@"JBAAttributeGenericTypeEditor viewDidLoad");

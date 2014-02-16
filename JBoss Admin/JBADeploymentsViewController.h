@@ -22,11 +22,11 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, OperationMode) {
     STANDALONE_MODE,
     DOMAIN_MODE,
-    SERVER_MODE,
-} OperationMode;
+    SERVER_MODE
+};
 
 @interface JBADeploymentsViewController : UITableViewController
 

@@ -41,13 +41,13 @@
 #import "UIView+ParentView.h"
 
 // Table Sections
-enum JBAOperationTableSections {
+typedef NS_ENUM(NSUInteger, JBAOperationTableSections) {
     JBATableEditorSection = 0,
     JBATableHelpSection,
     JBATableOperationNumSections
 };
 
-enum JBAHelpRows {
+typedef NS_ENUM(NSUInteger, JBAHelpRows) {
     JBAHelpRow = 0,
     JBAHelpTableSecNumRows
 };

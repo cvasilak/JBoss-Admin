@@ -42,8 +42,8 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBARuntimeTableSections {
-    JBATableRuntimeServerSelectionSection = 0,
+typedef NS_ENUM(NSUInteger, JBARuntimeTableSections) {
+    JBATableRuntimeServerSelectionSection,
     JBATableRuntimeServerStatusSection,
     JBATableRuntimeSubsystemMetricsSection,
     JBATableRuntimeDeploymentsSection,
@@ -51,26 +51,26 @@ enum JBARuntimeTableSections {
 };
 
 // Table Rows
-enum JBARuntimeServerStatusRows {
-    JBARuntimeTableSecServerStatusConfigurationRow = 0,
+typedef NS_ENUM(NSUInteger, JBARuntimeServerStatusRows) {
+    JBARuntimeTableSecServerStatusConfigurationRow,
     JBARuntimeTableSecServerStatusJVMRow,
     JBARuntimeTableSecServerStatusNumRows
 };
 
-enum JBARuntimeSubsystemMetricsRows {
-    JBARuntimeTableSecSubsystemMetricsDataSourcesRow = 0,
+typedef NS_ENUM(NSUInteger, JBARuntimeSubsystemMetricsRows) {
+    JBARuntimeTableSecSubsystemMetricsDataSourcesRow,
     JBARuntimeTableSecSubsystemMetricsJMSDestinationsRow,
     JBARuntimeTableSecSubsystemMetricsTransactionsRow,
     JBARuntimeTableSecSubsystemMetricsWebRow,
     JBARuntimeTableSecSubsystemMetricsNumRows
 };
 
-enum JBARuntimeDeploymentStandaloneRows {
-    JBARuntimeTableSecManageDeploymentsRow = 0,
+typedef NS_ENUM(NSUInteger, JBARuntimeDeploymentStandaloneRows) {
+    JBARuntimeTableSecManageDeploymentsRow,
     JBARuntimeTableSecDeploymentStandaloneNumRows
 };
 
-enum JBARuntimeDeploymentDomainRows {
+typedef NS_ENUM(NSUInteger, JBARuntimeDeploymentDomainRows) {
     JBARuntimeTableSecDeploymentContentRow = 0,
     JBARuntimeTableSecDeploymentServerGroupRow,
     JBARuntimeTableSecDeploymentDomainNumRows

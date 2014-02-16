@@ -31,29 +31,29 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBAJMSTopicTableSections {
-    JBATableTopicInFlightMessagesSection = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSTopicTableSections) {
+    JBATableTopicInFlightMessagesSection,
     JBATableTopicMessagesProcessedSection,
     JBATableTopicSubscriptionsSection,
     JBATableTopicNumSections
 };
 
 // Table Rows
-enum JBAJMSInFlightMessagesRows {
-    JBAJMSTableSecMessagesInTopic = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSInFlightMessagesRows) {
+    JBAJMSTableSecMessagesInTopic,
     JBAJMSTableSecInDelivery,
     JBAJMSTableSecInFlightMessagesNumRows
 };
 
-enum JBAJMSMessagesProcessedRows {
-    JBAJMSTableSecMessagesAddedRow = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSMessagesProcessedRows) {
+    JBAJMSTableSecMessagesAddedRow,
     JBAJMSTableSecMessagesDurableRow,
     JBAJMSTableSecMessagesNoNDurableRow,
     JBAJMSTableSecMessagesProcessedNumRows
 };
 
-enum JBAJMSSubscriptionsRows {
-    JBAJMSTableSecNumberOfSubscriptionsRow = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSSubscriptionsRows) {
+    JBAJMSTableSecNumberOfSubscriptionsRow,
     JBAJMSTableSecDurableSubscribersRow,
     JBAJMSTableSecNoNDurableSubscribersRow, 
     JBAJMSTableSecConsumerNumRows

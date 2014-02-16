@@ -26,17 +26,22 @@
 
 @interface JBAOperationsManager : AFHTTPClient
 
+typedef NS_ENUM(NSUInteger, ManagementVersion) {
+    MANAGEMENT_VERSION_1 = 1,
+    MANAGEMENT_VERSION_2
+};
+
 // JMS types
-typedef enum {
+typedef NS_ENUM(NSUInteger, JMSType) {
     QUEUE,
     TOPIC
-} JMSType;
+};
 
 // Data Source types
-typedef enum {
+typedef NS_ENUM(NSUInteger, DataSourceType) {
     StandardDataSource,
     XADataSource
-} DataSourceType;
+};
 
 + (JBAOperationsManager *)sharedManager;
 
@@ -63,7 +68,7 @@ typedef enum {
 
 - (BOOL)isDomainController;
 
-- (void)fetchJBossVersionWithSuccess:(void (^)(NSString *version))success
+- (void)fetchJBossManagementVersionWithSuccess:(void (^)(NSNumber *version))success
                                 andFailure:(void (^)(NSError *error))failure;
 
 - (void)fetchLaunchTypeWithSuccess:(void (^)(NSString *launchType))success

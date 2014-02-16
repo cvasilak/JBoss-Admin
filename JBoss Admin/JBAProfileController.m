@@ -36,8 +36,8 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBAProfileTableSections {
-    JBATableAttributesSection = 0,
+typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
+    JBATableAttributesSection,
     JBATableChildTypesSection,
     JBATableOperationsSection,
     JBATableProfileNumSections

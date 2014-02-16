@@ -33,8 +33,8 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBAJVMMetricsTableSections {
-    JBATableMetricOSSection = 0,
+typedef NS_ENUM(NSUInteger, JBAJVMMetricsTableSections) {
+    JBATableMetricOSSection,
     JBATableMetricHeapUsageSection,
     JBATableMetricNoNHeapUsageSection,
     JBATableMetricThreadUsageSection,
@@ -43,23 +43,23 @@ enum JBAJVMMetricsTableSections {
 
 // Table Rows
 enum JBAJVMHeapUsageRows {
-    JBAJVMTableSecHeapUsageMaxRow = 0,
+    JBAJVMTableSecHeapUsageMaxRow,
     JBAJVMTableSecHeapUsageUsedRow,
     JBAJVMTableSecHeapUsageCommitedRow,
     JBAJVMTableSecHeapUsageInitRow,
     JBAJVMTableSecHeapUsageNumRows
 };
 
-enum JBAJVMNoNHeapUsageRows {
-    JBAJVMTableSecNoNHeapUsageMaxRow = 0,
+typedef NS_ENUM(NSUInteger, JBAJVMNoNHeapUsageRows) {
+    JBAJVMTableSecNoNHeapUsageMaxRow,
     JBAJVMTableSecNoNHeapUsageUsedRow,
     JBAJVMTableSecNoNHeapUsageCommitedRow,
     JBAJVMTableSecNoNHeapUsageInitRow,
     JBAJVMTableSecNoNHeapUsageNumRows
 };
 
-enum JBAJVMThreadUsageRows {
-    JBAJVMTableSecThreadUsageLiveRow = 0,
+typedef NS_ENUM(NSUInteger, JBAJVMThreadUsageRows) {
+    JBAJVMTableSecThreadUsageLiveRow,
     JBAJVMTableSecThreadUsageDaemonRow,
     JBAJVMTableSecThreadUsageNumRows
 };

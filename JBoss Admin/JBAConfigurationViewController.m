@@ -32,22 +32,22 @@
 #import "SVProgressHUD.h"
 
 // Table Sections
-enum JBAConfTableSections {
-    JBATableServerInfoSection = 0,
+typedef NS_ENUM(NSUInteger, JBAConfTableSections) {
+    JBATableServerInfoSection,
     JBATableServerConfigurationSection,
     JBATableConfNumSections
 };
 
 // Table Rows
-enum JBAServerInfoRows {
-    JBAConfTableSecCodeNameRow = 0,
+typedef NS_ENUM(NSUInteger, JBAServerInfoRows) {
+    JBAConfTableSecCodeNameRow,
     JBAConfTableSecReleaseVersionRow,
     JBAConfTableSecServerStateRow,
     JBAConfTableSecServerInfoNumRows
 };
 
-enum JBAServerConfRows {
-    JBAConfTableSecExtensionsRow = 0,
+typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
+    JBAConfTableSecExtensionsRow,
     JBAConfTableSecPropertiesRow,
     JBAConfTableSecServerConfNumRows
 };

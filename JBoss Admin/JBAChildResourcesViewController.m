@@ -36,7 +36,7 @@
 #import "ButtonCell.h"
 
 // Table Sections
-enum JBAChildTypesTableSections {
+typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
     JBATableChildResourcesSection,
     JBATableGenericOpsSection,
     JBATableChildTypesNumSections

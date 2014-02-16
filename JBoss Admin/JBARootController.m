@@ -28,10 +28,10 @@
 
 #import "JBAOperationsManager.h"
 
-typedef enum {
+typedef NS_ENUM(NSUInteger, Tabs) {
     RuntimeTab,
     TreeTab
-} Tabs;
+};
 
 @implementation JBARootController {
     UITabBarController *_tabBarController;

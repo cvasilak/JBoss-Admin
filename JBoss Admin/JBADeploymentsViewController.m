@@ -36,8 +36,8 @@
 #import "UIActionSheet+BlockExtensions.h"
 #import "UIView+ParentView.h"
 
-enum JBADeploymentsTableSections {
-    JBADeploymentTableListSection = 0,
+typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
+    JBADeploymentTableListSection,
     JBADeploymentTableAddSection,
     JBADeploymentNumSections
 };

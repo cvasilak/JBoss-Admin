@@ -27,8 +27,8 @@
 #import "DefaultCell.h"
 
 // Table Rows
-enum JBAJMSTypeRows {
-    JBAJMSTypeQueueRow = 0,
+typedef NS_ENUM(NSUInteger, JBAJMSTypeRows) {
+    JBAJMSTypeQueueRow,
     JBAJMSTypeTopicRow,
     JBAJMSTypeNumRows
 };
