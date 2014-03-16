@@ -40,14 +40,14 @@
 }
 
 - (NSString *)cellDisplayMB {
-    NSInteger mb = [self integerValue] / 1024 / 1024;
+    long mb = [self longValue] / 1024 / 1024;
     
-    return [NSString stringWithFormat:@"%d MB", mb];
+    return [NSString stringWithFormat:@"%ld MB", mb];
 }
 
 - (NSString *)cellDisplayPercentFromTotal:(NSNumber *)total withMBConversion:(BOOL)mbconversion {
-    NSInteger val = [self integerValue];
-    NSInteger tot = [total integerValue];
+    long val = [self longValue];
+    long tot = [total longValue];
 
     if (mbconversion) {
         val = val / 1024 / 1024;
@@ -58,7 +58,7 @@
     if (tot != 0) // check for a malicious division by zero
         percent = ((float) val / tot) * 100;
     
-    return [NSString stringWithFormat:(mbconversion?@"%d MB (%.0f%%)":@"%d (%.0f%%)"), val, percent];
+    return [NSString stringWithFormat:(mbconversion?@"%ld MB (%.0f%%)":@"%ld (%.0f%%)"), val, percent];
 }
 
 - (BOOL)canBePlotted {
