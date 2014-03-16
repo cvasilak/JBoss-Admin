@@ -52,7 +52,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
 
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     

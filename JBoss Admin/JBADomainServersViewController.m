@@ -75,7 +75,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
     
     SubtitleCell *cell = [SubtitleCell cellForTableView:tableView];
 
@@ -130,7 +130,7 @@
 
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-     NSUInteger row = [indexPath row];
+     NSInteger row = [indexPath row];
 
     NSString *serverName = _names[row];
     NSMutableDictionary *serverInfo = _servers[serverName];

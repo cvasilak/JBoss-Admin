@@ -86,8 +86,8 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
     
     id cell;
     
@@ -149,7 +149,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
+    NSInteger section = [indexPath section];
     
     if (section == JBATableAddSection)
         [self addValue];
@@ -159,7 +159,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
+    NSInteger section = [indexPath section];
     
     if (self.isReadOnlyMode || section == JBATableAddSection)
         return NO;
@@ -168,7 +168,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
+    NSInteger section = [indexPath section];
     
     if (section == JBATableAddSection)
         return NO;
@@ -187,7 +187,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.items removeObjectAtIndex:row];

@@ -121,8 +121,8 @@ typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
 
     id cell;
     
@@ -178,8 +178,8 @@ typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
 
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
 
     switch (section) {
         case JBATableServerConfigurationSection:

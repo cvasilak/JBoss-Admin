@@ -72,7 +72,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
     
 	static NSString *JBAServerCellIdentifier = @"JBAServerCellIdentifier";
 	
@@ -93,7 +93,7 @@
 
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
 
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
@@ -146,7 +146,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-	NSUInteger row = [indexPath row];
+	NSInteger row = [indexPath row];
 	
     JBAServer *server = [[JBAServersManager sharedJBAServersManager] serverAtIndex:row];
     
@@ -158,7 +158,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
     JBAServer *server = [[JBAServersManager sharedJBAServersManager] serverAtIndex:row];
     
 	if (editingStyle == UITableViewCellEditingStyleDelete) {

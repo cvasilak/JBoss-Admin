@@ -116,8 +116,8 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
     
     id cell;
 

@@ -87,7 +87,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
     NSUInteger oldRow = [_lastIndexPath row];
     
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
@@ -103,7 +103,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
     
     NSString *file = _files[row];
     

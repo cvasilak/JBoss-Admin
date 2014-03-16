@@ -119,8 +119,8 @@ typedef NS_ENUM(NSUInteger, JBAWebConRequestPerConnectorRows) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
 
     MetricInfoCell *cell = [MetricInfoCell cellForTableView:tableView];
 

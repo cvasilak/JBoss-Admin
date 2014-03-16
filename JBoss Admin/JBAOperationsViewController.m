@@ -79,7 +79,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];    
+    NSInteger row = [indexPath row];    
     
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
@@ -94,7 +94,7 @@
 
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
     
     __block JBAOperation *operation = _operations[row];
     

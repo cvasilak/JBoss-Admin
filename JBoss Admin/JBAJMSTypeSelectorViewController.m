@@ -56,7 +56,7 @@ typedef NS_ENUM(NSUInteger, JBAJMSTypeRows) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
 
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
@@ -76,7 +76,7 @@ typedef NS_ENUM(NSUInteger, JBAJMSTypeRows) {
 
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-     NSUInteger row = [indexPath row];
+     NSInteger row = [indexPath row];
     
     switch (row) {
         case JBAJMSTypeQueueRow:

@@ -114,8 +114,8 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
-    NSUInteger row = [indexPath row];
+    NSInteger section = [indexPath section];
+    NSInteger row = [indexPath row];
     
     id cell;
     
@@ -202,14 +202,14 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
+    NSInteger section = [indexPath section];
     
     if (section == JBADeploymentTableAddSection)
         [self addContentButtonTapped];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger section = [indexPath section];
+    NSInteger section = [indexPath section];
     
     if (section == JBADeploymentTableAddSection)
         return NO;
@@ -218,7 +218,7 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
 
     NSString *deploymentName = _names[row];
     
