@@ -67,10 +67,7 @@
 		6FC488A115137C77007EC889 /* JBADataSourceMetricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FC4889F15137C65007EC889 /* JBADataSourceMetricsViewController.m */; };
 		6FD03B651508F7A800C83263 /* JBAJVMMetricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD03B641508F7A800C83263 /* JBAJVMMetricsViewController.m */; };
 		6FD6D96F14FEB2390022C86C /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 6FD6D96C14FEB2390022C86C /* SVProgressHUD.bundle */; };
-		6FD6D97014FEB2390022C86C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6D96E14FEB2390022C86C /* SVProgressHUD.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6FD9CAB71507BC2000A7AA93 /* TKProgressAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9CAB41507BC2000A7AA93 /* TKProgressAlertView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6FD9CAB81507BC2000A7AA93 /* TKProgressBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9CAB61507BC2000A7AA93 /* TKProgressBarView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		6FD9CAC11507BD9C00A7AA93 /* UIView+TKCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD9CABF1507BD6200A7AA93 /* UIView+TKCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		6FD6D97014FEB2390022C86C /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD6D96E14FEB2390022C86C /* SVProgressHUD.m */; };
 		6FDA602115173F2D0057C548 /* JBADomainHostsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA601D15173EA40057C548 /* JBADomainHostsViewController.m */; };
 		6FDA602215173F2D0057C548 /* JBADomainServersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FDA602015173EF10057C548 /* JBADomainServersViewController.m */; };
 		6FE286A615109D4700178316 /* JBAJMSQueueMetricsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE286A515109D4700178316 /* JBAJMSQueueMetricsViewController.m */; };
@@ -80,6 +77,7 @@
 		6FE4D36D1527AD090043BEE6 /* JBAOperationExecViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE4D36C1527AC920043BEE6 /* JBAOperationExecViewController.m */; };
 		6FED8414150E582300FBCEB9 /* JBAJMSTypeSelectorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FED8413150E582300FBCEB9 /* JBAJMSTypeSelectorViewController.m */; };
 		6FF37D6015128DDC00E89B4C /* JBADataSourcesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF37D5E15128DC300E89B4C /* JBADataSourcesViewController.m */; };
+		6FF5A7FB18D5D7F70006043B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FF5A7FA18D5D7F70006043B /* QuartzCore.framework */; };
 		6FF8672B1532CFF400737CD0 /* JBAListEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF867291532CFE700737CD0 /* JBAListEditor.m */; };
 		6FF909581534498F00477A59 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FF909571534498F00477A59 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		6FF9095A15344B1600477A59 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F7F123714F521740053C6C9 /* SystemConfiguration.framework */; };
@@ -222,12 +220,6 @@
 		6FD6D96C14FEB2390022C86C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = SVProgressHUD.bundle; sourceTree = "<group>"; };
 		6FD6D96D14FEB2390022C86C /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SVProgressHUD.h; sourceTree = "<group>"; };
 		6FD6D96E14FEB2390022C86C /* SVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SVProgressHUD.m; sourceTree = "<group>"; };
-		6FD9CAB31507BC2000A7AA93 /* TKProgressAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProgressAlertView.h; sourceTree = "<group>"; };
-		6FD9CAB41507BC2000A7AA93 /* TKProgressAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProgressAlertView.m; sourceTree = "<group>"; };
-		6FD9CAB51507BC2000A7AA93 /* TKProgressBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TKProgressBarView.h; sourceTree = "<group>"; };
-		6FD9CAB61507BC2000A7AA93 /* TKProgressBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TKProgressBarView.m; sourceTree = "<group>"; };
-		6FD9CABF1507BD6200A7AA93 /* UIView+TKCategory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+TKCategory.m"; sourceTree = "<group>"; };
-		6FD9CAC01507BD6200A7AA93 /* UIView+TKCategory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+TKCategory.h"; sourceTree = "<group>"; };
 		6FDA601C15173EA40057C548 /* JBADomainHostsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBADomainHostsViewController.h; sourceTree = "<group>"; };
 		6FDA601D15173EA40057C548 /* JBADomainHostsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBADomainHostsViewController.m; sourceTree = "<group>"; };
 		6FDA601F15173EF10057C548 /* JBADomainServersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBADomainServersViewController.h; sourceTree = "<group>"; };
@@ -246,6 +238,7 @@
 		6FED8413150E582300FBCEB9 /* JBAJMSTypeSelectorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAJMSTypeSelectorViewController.m; sourceTree = "<group>"; };
 		6FF37D5D15128DC300E89B4C /* JBADataSourcesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBADataSourcesViewController.h; sourceTree = "<group>"; };
 		6FF37D5E15128DC300E89B4C /* JBADataSourcesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBADataSourcesViewController.m; sourceTree = "<group>"; };
+		6FF5A7FA18D5D7F70006043B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		6FF867281532CFE700737CD0 /* JBAListEditor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAListEditor.h; sourceTree = "<group>"; };
 		6FF867291532CFE700737CD0 /* JBAListEditor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAListEditor.m; sourceTree = "<group>"; };
 		6FF909561534498F00477A59 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -260,6 +253,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FF5A7FB18D5D7F70006043B /* QuartzCore.framework in Frameworks */,
 				6FF9095A15344B1600477A59 /* SystemConfiguration.framework in Frameworks */,
 				6F29153D14AD30F800C43FDE /* UIKit.framework in Frameworks */,
 				6F29153F14AD30F800C43FDE /* Foundation.framework in Frameworks */,
@@ -332,6 +326,7 @@
 		6F29153B14AD30F800C43FDE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6FF5A7FA18D5D7F70006043B /* QuartzCore.framework */,
 				6F7F123714F521740053C6C9 /* SystemConfiguration.framework */,
 				6F7F123514F521430053C6C9 /* MobileCoreServices.framework */,
 				6F7F123314F520F90053C6C9 /* CFNetwork.framework */,
@@ -536,7 +531,6 @@
 				6F4F01C31527548800F532B4 /* JSONKit */,
 				6F7179A115051388003994FA /* NSFileManager_DirectoryLocations */,
 				6F5CD3B415051802004EDE85 /* UIAlertViewExtentsions */,
-				6FD9CAB21507BC2000A7AA93 /* TapKuProgressAlertView */,
 				6FD6D96B14FEB2390022C86C /* SVProgressHUD */,
 			);
 			name = Libraries;
@@ -562,19 +556,6 @@
 				6FD6D96E14FEB2390022C86C /* SVProgressHUD.m */,
 			);
 			path = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		6FD9CAB21507BC2000A7AA93 /* TapKuProgressAlertView */ = {
-			isa = PBXGroup;
-			children = (
-				6FD9CABF1507BD6200A7AA93 /* UIView+TKCategory.m */,
-				6FD9CAC01507BD6200A7AA93 /* UIView+TKCategory.h */,
-				6FD9CAB31507BC2000A7AA93 /* TKProgressAlertView.h */,
-				6FD9CAB41507BC2000A7AA93 /* TKProgressAlertView.m */,
-				6FD9CAB51507BC2000A7AA93 /* TKProgressBarView.h */,
-				6FD9CAB61507BC2000A7AA93 /* TKProgressBarView.m */,
-			);
-			path = TapKuProgressAlertView;
 			sourceTree = "<group>";
 		};
 		6FF909551534498F00477A59 /* Reachability */ = {
@@ -695,7 +676,6 @@
 				6FF37D6015128DDC00E89B4C /* JBADataSourcesViewController.m in Sources */,
 				6FE286BF1510F5B600178316 /* JBAJMSTopicsViewController.m in Sources */,
 				6FE286C01510F5B600178316 /* JBAJMSTopicMetricsViewController.m in Sources */,
-				6FD9CAC11507BD9C00A7AA93 /* UIView+TKCategory.m in Sources */,
 				6F7179A7150516C2003994FA /* JBAAddDeploymentViewController.m in Sources */,
 				6F6BE47B14F641F300CCF62C /* JBARuntimeController.m in Sources */,
 				6F6BE47C14F641F300CCF62C /* JBAProfileController.m in Sources */,
@@ -711,8 +691,6 @@
 				6F7179A415051388003994FA /* NSFileManager+DirectoryLocations.m in Sources */,
 				6F5CD3B915051802004EDE85 /* UIActionSheet+BlockExtensions.m in Sources */,
 				6F5CD3BA15051802004EDE85 /* UIAlertView+BlockExtensions.m in Sources */,
-				6FD9CAB71507BC2000A7AA93 /* TKProgressAlertView.m in Sources */,
-				6FD9CAB81507BC2000A7AA93 /* TKProgressBarView.m in Sources */,
 				6FD03B651508F7A800C83263 /* JBAJVMMetricsViewController.m in Sources */,
 				6FF9E2E4150BF10C00616169 /* JBossValue.m in Sources */,
 				6FED8414150E582300FBCEB9 /* JBAJMSTypeSelectorViewController.m in Sources */,
@@ -790,6 +768,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Christos Vasilakis";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Christos Vasilakis";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -879,6 +858,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "JBoss Admin/JBoss Admin-Prefix.pch";
 				INFOPLIST_FILE = "JBoss Admin/JBoss Admin-Info.plist";
@@ -897,6 +877,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
