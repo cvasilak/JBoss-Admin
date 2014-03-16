@@ -122,8 +122,8 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
     switch (section) {
             case JBADeploymentTableListSection:
             {
-                NSString *deploymentName = [_names objectAtIndex:row];
-                NSMutableDictionary *deploymentInfo = [_deployments objectForKey:deploymentName];
+                NSString *deploymentName = _names[row];
+                NSMutableDictionary *deploymentInfo = _deployments[deploymentName];
 
                 SubtitleCell *deploymentCell = [SubtitleCell cellForTableView:tableView];
 
@@ -140,7 +140,7 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
 
                 if (self.mode == STANDALONE_MODE || self.mode == SERVER_MODE) {
                     // check deployment status and set indicator image
-                    if ([[deploymentInfo objectForKey:@"enabled"] boolValue] == YES) {  // deployment is "enabled"
+                    if ([deploymentInfo[@"enabled"] boolValue] == YES) {  // deployment is "enabled"
                         deploymentCell.imageView.image = [UIImage imageNamed:@"up.png"];
                         
                         UIImage *buttonDisableImage = [UIImage imageNamed:@"disable.png"];
@@ -169,8 +169,8 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
                     
                 deploymentCell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
-                NSString *name = [deploymentInfo objectForKey:@"name"];
-                NSString *runtime_name = [deploymentInfo objectForKey:@"runtime-name"];
+                NSString *name = deploymentInfo[@"name"];
+                NSString *runtime_name = deploymentInfo[@"runtime-name"];
                 
                 deploymentCell.textLabel.text = name;
                 deploymentCell.detailTextLabel.text = ([name isEqualToString:runtime_name]?nil:runtime_name);
@@ -220,7 +220,7 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
 
-    NSString *deploymentName = [_names objectAtIndex:row];
+    NSString *deploymentName = _names[row];
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
@@ -241,7 +241,7 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
                                                  [_deployments removeObjectForKey:deploymentName];
                                                  [_names removeObjectAtIndex:row];
                                                  
-                                                 [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+                                                 [tableView deleteRowsAtIndexPaths:@[indexPath] 
                                                                   withRowAnimation:UITableViewRowAnimationFade];
                                                  
                                              } andFailure:^(NSError *error) {
@@ -278,8 +278,8 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
     
     NSUInteger buttonRow = [[self.tableView indexPathForCell:buttonCell] row];
     
-    NSString *deploymentName = [_names objectAtIndex:buttonRow];
-    NSMutableDictionary *deploymentInfo = [_deployments objectForKey:deploymentName];
+    NSString *deploymentName = _names[buttonRow];
+    NSMutableDictionary *deploymentInfo = _deployments[deploymentName];
     
     BOOL enable = [senderButton.currentTitle isEqualToString:@"Enable"];
 
@@ -298,7 +298,7 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
                                        withSuccess:^(void) {
                                            [SVProgressHUD showSuccessWithStatus:(enable ? @"Enabled Successfully!": @"Disabled Successfully!")];
                                            
-                                           [deploymentInfo setValue:[NSNumber numberWithBool:enable] forKey:@"enabled"];
+                                           [deploymentInfo setValue:@(enable) forKey:@"enabled"];
                                            
                                            [self.tableView reloadData];
                                            
@@ -350,8 +350,8 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
     UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];
     NSUInteger buttonRow = [[self.tableView indexPathForCell:buttonCell] row];
     
-    NSString *deploymentName = [_names objectAtIndex:buttonRow];
-    NSMutableDictionary *deploymentInfo = [_deployments objectForKey:deploymentName];
+    NSString *deploymentName = _names[buttonRow];
+    NSMutableDictionary *deploymentInfo = _deployments[deploymentName];
     
     JBADomainServerGroupsViewController *groupsController = [[JBADomainServerGroupsViewController alloc] initWithStyle:UITableViewStyleGrouped];
     groupsController.deploymentToAdd = deploymentInfo;
@@ -368,12 +368,12 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
 - (void)deploymentAdded:(NSNotification *)notification {
     NSMutableDictionary *deploymentInfo = [notification object];
     
-    [_deployments setObject:deploymentInfo forKey:[deploymentInfo objectForKey:@"name"]];
-    [_names addObject:[deploymentInfo objectForKey:@"name"]];
+    _deployments[deploymentInfo[@"name"]] = deploymentInfo;
+    [_names addObject:deploymentInfo[@"name"]];
     
     NSIndexPath *index = [NSIndexPath indexPathForRow:[_deployments count]-1 inSection:JBADeploymentTableListSection];
 
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 @end

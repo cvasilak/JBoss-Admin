@@ -111,7 +111,7 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
         case JBATableChildResourcesSection:
         {
 
-            NSString *name = [_names objectAtIndex:row];
+            NSString *name = _names[row];
             
             if ([name isEqualToString:@"<undefined>"]) {
                 DefaultCell *undefinedCell = [DefaultCell cellForTableView:tableView];                
@@ -161,7 +161,7 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
     switch (section) {
         case JBATableChildResourcesSection:
         {
-            NSString *name = [_names objectAtIndex:row];
+            NSString *name = _names[row];
             
             // do nothing for undefined
             if ([name isEqualToString:@"<undefined>"])
@@ -204,10 +204,9 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
 
     // will identify the child resources of this child type
     // Note: we reload here in case an "add" happened down the road
-    NSDictionary *childNamesParams = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"read-children-names", @"operation",
-                           (self.path==nil? [NSArray arrayWithObject:@"/"]: self.path), @"address", 
-                           self.node.name, @"child-type", nil];
+    NSDictionary *childNamesParams = @{@"operation": @"read-children-names",
+                           @"address": (self.path==nil? @[@"/"]: self.path), 
+                           @"child-type": self.node.name};
     
     [[JBAOperationsManager sharedManager]
      postJBossRequestWithParams:childNamesParams
@@ -221,9 +220,8 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
          [genericOpsPath addObject:self.node.name];
          [genericOpsPath addObject:@"*"];
 
-         NSDictionary *genericOpsParams =  [NSDictionary dictionaryWithObjectsAndKeys:
-                 @"read-operation-names", @"operation",
-                 genericOpsPath, @"address", nil];
+         NSDictionary *genericOpsParams =  @{@"operation": @"read-operation-names",
+                 @"address": genericOpsPath};
 
          [[JBAOperationsManager sharedManager]
           postJBossRequestWithParams:genericOpsParams
@@ -242,7 +240,7 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
               // if no generic operations found and children resources
               // are empty inform as "undefined"
               if (!_hasGenericOperations && [_names count] == 0) {
-                  _names = [NSArray arrayWithObject:@"<undefined>"];                  
+                  _names = @[@"<undefined>"];                  
               }
               
               [self.tableView reloadData];
@@ -254,7 +252,7 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
               if ([error.domain isEqualToString:@"jboss-admin"]) {
                   // if no children resources found inform as "undefined"
                   if ([_names count] == 0) {
-                      _names = [NSArray arrayWithObject:@"<undefined>"];
+                      _names = @[@"<undefined>"];
                       
                   }
 

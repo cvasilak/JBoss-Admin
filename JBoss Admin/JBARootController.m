@@ -67,7 +67,7 @@ typedef NS_ENUM(NSUInteger, Tabs) {
     _tabBarController = [[UITabBarController alloc] init];
     
 	// Set each tab to show an appropriate view controller
-    [_tabBarController setViewControllers: [NSArray arrayWithObjects:runtimeNavigationController, profileNavigationController, nil]];
+    [_tabBarController setViewControllers: @[runtimeNavigationController, profileNavigationController]];
 
     // TODO: revisit this
     UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];

@@ -102,9 +102,8 @@ typedef NS_ENUM(NSUInteger, JBARuntimeDeploymentDomainRows) {
     // First do a check to see if the server is a DOMAIN CONTROLLER
     // if so update UI accordingly (add menus "Deployment Content", "Server Groups")
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-resources", @"operation",
-         @"host", @"child-type", nil];
+        @{@"operation": @"read-children-resources",
+         @"child-type": @"host"};
     
     [[JBAOperationsManager sharedManager]
      postJBossRequestWithParams:params
@@ -117,22 +116,22 @@ typedef NS_ENUM(NSUInteger, JBARuntimeDeploymentDomainRows) {
                                  NSDictionary *serverInfo;
                                  
                                  for (NSUInteger i = 0; i < [hosts count]; i++) {
-                                     host = [hosts objectAtIndex:i];
+                                     host = hosts[i];
                                      
-                                     NSMutableDictionary *serversType = [[result objectForKey:host] objectForKey:@"server"];
+                                     NSMutableDictionary *serversType = result[host][@"server"];
 
                                      if (![serversType isKindOfClass:[NSNull class]]) { // found at least one host with active servers on it
                                          NSArray *servers = [[serversType allKeys] sortedArrayUsingSelector:@selector(compare:)];
                                      
                                         // default select first server in the list
-                                        NSString *server = [servers objectAtIndex:0];
-                                        serverInfo = [NSDictionary dictionaryWithObjectsAndKeys:host, @"host", server, @"server", nil ];
+                                        NSString *server = servers[0];
+                                        serverInfo = @{@"host": host, @"server": server};
                                         break;
                                      }
                                  }
                                  
                                  if (serverInfo == nil) {
-                                     serverInfo = [NSDictionary dictionaryWithObjectsAndKeys:host, @"host", @"", @"server", nil ];
+                                     serverInfo = @{@"host": host, @"server": @""};
                                      
                                      UIAlertView *oops = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                                                     message:@"No active servers found on any host! Please start a server!"
@@ -427,7 +426,7 @@ typedef NS_ENUM(NSUInteger, JBARuntimeDeploymentDomainRows) {
 - (void)serverChanged:(NSNotification *)notification {
     NSDictionary *server = [notification object];
     
-    [[JBAOperationsManager sharedManager] changeDomainServer:[server objectForKey:@"server"] belongingToHost:[server objectForKey:@"host"]];
+    [[JBAOperationsManager sharedManager] changeDomainServer:server[@"server"] belongingToHost:server[@"host"]];
     
     // to fill the host/server on JBATableRuntimeServerSelectionSection
     [self.tableView reloadData];

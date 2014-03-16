@@ -92,7 +92,7 @@
     
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
-    cell.textLabel.text = [_files objectAtIndex:row];
+    cell.textLabel.text = _files[row];
     cell.accessoryType = (row == oldRow && _lastIndexPath != nil) ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     
     return cell;
@@ -105,7 +105,7 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     
-    NSString *file = [_files objectAtIndex:row];
+    NSString *file = _files[row];
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
@@ -130,7 +130,7 @@
                             } else {
                                 [_files removeObjectAtIndex:row];
                             
-                                [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+                                [tableView deleteRowsAtIndexPaths:@[indexPath] 
                                                  withRowAnimation:UITableViewRowAnimationFade];
                                 
                                 // if the item was already checkmarked
@@ -181,14 +181,14 @@
 }
 
 -(void)upload {
-    NSString *name = [_files objectAtIndex:[_lastIndexPath row]];
+    NSString *name = _files[[_lastIndexPath row]];
 
     NSString *filename = [[[NSFileManager defaultManager] documentsDirectory] stringByAppendingPathComponent:name];
 
     // TODO: this is HACK, for some reason totalBytesExpectedToWrite is doubled during the upload
     // which messes the progress bar indicator
     NSDictionary *fileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:filename error:nil];
-    long long fileSize = 2 * [[fileAttributes objectForKey:NSFileSize] longLongValue];
+    long long fileSize = 2 * [fileAttributes[NSFileSize] longLongValue];
 
     UIActionSheet *yesno = 
         [[UIActionSheet alloc]

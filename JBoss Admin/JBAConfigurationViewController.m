@@ -131,20 +131,20 @@ typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
         {
             MetricInfoCell *metricCell = [MetricInfoCell cellForTableView:tableView];
             
-            NSMutableDictionary *info = [_serverInfo objectForKey:@"server-info"];
+            NSMutableDictionary *info = _serverInfo[@"server-info"];
             
             switch (row) {
                 case JBAConfTableSecCodeNameRow:
                     metricCell.metricNameLabel.text = @"Code Name";
-                    metricCell.metricValueLabel.text = [[info objectForKey:@"release-codename"] cellDisplay];
+                    metricCell.metricValueLabel.text = [info[@"release-codename"] cellDisplay];
                     break;
                 case JBAConfTableSecReleaseVersionRow:
                     metricCell.metricNameLabel.text = @"Release Version";
-                    metricCell.metricValueLabel.text = [[info objectForKey:@"release-version"] cellDisplay];
+                    metricCell.metricValueLabel.text = [info[@"release-version"] cellDisplay];
                     break;
                 case JBAConfTableSecServerStateRow:
                     metricCell.metricNameLabel.text = @"Server State";
-                    metricCell.metricValueLabel.text = [[info objectForKey:@"server-state"] cellDisplay];
+                    metricCell.metricValueLabel.text = [info[@"server-state"] cellDisplay];
                     break;
             }
             metricCell.maxNameWidth = ([@"release-codename" sizeWithFont:metricCell.metricNameLabel.font]).width;
@@ -187,7 +187,7 @@ typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
                 case JBAConfTableSecExtensionsRow:
                 {
                     JBAExtensionsListViewController *extensionsController = [[JBAExtensionsListViewController alloc] initWithStyle:UITableViewStylePlain];
-                    extensionsController.extensions = [_serverInfo objectForKey:@"extensions"];
+                    extensionsController.extensions = _serverInfo[@"extensions"];
 
                     [self.navigationController pushViewController:extensionsController animated:YES];
                 }
@@ -195,7 +195,7 @@ typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
                 case JBAConfTableSecPropertiesRow:
                 {
                     JBAEnvironmentPropertiesListViewController *propertiesController = [[JBAEnvironmentPropertiesListViewController alloc] initWithStyle:UITableViewStylePlain];
-                    propertiesController.properties = [_serverInfo objectForKey:@"properties"];
+                    propertiesController.properties = _serverInfo[@"properties"];
 
                     [self.navigationController pushViewController:propertiesController animated:YES];
                 }

@@ -135,7 +135,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
                 cell = labelCell;
 
             } else {
-                JBAOperationParameter *parameter = [self.operation.parameters objectAtIndex:row];
+                JBAOperationParameter *parameter = (self.operation.parameters)[row];
                 
                 if (parameter.type == BOOLEAN) {
                     ToggleSwitchCell *toggleCell = [ToggleSwitchCell cellForTableView:tableView];
@@ -229,7 +229,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
     // handle the case where the keyboard is open
     // and user clicks Execute
     if (_textFieldBeingEdited != nil) {
-        JBAOperationParameter *parameter = [self.operation.parameters objectAtIndex:_textFieldBeingEdited.tag];
+        JBAOperationParameter *parameter = (self.operation.parameters)[_textFieldBeingEdited.tag];
         parameter.value = _textFieldBeingEdited.text;
 		
         [_textFieldBeingEdited resignFirstResponder];
@@ -240,20 +240,20 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
          self.operation.name, @"operation", nil];
     
     for (NSUInteger i = 0; i < [self.operation.parameters count]; i++) {
-        JBAOperationParameter *parameter = [self.operation.parameters objectAtIndex:i];
+        JBAOperationParameter *parameter = (self.operation.parameters)[i];
 
         // if generic "add" append the name to the path
         if (parameter.isAddParameter) {
             NSMutableArray *newResourcePath = [[NSMutableArray alloc] init];
             
             for (NSUInteger i = 0; i < [self.operation.path count] - 1 /*remove star*/; i++) {
-                [newResourcePath addObject:[self.operation.path objectAtIndex:i]];
+                [newResourcePath addObject:(self.operation.path)[i]];
             }
             
             if (parameter.value != nil)
                 [newResourcePath addObject:parameter.value];
             
-            [params setObject:newResourcePath forKey:@"address"];
+            params[@"address"] = newResourcePath;
             
             continue;
         }
@@ -261,17 +261,17 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         if (parameter.value != nil) {
             if (parameter.type == LIST) {
                  if ([parameter.value count] > 0) // only add the paramater if the list contains items
-                     [params setObject:parameter.value forKey:parameter.name];
+                     params[parameter.name] = parameter.value;
             } else {
-                [params setObject:parameter.value forKey:parameter.name];                
+                params[parameter.name] = parameter.value;                
             }
 
         }
     }
     
     // check if generic add operation already added the address
-    if ([params objectForKey:@"address"] == nil) {
-        [params setObject:(self.operation.path == nil?[NSArray arrayWithObject:@"/"]: self.operation.path) forKey:@"address"];
+    if (params[@"address"] == nil) {
+        params[@"address"] = (self.operation.path == nil?@[@"/"]: self.operation.path);
     }
     
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
@@ -320,7 +320,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         tag = listCell.button.tag;
     }
     
-    JBAOperationParameter *parameter = [self.operation.parameters objectAtIndex:tag];
+    JBAOperationParameter *parameter = (self.operation.parameters)[tag];
     
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ %@", parameter.name, (parameter.required?@" (required)": @"")]
@@ -343,7 +343,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
     
     UIButton *button = (UIButton *)sender;
 
-    JBAOperationParameter *parameter = [self.operation.parameters objectAtIndex:button.tag];
+    JBAOperationParameter *parameter = (self.operation.parameters)[button.tag];
     
     JBAListEditor *listEditorController = [[JBAListEditor alloc] initWithStyle:UITableViewStyleGrouped];
     listEditorController.title = parameter.name;
@@ -367,8 +367,8 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
 - (void)switchValueChanged:(id)sender {
     UISwitch *toggler = (UISwitch *) sender;
     
-    JBAOperationParameter *parameter = [self.operation.parameters objectAtIndex:toggler.tag];
-    parameter.value = [NSNumber numberWithBool:toggler.on];
+    JBAOperationParameter *parameter = (self.operation.parameters)[toggler.tag];
+    parameter.value = @(toggler.on);
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -377,16 +377,16 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    JBAOperationParameter *parameter = [self.operation.parameters objectAtIndex:textField.tag];
+    JBAOperationParameter *parameter = (self.operation.parameters)[textField.tag];
 
     if ([textField.text isEqualToString:@""]) {
         parameter.value = nil; // set to nil so the parameter is not submitted to the server (see save())
     } else {
         // convert to numbers if required
         if (parameter.type == INT || parameter.type == LONG || parameter.type == BIG_INTEGER)
-            parameter.value = [NSNumber numberWithLongLong:[textField.text longLongValue]];
+            parameter.value = @([textField.text longLongValue]);
         else if (parameter.type == DOUBLE || parameter.type == BIG_DECIMAL)
-            parameter.value = [NSNumber numberWithDouble:[textField.text doubleValue]];
+            parameter.value = @([textField.text doubleValue]);
         else if (parameter.type == OBJECT) { // TODO: better handling
             id value = [textField.text objectFromJSONString];
 

@@ -57,8 +57,8 @@
 
     SubtitleCell *cell = [SubtitleCell cellForTableView:tableView];
     
-    NSString *key = [_keys objectAtIndex:row];
-    NSString *value = [self.properties objectForKey:key];
+    NSString *key = _keys[row];
+    NSString *value = (self.properties)[key];
 
     cell.textLabel.text = key;
     cell.detailTextLabel.text = value;

@@ -91,10 +91,10 @@
         button = (UIButton *)cell.accessoryView;
     }
     
-    NSString *serverName = [_names objectAtIndex:row];
-    NSMutableDictionary *serverInfo = [_servers objectForKey:serverName];
+    NSString *serverName = _names[row];
+    NSMutableDictionary *serverInfo = _servers[serverName];
     
-    if ([[serverInfo objectForKey:@"status"] isEqualToString:@"STARTED"]) {
+    if ([serverInfo[@"status"] isEqualToString:@"STARTED"]) {
         cell.imageView.image = [UIImage imageNamed:@"up.png"];
         
         UIImage *buttonDisableImage = [UIImage imageNamed:@"disable.png"];
@@ -104,9 +104,9 @@
         
         cell.selectionStyle = UITableViewCellSelectionStyleBlue;
         
-    } else if (  [[serverInfo objectForKey:@"status"] isEqualToString:@"DISABLED"]
-              || [[serverInfo objectForKey:@"status"] isEqualToString:@"STOPPED"]
-              || [[serverInfo objectForKey:@"status"] isEqualToString:@"FAILED"] ) {
+    } else if (  [serverInfo[@"status"] isEqualToString:@"DISABLED"]
+              || [serverInfo[@"status"] isEqualToString:@"STOPPED"]
+              || [serverInfo[@"status"] isEqualToString:@"FAILED"] ) {
         cell.imageView.image = [UIImage imageNamed:@"down.png"];   
         
         UIImage *buttonEnableImage = [UIImage imageNamed:@"enable.png"];
@@ -115,15 +115,15 @@
         [button addTarget:self action:@selector(enableDisableButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;        
-    } else if (  [[serverInfo objectForKey:@"status"] isEqualToString:@"STARTING"]
-              || [[serverInfo objectForKey:@"status"] isEqualToString:@"STOPPING"]) {
+    } else if (  [serverInfo[@"status"] isEqualToString:@"STARTING"]
+              || [serverInfo[@"status"] isEqualToString:@"STOPPING"]) {
         cell.imageView.image = [UIImage imageNamed:@"down.png"];   
         cell.accessoryView = nil;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;        
     }
 
     cell.textLabel.text = serverName;
-    cell.detailTextLabel.text = [serverInfo objectForKey:@"group"];
+    cell.detailTextLabel.text = serverInfo[@"group"];
     
     return cell;
 }
@@ -132,19 +132,19 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
      NSUInteger row = [indexPath row];
 
-    NSString *serverName = [_names objectAtIndex:row];
-    NSMutableDictionary *serverInfo = [_servers objectForKey:serverName];
+    NSString *serverName = _names[row];
+    NSMutableDictionary *serverInfo = _servers[serverName];
     
     // TODO: better handling for this status
-    if ( [[serverInfo objectForKey:@"status"] isEqualToString:@"DISABLED"]
-        ||[[serverInfo objectForKey:@"status"] isEqualToString:@"STOPPED"]
-        ||[[serverInfo objectForKey:@"status"] isEqualToString:@"STARTING"]
-        ||[[serverInfo objectForKey:@"status"] isEqualToString:@"STOPPING"])
+    if ( [serverInfo[@"status"] isEqualToString:@"DISABLED"]
+        ||[serverInfo[@"status"] isEqualToString:@"STOPPED"]
+        ||[serverInfo[@"status"] isEqualToString:@"STARTING"]
+        ||[serverInfo[@"status"] isEqualToString:@"STOPPING"])
         return;
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    NSDictionary *server = [NSDictionary dictionaryWithObjectsAndKeys:self.belongingHost, @"host", serverName, @"server", nil ];
+    NSDictionary *server = @{@"host": self.belongingHost, @"server": serverName};
     
     [self dismissViewControllerAnimated:YES completion:nil];
     
@@ -187,8 +187,8 @@
     
     BOOL start = [senderButton.currentTitle isEqualToString:@"Start"];
     
-    NSString *serverName = [_names objectAtIndex:buttonRow];
-    NSMutableDictionary *serverInfo = [_servers objectForKey:serverName];    
+    NSString *serverName = _names[buttonRow];
+    NSMutableDictionary *serverInfo = _servers[serverName];    
     
     UIActionSheet *yesno = [[UIActionSheet alloc]
                             initWithTitle:[NSString stringWithFormat:@"Are you sure you want to %@ \"%@\"", (start ? @"Start ": @"Stop "), serverName]

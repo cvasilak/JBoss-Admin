@@ -106,12 +106,12 @@ static JBAOperationsManager *sharedManager;
             [errorMsg appendString:key]; // summary error
             [errorMsg appendString:@"\n"];            
             
-            NSMutableDictionary *errSteps = [obj objectForKey:key];
+            NSMutableDictionary *errSteps = obj[key];
             
             for (NSString *errStepKey in [errSteps allKeys]) {
                 [errorMsg appendString:errStepKey];
                 [errorMsg appendString:@"\n"];
-                [errorMsg appendString:[errSteps objectForKey:errStepKey]];
+                [errorMsg appendString:errSteps[errStepKey]];
                 [errorMsg appendString:@"\n"];                
             }
         }
@@ -154,7 +154,7 @@ static JBAOperationsManager *sharedManager;
                }
 
                // check if its a valid JBoss JSON response 
-               if ([JSON objectForKey:@"outcome"] == nil) { 
+               if (JSON[@"outcome"] == nil) { 
                    if (failure)
                        failure([self createError:@"Invalid response received from server!"]);
                    
@@ -164,15 +164,15 @@ static JBAOperationsManager *sharedManager;
                 // do an initial process of JSON. Some methods require the full response
                 // so by passing false we give them the full response
                if (process) {
-                   if ([[JSON objectForKey:@"outcome"] isEqualToString:@"success"]) {
+                   if ([JSON[@"outcome"] isEqualToString:@"success"]) {
                        if (success)
-                           success([JSON objectForKey:@"result"]);
+                           success(JSON[@"result"]);
                    } else {
                        if (failure) {
-                           id err = [JSON objectForKey:@"failure-description"];
+                           id err = JSON[@"failure-description"];
                            
                            if ([err isKindOfClass:[NSMutableDictionary class]]) // handle domain errors
-                               failure([self createError:[err objectForKey:@"domain-failure-description"]]);                                              
+                               failure([self createError:err[@"domain-failure-description"]]);                                              
                            else
                                failure([self createError:err]);
                        }
@@ -229,7 +229,7 @@ static JBAOperationsManager *sharedManager;
         }
 
         // if the address is the root don't append it
-        if (![[address objectAtIndex:0] isEqualToString:@"/"])
+        if (![address[0] isEqualToString:@"/"])
             [convAddress addObjectsFromArray:address];
         
         return convAddress;
@@ -245,9 +245,8 @@ static JBAOperationsManager *sharedManager;
                                 andFailure:(void (^)(NSError *error))failure {
     
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-attribute", @"operation",
-         @"management-major-version", @"name", nil];
+        @{@"operation": @"read-attribute",
+         @"name": @"management-major-version"};
     
     [self postJBossRequestWithParams:params
                              success:^(NSNumber *version) {
@@ -264,9 +263,8 @@ static JBAOperationsManager *sharedManager;
                         andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-attribute", @"operation",
-         @"launch-type", @"name", nil];
+        @{@"operation": @"read-attribute",
+         @"name": @"launch-type"};
     
     [self postJBossRequestWithParams:params
                              success:^(NSString *launchType) {
@@ -281,9 +279,8 @@ static JBAOperationsManager *sharedManager;
                             andFailure:(void (^)(NSError *error))failure {
     
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-names", @"operation",
-         @"host", @"child-type", nil];
+        @{@"operation": @"read-children-names",
+         @"child-type": @"host"};
 
     [self postJBossRequestWithParams:params
                              success:^(NSArray *hosts) {
@@ -297,9 +294,8 @@ static JBAOperationsManager *sharedManager;
 - (void)fetchDomainGroupInfoWithSuccess:(void (^)(NSMutableDictionary *groups))success
                              andFailure:(void (^)(NSError *error))failure {
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-resources", @"operation",
-         @"server-group", @"child-type", nil];
+        @{@"operation": @"read-children-resources",
+         @"child-type": @"server-group"};
 
     [self postJBossRequestWithParams:params
                              success:^(NSMutableDictionary *groups) {
@@ -316,11 +312,10 @@ static JBAOperationsManager *sharedManager;
                                andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-resources", @"operation",
-         [NSArray arrayWithObjects:@"host", name, nil], @"address",     
-         @"server-config", @"child-type",
-         [NSNumber numberWithBool:YES], @"include-runtime", nil];
+        @{@"operation": @"read-children-resources",
+         @"address": @[@"host", name],     
+         @"child-type": @"server-config",
+         @"include-runtime": @YES};
 
     [self postJBossRequestWithParams:params
                              success:^(NSDictionary *servers) {
@@ -337,10 +332,9 @@ static JBAOperationsManager *sharedManager;
                            andFailure:(void (^)(NSError *error))failure {
     
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         (status ? @"start": @"stop"), @"operation",
-         [NSArray arrayWithObjects:@"host", host, @"server-config", name, nil], @"address",
-         [NSNumber numberWithBool:YES], @"blocking", nil];
+        @{@"operation": (status ? @"start": @"stop"),
+         @"address": @[@"host", host, @"server-config", name],
+         @"blocking": @YES};
     
     [self postJBossRequestWithParams:params
                              success:^(NSString *result) {
@@ -357,10 +351,9 @@ static JBAOperationsManager *sharedManager;
 
     
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-resources", @"operation",
-         [self prefixAddressWithDomainGroup:group address:[NSArray arrayWithObject:@"/"]], @"address",
-         @"deployment", @"child-type", nil];
+        @{@"operation": @"read-children-resources",
+         @"address": [self prefixAddressWithDomainGroup:group address:@[@"/"]],
+         @"child-type": @"deployment"};
     
     [self postJBossRequestWithParams:params
                              success:^(NSMutableDictionary *deployments) {
@@ -378,9 +371,8 @@ static JBAOperationsManager *sharedManager;
                                          andFailure:(void (^)(NSError *error))failure {
     
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         (enable ? @"deploy": @"undeploy"), @"operation",
-         [self prefixAddressWithDomainGroup:group address:[NSArray arrayWithObjects:@"deployment", name, nil]], @"address", nil];
+        @{@"operation": (enable ? @"deploy": @"undeploy"),
+         @"address": [self prefixAddressWithDomainGroup:group address:@[@"deployment", name]]};
     
     [self postJBossRequestWithParams:params
                              success:^(id result) {
@@ -397,9 +389,8 @@ static JBAOperationsManager *sharedManager;
                       andFailure:(void (^)(NSError *error))failure {
     
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"remove", @"operation",
-         [self prefixAddressWithDomainGroup:group address:[NSArray arrayWithObjects:@"deployment", name, nil]], @"address", nil];
+        @{@"operation": @"remove",
+         @"address": [self prefixAddressWithDomainGroup:group address:@[@"deployment", name]]};
     
     [self postJBossRequestWithParams:params
                              success:^(id result) {
@@ -423,15 +414,15 @@ static JBAOperationsManager *sharedManager;
       uploadProgress:uploadProgress
           parameters:nil 
            success:^(AFHTTPRequestOperation *operation, id JSON) {
-               if ([[JSON objectForKey:@"outcome"] isEqualToString:@"success"]) {
+               if ([JSON[@"outcome"] isEqualToString:@"success"]) {
                    // inform client with content hash
-                   success([[JSON objectForKey:@"result"] objectForKey:@"BYTES_VALUE"]);
+                   success(JSON[@"result"][@"BYTES_VALUE"]);
                } else {
                    if (failure) {
                        if (_isDomainController)
-                           failure([self createError:[[JSON objectForKey:@"failure-description"] objectForKey:@"domain-failure-description"]]);                                              
+                           failure([self createError:JSON[@"failure-description"][@"domain-failure-description"]]);                                              
                        else
-                           failure([self createError:[JSON objectForKey:@"failure-description"]]);
+                           failure([self createError:JSON[@"failure-description"]]);
                    }
                }
            }
@@ -450,18 +441,18 @@ static JBAOperationsManager *sharedManager;
     
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     
-    [params setObject:@"add" forKey:@"operation"];
-    [params setObject:[NSArray arrayWithObjects:@"deployment", name, nil] forKey:@"address"];
-    [params setObject:name forKey:@"name"];
-    [params setObject:runtimeName forKey:@"runtime-name"];
+    params[@"operation"] = @"add";
+    params[@"address"] = @[@"deployment", name];
+    params[@"name"] = name;
+    params[@"runtime-name"] = runtimeName;
     
     NSMutableDictionary *BYTES_VALUE = [NSMutableDictionary dictionary];
-    [BYTES_VALUE setObject:deploymentHash forKey:@"BYTES_VALUE"];
+    BYTES_VALUE[@"BYTES_VALUE"] = deploymentHash;
     
     NSMutableDictionary *HASH = [NSMutableDictionary dictionary];
-    [HASH setObject:BYTES_VALUE forKey:@"hash"];
+    HASH[@"hash"] = BYTES_VALUE;
     
-    [params setObject:[NSArray arrayWithObjects:HASH, nil] forKey:@"content"];
+    params[@"content"] = @[HASH];
 
     [self postJBossRequestWithParams:params
                              success:^(id result) {
@@ -486,34 +477,32 @@ static JBAOperationsManager *sharedManager;
         NSMutableDictionary *groupParams;
         groupParams = [NSMutableDictionary dictionary];
         
-        [groupParams setObject:@"add" forKey:@"operation"];
-        [groupParams setObject:[self prefixAddressWithDomainGroup:group address:[NSArray arrayWithObjects:@"deployment", name, nil]] forKey:@"address"];
-        [groupParams setObject:name forKey:@"name"];
+        groupParams[@"operation"] = @"add";
+        groupParams[@"address"] = [self prefixAddressWithDomainGroup:group address:@[@"deployment", name]];
+        groupParams[@"name"] = name;
         //[params setObject:runtimeName forKey:@"runtime-name"];
         
         NSMutableDictionary *BYTES_VALUE = [NSMutableDictionary dictionary];
-        [BYTES_VALUE setObject:deploymentHash forKey:@"BYTES_VALUE"];
+        BYTES_VALUE[@"BYTES_VALUE"] = deploymentHash;
         
         NSMutableDictionary *HASH = [NSMutableDictionary dictionary];
-        [HASH setObject:BYTES_VALUE forKey:@"hash"];
+        HASH[@"hash"] = BYTES_VALUE;
         
-        [groupParams setObject:[NSArray arrayWithObjects:HASH, nil] forKey:@"content"];
+        groupParams[@"content"] = @[HASH];
         
         [steps addObject:groupParams];
         
         if (enable) {
-            NSDictionary *enableParams = [NSDictionary dictionaryWithObjectsAndKeys:
-                      @"deploy", @"operation",
-                      [self prefixAddressWithDomainGroup:group address:[NSArray arrayWithObjects:@"deployment", name, nil]], @"address", nil];
+            NSDictionary *enableParams = @{@"operation": @"deploy",
+                      @"address": [self prefixAddressWithDomainGroup:group address:@[@"deployment", name]]};
             
             [steps addObject:enableParams];
         }
     }
     
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"composite", @"operation",
-         steps, @"steps", nil];
+        @{@"operation": @"composite",
+         @"steps": steps};
     
     [self postJBossRequestWithParams:params
                              success:^(NSMutableDictionary *JSON) {
@@ -528,35 +517,31 @@ static JBAOperationsManager *sharedManager;
                            andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *memoryParams =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"core-service", @"platform-mbean", @"type", @"memory", nil]], @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime", nil];
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"core-service", @"platform-mbean", @"type", @"memory"]],
+         @"include-runtime": @YES};
 
     NSDictionary *threadingParams =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"core-service", @"platform-mbean", @"type", @"threading", nil]], @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime", nil];
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"core-service", @"platform-mbean", @"type", @"threading"]],
+         @"include-runtime": @YES};
 
     NSDictionary *os =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"core-service", @"platform-mbean", @"type", @"operating-system", nil]], @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime", nil];
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"core-service", @"platform-mbean", @"type", @"operating-system"]],
+         @"include-runtime": @YES};
 
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"composite", @"operation",
-         [NSArray arrayWithObjects:memoryParams, threadingParams, os, nil], @"steps", nil];
+        @{@"operation": @"composite",
+         @"steps": @[memoryParams, threadingParams, os]};
 
     [self postJBossRequestWithParams:params
                              success:^(NSMutableDictionary *JSON) {
                                  NSMutableDictionary *metrics = [NSMutableDictionary dictionary];
                                  
-                                 [metrics setObject:[[JSON objectForKey:@"step-1"] objectForKey:@"result"] forKey:@"memory"];
-                                 [metrics setObject:[[JSON objectForKey:@"step-2"] objectForKey:@"result"] forKey:@"threading"];
-                                 [metrics setObject:[[JSON objectForKey:@"step-3"] objectForKey:@"result"] forKey:@"os"];
+                                 metrics[@"memory"] = JSON[@"step-1"][@"result"];
+                                 metrics[@"threading"] = JSON[@"step-2"][@"result"];
+                                 metrics[@"os"] = JSON[@"step-3"][@"result"];
 
                                  success(metrics);
                                  
@@ -571,11 +556,10 @@ static JBAOperationsManager *sharedManager;
                               andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-names", @"operation",
-         (type == QUEUE? @"jms-queue": @"jms-topic"), @"child-type",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"messaging",
-          @"hornetq-server", @"default", nil]], @"address", nil];
+        @{@"operation": @"read-children-names",
+         @"child-type": (type == QUEUE? @"jms-queue": @"jms-topic"),
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"messaging",
+          @"hornetq-server", @"default"]]};
     
     [self postJBossRequestWithParams:params
                              success:^(NSMutableArray *list) {
@@ -592,13 +576,12 @@ static JBAOperationsManager *sharedManager;
                     andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"messaging",
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"messaging",
           @"hornetq-server", @"default",
           (type == QUEUE? @"jms-queue": @"jms-topic"),
-          name, nil]], @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime",nil];                            
+          name]],
+         @"include-runtime": @YES};                            
     
     [self postJBossRequestWithParams:params
                              success:^(NSMutableDictionary *metrics) {
@@ -613,29 +596,25 @@ static JBAOperationsManager *sharedManager;
                              andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *datasources =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-resources", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"datasources", nil]], @"address",
-         @"data-source", @"child-type", nil];
+        @{@"operation": @"read-children-resources",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"datasources"]],
+         @"child-type": @"data-source"};
     
     NSDictionary *xadatasources =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-resources", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"datasources", nil]], @"address",
-         @"xa-data-source", @"child-type", nil];
+        @{@"operation": @"read-children-resources",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"datasources"]],
+         @"child-type": @"xa-data-source"};
     
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"composite", @"operation",
-         [NSArray arrayWithObjects:datasources, xadatasources, nil], @"steps",
-         nil];
+        @{@"operation": @"composite",
+         @"steps": @[datasources, xadatasources]};
     
     [self postJBossRequestWithParams:params
                              success:^(NSDictionary *JSON) {
                                  NSMutableDictionary *list = [NSMutableDictionary dictionary];
 
-                                 [list addEntriesFromDictionary:[[JSON objectForKey:@"step-1"] objectForKey:@"result"]];
-                                 [list addEntriesFromDictionary:[[JSON objectForKey:@"step-2"] objectForKey:@"result"]];
+                                 [list addEntriesFromDictionary:JSON[@"step-1"][@"result"]];
+                                 [list addEntriesFromDictionary:JSON[@"step-2"][@"result"]];
                                  
                                  success(list);
                                  
@@ -651,34 +630,31 @@ static JBAOperationsManager *sharedManager;
                            andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *pool =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"datasources",
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"datasources",
           (type == XADataSource? @"xa-data-source": @"data-source"),
           name,
-          @"statistics", @"pool", nil]], @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime", nil];
+          @"statistics", @"pool"]],
+         @"include-runtime": @YES};
 
     NSDictionary *jdbc =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"datasources",
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"datasources",
           (type == XADataSource? @"xa-data-source": @"data-source"),
           name,
-          @"statistics", @"jdbc", nil]], @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime", nil];
+          @"statistics", @"jdbc"]],
+         @"include-runtime": @YES};
 
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"composite", @"operation",
-         [NSArray arrayWithObjects:pool, jdbc, nil], @"steps", nil];
+        @{@"operation": @"composite",
+         @"steps": @[pool, jdbc]};
     
     [self postJBossRequestWithParams:params
                              success:^(NSDictionary *JSON) {
                                  NSMutableDictionary *metrics = [NSMutableDictionary dictionary];
                                  
-                                 [metrics addEntriesFromDictionary:[[JSON objectForKey:@"step-1"] objectForKey:@"result"]];
-                                 [metrics addEntriesFromDictionary:[[JSON objectForKey:@"step-2"] objectForKey:@"result"]];
+                                 [metrics addEntriesFromDictionary:JSON[@"step-1"][@"result"]];
+                                 [metrics addEntriesFromDictionary:JSON[@"step-2"][@"result"]];
                                  
                                  success(metrics);
                                  
@@ -691,10 +667,9 @@ static JBAOperationsManager *sharedManager;
 - (void)fetchTransactionMetricsWithSuccess:(void (^)(NSDictionary *metrics))success
                                 andFailure:(void (^)(NSError *error))failure {
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"transactions", nil]], @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime",nil];                            
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"transactions"]],
+         @"include-runtime": @YES};                            
     
     [self postJBossRequestWithParams:params
                              success:^(NSDictionary *metrics) {
@@ -709,10 +684,9 @@ static JBAOperationsManager *sharedManager;
                                andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-names", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"web", nil]], @"address", 
-         @"connector", @"child-type",nil];
+        @{@"operation": @"read-children-names",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"web"]], 
+         @"child-type": @"connector"};
     
     [self postJBossRequestWithParams:params
                              success:^(NSMutableArray *list) {
@@ -728,11 +702,9 @@ static JBAOperationsManager *sharedManager;
                              andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-resource", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"subsystem", @"web", @"connector", name, nil]]
-         , @"address",
-         [NSNumber numberWithBool:YES], @"include-runtime", nil];                            
+        @{@"operation": @"read-resource",
+         @"address": [self prefixAddressWithDomainServer:@[@"subsystem", @"web", @"connector", name]],
+         @"include-runtime": @YES};                            
     
     [self postJBossRequestWithParams:params
                              success:^(NSMutableDictionary *metrics) {
@@ -747,36 +719,32 @@ static JBAOperationsManager *sharedManager;
                         andFailure:(void (^)(NSError *error))failure {
 
     NSDictionary *serverinfo = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-            @"read-resource", @"operation",
-            [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"/", nil]], @"address",
-            [NSNumber numberWithBool:YES], @"include-runtime", nil];                            
+        @{@"operation": @"read-resource",
+            @"address": [self prefixAddressWithDomainServer:@[@"/"]],
+            @"include-runtime": @YES};                            
 
     NSDictionary *extensions = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-children-names", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"/", nil]], @"address",         
-         @"extension", @"child-type", nil];
+        @{@"operation": @"read-children-names",
+         @"address": [self prefixAddressWithDomainServer:@[@"/"]],         
+         @"child-type": @"extension"};
 
     NSDictionary *properties = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-attribute", @"operation",
-         [self prefixAddressWithDomainServer:[NSArray arrayWithObjects:@"core-service", @"platform-mbean", @"type", @"runtime", nil]], @"address",         
-         @"system-properties", @"name", nil];
+        @{@"operation": @"read-attribute",
+         @"address": [self prefixAddressWithDomainServer:@[@"core-service", @"platform-mbean", @"type", @"runtime"]],         
+         @"name": @"system-properties"};
 
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"composite", @"operation",
-         [NSArray arrayWithObjects:serverinfo, extensions, properties, nil], @"steps", nil];
+        @{@"operation": @"composite",
+         @"steps": @[serverinfo, extensions, properties]};
 
  
     [self postJBossRequestWithParams:params
                              success:^(NSMutableDictionary *JSON) {
                                  NSMutableDictionary *info = [NSMutableDictionary dictionary];
                                  
-                                 [info setObject:[[JSON objectForKey:@"step-1"] objectForKey:@"result"] forKey:@"server-info"];
-                                 [info setObject:[[JSON objectForKey:@"step-2"] objectForKey:@"result"] forKey:@"extensions"];
-                                 [info setObject:[[JSON objectForKey:@"step-3"] objectForKey:@"result"] forKey:@"properties"];                                 
+                                 info[@"server-info"] = JSON[@"step-1"][@"result"];
+                                 info[@"extensions"] = JSON[@"step-2"][@"result"];
+                                 info[@"properties"] = JSON[@"step-3"][@"result"];                                 
                                  
                                  success(info);
 

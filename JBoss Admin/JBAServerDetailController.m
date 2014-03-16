@@ -41,14 +41,14 @@
 - (void)viewDidLoad {
     DLog(@"JBAServerDetailController viewDidLoad");
     
-    _fieldLabels = [[NSArray alloc] initWithObjects:@"Name", @"Hostname", @"Port",  @"Use SSL", @"Username", @"Password", nil];
+    _fieldLabels = @[@"Name", @"Hostname", @"Port",  @"Use SSL", @"Username", @"Password"];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancel)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Save" style:UIBarButtonItemStyleDone target:self action:@selector(save)];
     
     _tempValues = [[NSMutableDictionary alloc] init];
     
     if (self.server == nil) { // new server
-        [_tempValues setObject:@"9990" forKey:[NSNumber numberWithInt:kServerPortRowIndex]];
+        _tempValues[@kServerPortRowIndex] = @"9990";
     }
     
 	[super viewDidLoad];    
@@ -143,48 +143,48 @@
         }
 	}
 	
-	label.text = [_fieldLabels objectAtIndex:row];
-	NSNumber *rowAsNum = [NSNumber numberWithInteger:row];
+	label.text = _fieldLabels[row];
+	NSNumber *rowAsNum = @(row);
 	
 	switch (row) {
 		case kServerNameRowIndex:
 			if ([[_tempValues allKeys] containsObject:rowAsNum])
-				textField.text = [_tempValues objectForKey:rowAsNum];
+				textField.text = _tempValues[rowAsNum];
 			else
 				textField.text = self.server.name;
 			
 			break;
 		case kServerHostnameRowIndex:
 			if ([[_tempValues allKeys] containsObject:rowAsNum])
-				textField.text = [_tempValues objectForKey:rowAsNum];
+				textField.text = _tempValues[rowAsNum];
 			else
 				textField.text = self.server.hostname;
 			
 			break;
 		case kServerPortRowIndex:
 			if ([[_tempValues allKeys] containsObject:rowAsNum])
-				textField.text = [_tempValues objectForKey:rowAsNum];
+				textField.text = _tempValues[rowAsNum];
 			else
 				textField.text = self.server.port;
 			
 			break;
 		case kServerUseSSLRowIndex:
 			if ([[_tempValues allKeys] containsObject:rowAsNum])
-				toggler.on = [[_tempValues objectForKey:rowAsNum] boolValue];
+				toggler.on = [_tempValues[rowAsNum] boolValue];
 			else
 				toggler.on = self.server.isSSLSecured;
 			
 			break;
 		case kServerUsernameRowIndex:
 			if ([[_tempValues allKeys] containsObject:rowAsNum])
-				textField.text = [_tempValues objectForKey:rowAsNum];
+				textField.text = _tempValues[rowAsNum];
 			else
 				textField.text = self.server.username;
 			
 			break;
 		case kServerPasswordRowIndex:
 			if ([[_tempValues allKeys] containsObject:rowAsNum])
-				textField.text = [_tempValues objectForKey:rowAsNum];
+				textField.text = _tempValues[rowAsNum];
 			else
 				textField.text = self.server.password;
             
@@ -209,8 +209,8 @@
 - (void)switchValueChanged: (id)sender {
     UISwitch *toggler = (UISwitch *) sender;
 
-	NSNumber *tagAsNum = [NSNumber numberWithInteger:toggler.tag];
-	[_tempValues setObject:[NSNumber numberWithBool:toggler.on] forKey:tagAsNum];
+	NSNumber *tagAsNum = @(toggler.tag);
+	_tempValues[tagAsNum] = @(toggler.on);
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -219,12 +219,12 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-	NSNumber *tagAsNum = [NSNumber numberWithInteger:textField.tag];
+	NSNumber *tagAsNum = @(textField.tag);
 	// textfield.text password is not initialized to '' for password fields
     if (textField.text == nil)
         return;
     
-    [_tempValues setObject:textField.text forKey:tagAsNum];
+    _tempValues[tagAsNum] = textField.text;
 }
 
 - (void)textFieldDone:(id)sender {
@@ -253,8 +253,8 @@
 #pragma mark - Action Methods
 - (void)save {
 	if (_textFieldBeingEdited != nil) {
-		NSNumber *tagAsNum = [NSNumber numberWithInteger:_textFieldBeingEdited.tag];
-		[_tempValues setObject:_textFieldBeingEdited.text forKey:tagAsNum];
+		NSNumber *tagAsNum = @(_textFieldBeingEdited.tag);
+		_tempValues[tagAsNum] = _textFieldBeingEdited.text;
 		
         [_textFieldBeingEdited resignFirstResponder];
 	}
@@ -269,22 +269,22 @@
     for (NSNumber *key in [_tempValues allKeys]) {
 		switch ([key intValue]) {
 			case kServerNameRowIndex:
-				theServer.name = [_tempValues objectForKey:key];
+				theServer.name = _tempValues[key];
 				break;
 			case kServerHostnameRowIndex:
-				theServer.hostname = [_tempValues objectForKey:key];
+				theServer.hostname = _tempValues[key];
 				break;
 			case kServerPortRowIndex:
-				theServer.port = [_tempValues objectForKey:key];
+				theServer.port = _tempValues[key];
 				break;
 			case kServerUseSSLRowIndex:
-				theServer.isSSLSecured = [[_tempValues objectForKey:key] boolValue];
+				theServer.isSSLSecured = [_tempValues[key] boolValue];
 				break;
 			case kServerUsernameRowIndex:
-				theServer.username = [_tempValues objectForKey:key];
+				theServer.username = _tempValues[key];
 				break;
 			case kServerPasswordRowIndex:
-				theServer.password = [_tempValues objectForKey:key];
+				theServer.password = _tempValues[key];
 				break;
 			default:
 				break;

@@ -130,15 +130,15 @@ typedef NS_ENUM(NSUInteger, JBADataSourcePreparedStatementPoolUsageRows) {
             switch (row) {
                 case JBADataSourceTableSecAvailableRow:
                     cell.metricNameLabel.text = @"Available";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"AvailableCount"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"AvailableCount"] cellDisplay];
                     break;
                 case JBADataSourceTableSecActiveCountRow:
                     cell.metricNameLabel.text= @"Active Count";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"ActiveCount"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"AvailableCount"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"ActiveCount"] cellDisplayPercentFromTotal:_metrics[@"AvailableCount"] withMBConversion:NO];
                     break;
                 case JBADataSourceTableSecMaxUsedRow:
                     cell.metricNameLabel.text= @"Max Used";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"MaxUsedCount"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"AvailableCount"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"MaxUsedCount"] cellDisplayPercentFromTotal:_metrics[@"AvailableCount"] withMBConversion:NO];
                     break;
             }
             break;
@@ -149,15 +149,15 @@ typedef NS_ENUM(NSUInteger, JBADataSourcePreparedStatementPoolUsageRows) {
             switch (row) {
                 case JBADataSourceCurrentSizeRow:
                     cell.metricNameLabel.text = @"Current Size";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"PreparedStatementCacheCurrentSize"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"PreparedStatementCacheCurrentSize"] cellDisplay];
                     break;
                 case JBADataSourceHitCountRow:
                     cell.metricNameLabel.text = @"Hit Count";                    
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"PreparedStatementCacheHitCount"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"PreparedStatementCacheCurrentSize"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"PreparedStatementCacheHitCount"] cellDisplayPercentFromTotal:_metrics[@"PreparedStatementCacheCurrentSize"] withMBConversion:NO];
                     break;
                 case JBADataSourceMissUsedRow:
                     cell.metricNameLabel.text = @"Miss Used";                    
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"PreparedStatementCacheMissCount"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"PreparedStatementCacheCurrentSize"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"PreparedStatementCacheMissCount"] cellDisplayPercentFromTotal:_metrics[@"PreparedStatementCacheCurrentSize"] withMBConversion:NO];
                     break;
             }
             break;            

@@ -171,7 +171,7 @@
                                         // update server list on disk
                                         [[JBAServersManager sharedJBAServersManager] save];
 
-                                        NSArray *paths = [NSArray arrayWithObject: [NSIndexPath indexPathForRow:row inSection:0]];
+                                        NSArray *paths = @[[NSIndexPath indexPathForRow:row inSection:0]];
                                         [[self tableView] deleteRowsAtIndexPaths:paths withRowAnimation:UITableViewRowAnimationTop];                                    
                                     }
                                 }

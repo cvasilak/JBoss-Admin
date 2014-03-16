@@ -112,9 +112,9 @@ typedef NS_ENUM(NSUInteger, JBAJVMThreadUsageRows) {
             if (_metrics == nil)
                 return @"";
                 
-            NSMutableDictionary *os = [_metrics objectForKey:@"os"];
+            NSMutableDictionary *os = _metrics[@"os"];
             return [NSString stringWithFormat:@"%@ %@ (Processors: %@)",
-                    [os objectForKey:@"name"], [os objectForKey:@"version"], [os objectForKey:@"available-processors"]];
+                    os[@"name"], os[@"version"], os[@"available-processors"]];
         }
         case JBATableMetricHeapUsageSection:
             return @"Heap Usage";
@@ -180,24 +180,24 @@ typedef NS_ENUM(NSUInteger, JBAJVMThreadUsageRows) {
     switch (section) {
         case JBATableMetricHeapUsageSection:
         {
-            NSMutableDictionary *heap = [[_metrics objectForKey:@"memory"] objectForKey:@"heap-memory-usage"];
+            NSMutableDictionary *heap = _metrics[@"memory"][@"heap-memory-usage"];
             
             switch (row) {
                 case JBAJVMTableSecHeapUsageMaxRow:
                     cell.metricNameLabel.text = @"Max";
-                    cell.metricValueLabel.text = [[heap objectForKey:@"max"] cellDisplayMB];
+                    cell.metricValueLabel.text = [heap[@"max"] cellDisplayMB];
                     break;
                 case JBAJVMTableSecHeapUsageUsedRow:
                     cell.metricNameLabel.text = @"Used";
-                    cell.metricValueLabel.text = [[heap objectForKey:@"used"] cellDisplayPercentFromTotal:[heap objectForKey:@"max"] withMBConversion:YES];
+                    cell.metricValueLabel.text = [heap[@"used"] cellDisplayPercentFromTotal:heap[@"max"] withMBConversion:YES];
                     break;
                 case JBAJVMTableSecHeapUsageCommitedRow:
                     cell.metricNameLabel.text = @"Commited";
-                    cell.metricValueLabel.text = [[heap objectForKey:@"committed"] cellDisplayPercentFromTotal:[heap objectForKey:@"max"] withMBConversion:YES];
+                    cell.metricValueLabel.text = [heap[@"committed"] cellDisplayPercentFromTotal:heap[@"max"] withMBConversion:YES];
                     break;
                 case JBAJVMTableSecHeapUsageInitRow:
                     cell.metricNameLabel.text = @"Init";
-                    cell.metricValueLabel.text = [[heap objectForKey:@"init"] cellDisplayPercentFromTotal:[heap objectForKey:@"max"] withMBConversion:YES];
+                    cell.metricValueLabel.text = [heap[@"init"] cellDisplayPercentFromTotal:heap[@"max"] withMBConversion:YES];
                     break;
             }   
             break;
@@ -205,24 +205,24 @@ typedef NS_ENUM(NSUInteger, JBAJVMThreadUsageRows) {
             
         case JBATableMetricNoNHeapUsageSection:
         {
-            NSMutableDictionary *nonheap = [[_metrics objectForKey:@"memory"] objectForKey:@"non-heap-memory-usage"];
+            NSMutableDictionary *nonheap = _metrics[@"memory"][@"non-heap-memory-usage"];
           
             switch (row) {
                 case JBAJVMTableSecHeapUsageMaxRow:
                     cell.metricNameLabel.text = @"Max";
-                    cell.metricValueLabel.text = [[nonheap objectForKey:@"max"] cellDisplayMB];
+                    cell.metricValueLabel.text = [nonheap[@"max"] cellDisplayMB];
                     break;
                 case JBAJVMTableSecHeapUsageUsedRow:
                     cell.metricNameLabel.text = @"Used";                    
-                    cell.metricValueLabel.text = [[nonheap objectForKey:@"used"] cellDisplayPercentFromTotal:[nonheap objectForKey:@"max"] withMBConversion:YES];
+                    cell.metricValueLabel.text = [nonheap[@"used"] cellDisplayPercentFromTotal:nonheap[@"max"] withMBConversion:YES];
                     break;
                 case JBAJVMTableSecHeapUsageCommitedRow:
                     cell.metricNameLabel.text = @"Commited";                    
-                    cell.metricValueLabel.text = [[nonheap objectForKey:@"committed"] cellDisplayPercentFromTotal:[nonheap objectForKey:@"max"] withMBConversion:YES];
+                    cell.metricValueLabel.text = [nonheap[@"committed"] cellDisplayPercentFromTotal:nonheap[@"max"] withMBConversion:YES];
                     break;
                 case JBAJVMTableSecHeapUsageInitRow:
                     cell.metricNameLabel.text = @"Init";                    
-                    cell.metricValueLabel.text = [[nonheap objectForKey:@"init"] cellDisplayPercentFromTotal:[nonheap objectForKey:@"max"] withMBConversion:YES];
+                    cell.metricValueLabel.text = [nonheap[@"init"] cellDisplayPercentFromTotal:nonheap[@"max"] withMBConversion:YES];
                     break;
             }
             break;            
@@ -230,16 +230,16 @@ typedef NS_ENUM(NSUInteger, JBAJVMThreadUsageRows) {
         
         case JBATableMetricThreadUsageSection:
         {
-            NSMutableDictionary *threading = [_metrics objectForKey:@"threading"];
+            NSMutableDictionary *threading = _metrics[@"threading"];
 
             switch (row) {
                 case JBAJVMTableSecThreadUsageLiveRow:
                     cell.metricNameLabel.text = @"Live";
-                    cell.metricValueLabel.text = [[threading objectForKey:@"thread-count"] cellDisplay];
+                    cell.metricValueLabel.text = [threading[@"thread-count"] cellDisplay];
                     break;
                 case JBAJVMTableSecThreadUsageDaemonRow:
                     cell.metricNameLabel.text = @"Daemon";                    
-                    cell.metricValueLabel.text = [[threading objectForKey:@"daemon-thread-count"] cellDisplayPercentFromTotal:[threading objectForKey:@"thread-count"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [threading[@"daemon-thread-count"] cellDisplayPercentFromTotal:threading[@"thread-count"] withMBConversion:NO];
                     break;
             }
             break;

@@ -76,7 +76,7 @@
     
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
 
-    cell.textLabel.text = [_queues objectAtIndex:row];
+    cell.textLabel.text = _queues[row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;    
     
     return cell;
@@ -87,7 +87,7 @@
     NSUInteger row = [indexPath row];
     
     JBAJMSQueueMetricsViewController *queueMetricsController = [[JBAJMSQueueMetricsViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    queueMetricsController.queue = [_queues objectAtIndex:row];
+    queueMetricsController.queue = _queues[row];
     
     [self.navigationController pushViewController:queueMetricsController animated:YES];
 

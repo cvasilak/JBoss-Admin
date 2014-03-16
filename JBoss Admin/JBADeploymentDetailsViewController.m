@@ -45,7 +45,7 @@
 - (void)viewDidLoad {
     DLog(@"JBADeploymentDetailsViewController viewDidLoad");
  
-    _fieldLabels = [[NSArray alloc] initWithObjects:@"Key", @"Name", @"Runtime Name", nil];
+    _fieldLabels = @[@"Key", @"Name", @"Runtime Name"];
     _tempValues = [[NSMutableDictionary alloc] init];
     
     self.title = @"Step 2/2: Verify";
@@ -75,7 +75,7 @@
     
     EditCell *editCell = [EditCell cellForTableView:tableView];                
 
-	editCell.label.text = [_fieldLabels objectAtIndex:row];
+	editCell.label.text = _fieldLabels[row];
 	NSNumber *rowAsNum = [NSNumber numberWithInteger:row];
 	
     switch (row) {
@@ -83,14 +83,14 @@
             editCell.txtField.enabled = NO;
             
             if ([[_tempValues allKeys] containsObject:rowAsNum])
-                editCell.txtField.text = [_tempValues objectForKey:rowAsNum];
+                editCell.txtField.text = _tempValues[rowAsNum];
             else
                 editCell.txtField.text = self.deploymentHash;
             break;
         case kDeploymentNameRowIndex:
             editCell.txtField.enabled = YES;            
             if ([[_tempValues allKeys] containsObject:rowAsNum])
-                editCell.txtField.text = [_tempValues objectForKey:rowAsNum];
+                editCell.txtField.text = _tempValues[rowAsNum];
             else
                 editCell.txtField.text = self.deploymentName;
             break;
@@ -98,7 +98,7 @@
             editCell.txtField.enabled = YES;            
             
             if ([[_tempValues allKeys] containsObject:rowAsNum])            
-                editCell.txtField.text = [_tempValues objectForKey:rowAsNum];
+                editCell.txtField.text = _tempValues[rowAsNum];
             else
                 editCell.txtField.text = self.deploymentRuntimeName;
             break;
@@ -120,8 +120,8 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-	NSNumber *tagAsNum = [NSNumber numberWithInteger:textField.tag];
-	[_tempValues setObject:textField.text forKey:tagAsNum];
+	NSNumber *tagAsNum = @(textField.tag);
+	_tempValues[tagAsNum] = textField.text;
 }
 
 - (void)textFieldDone:(id)sender {
@@ -131,32 +131,32 @@
 #pragma mark - Action Calls
 - (void)finish {
 	if (_textFieldBeingEdited != nil) {
-		NSNumber *tagAsNum = [NSNumber numberWithInteger:_textFieldBeingEdited.tag];
-		[_tempValues setObject:_textFieldBeingEdited.text forKey:tagAsNum];
+		NSNumber *tagAsNum = @(_textFieldBeingEdited.tag);
+		_tempValues[tagAsNum] = _textFieldBeingEdited.text;
 		
         [_textFieldBeingEdited resignFirstResponder];
 	}
 
     NSMutableDictionary *deploymentInfo = [[NSMutableDictionary alloc] init];
-    [deploymentInfo setObject:self.deploymentName forKey:@"name"];
-    [deploymentInfo setObject:self.deploymentName forKey:@"runtime-name"];
+    deploymentInfo[@"name"] = self.deploymentName;
+    deploymentInfo[@"runtime-name"] = self.deploymentName;
   
     // construct hash
     NSMutableDictionary *BYTES_VALUE = [NSMutableDictionary dictionary];
-    [BYTES_VALUE setObject:self.deploymentHash forKey:@"BYTES_VALUE"];
+    BYTES_VALUE[@"BYTES_VALUE"] = self.deploymentHash;
     
     NSMutableDictionary *HASH = [NSMutableDictionary dictionary];
-    [HASH setObject:BYTES_VALUE forKey:@"hash"];
+    HASH[@"hash"] = BYTES_VALUE;
     
-    [deploymentInfo setObject:[NSArray arrayWithObjects:HASH, nil] forKey:@"content"];
+    deploymentInfo[@"content"] = @[HASH];
 
     for (NSNumber *key in [_tempValues allKeys]) {
 		switch ([key intValue]) {
 			case kDeploymentNameRowIndex:
-				[deploymentInfo setObject:[_tempValues objectForKey:key] forKey:@"name"];
+				deploymentInfo[@"name"] = _tempValues[key];
 				break;
 			case kDeploymentRuntimeNameRowIndex:
-				[deploymentInfo setObject:[_tempValues objectForKey:key] forKey:@"runtime-name"];
+				deploymentInfo[@"runtime-name"] = _tempValues[key];
 				break;
 			default:
 				break;
@@ -165,14 +165,14 @@
     
     // initially the deployment is not enabled on
     // the server, reflect this on our local model
-    [deploymentInfo setObject:[NSNumber numberWithBool:NO] forKey:@"enabled"];
+    deploymentInfo[@"enabled"] = @NO;
 
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     [[JBAOperationsManager sharedManager]
         addDeploymentContentWithHash:self.deploymentHash
-        andName:[deploymentInfo objectForKey:@"name"]
-        andRuntimeName:[deploymentInfo objectForKey:@"runtime-name"]
+        andName:deploymentInfo[@"name"]
+        andRuntimeName:deploymentInfo[@"runtime-name"]
         withSuccess:^(void) {
     
             [SVProgressHUD showSuccessWithStatus:@"Successfully Added!"];

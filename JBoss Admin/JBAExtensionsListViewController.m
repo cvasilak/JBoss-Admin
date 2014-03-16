@@ -56,7 +56,7 @@
 
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
-    cell.textLabel.text = [self.extensions objectAtIndex:row];
+    cell.textLabel.text = (self.extensions)[row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;    
     
     return cell;

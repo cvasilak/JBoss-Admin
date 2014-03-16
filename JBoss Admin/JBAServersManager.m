@@ -61,7 +61,7 @@ static JBAServersManager *SharedJBAServersManager = nil;
 }
 
 - (JBAServer *)serverAtIndex:(NSUInteger)index {
-    return [_list objectAtIndex:index];
+    return _list[index];
 }
 
 -(NSString *)dataFilePath {

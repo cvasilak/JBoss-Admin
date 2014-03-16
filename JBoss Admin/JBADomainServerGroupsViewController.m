@@ -102,9 +102,9 @@
     
     cell.accessoryType = (self.groupSelectionMode? UITableViewCellAccessoryNone: UITableViewCellAccessoryDisclosureIndicator);
     
-    NSString *name = [_names objectAtIndex:row];
+    NSString *name = _names[row];
     cell.textLabel.text = name;
-    cell.detailTextLabel.text = [[_groups objectForKey:name] objectForKey:@"profile"];
+    cell.detailTextLabel.text = _groups[name][@"profile"];
 
     return cell;
 }
@@ -112,7 +112,7 @@
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
-    NSString *group = [_names objectAtIndex:row];
+    NSString *group = _names[row];
     
     if (self.groupSelectionMode) {
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
@@ -150,10 +150,10 @@
          
          if (self.groupSelectionMode) { // filter out groups that already contain the deployment
              for (NSDictionary *groupName in [groups allKeys]) {
-                 id deployments = [[groups objectForKey:groupName] objectForKey:@"deployment"];
+                 id deployments = groups[groupName][@"deployment"];
                  
                  if (![deployments isKindOfClass:[NSNull class]]) { // enter only if group contains deployments
-                     if ([[deployments allKeys] containsObject:[self.deploymentToAdd objectForKey:@"name"]]) {
+                     if ([[deployments allKeys] containsObject:(self.deploymentToAdd)[@"name"]]) {
                          [groups removeObjectForKey:groupName];
                      }
                  }
@@ -162,7 +162,7 @@
          
          if ([groups count] == 0) { // already assigned, inform user
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
-                                                             message:[NSString stringWithFormat:@"%@ is already assigned to all server groups.", [self.deploymentToAdd objectForKey:@"name"]]
+                                                             message:[NSString stringWithFormat:@"%@ is already assigned to all server groups.", (self.deploymentToAdd)[@"name"]]
                                                             delegate:nil 
                                                    cancelButtonTitle:@"Bummer"
                                                    otherButtonTitles:nil];
@@ -201,8 +201,8 @@
                                     
                                     [[JBAOperationsManager sharedManager]
                                      addDeploymentContentWithHash:
-                                        [[[[_deploymentToAdd objectForKey:@"content"] objectAtIndex:0] objectForKey:@"hash"] objectForKey:@"BYTES_VALUE"]
-                                     andName:[_deploymentToAdd objectForKey:@"name"]
+                                        _deploymentToAdd[@"content"][0][@"hash"][@"BYTES_VALUE"]
+                                     andName:_deploymentToAdd[@"name"]
                                      toServerGroups:_selectedGroups
                                      enable:enable
                                      withSuccess:^(void) {

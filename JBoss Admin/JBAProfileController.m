@@ -129,7 +129,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
         {
             SubtitleCell *attrCell = [SubtitleCell cellForTableView:tableView];
             
-            JBAAttribute *node = [_attrs objectAtIndex:row];
+            JBAAttribute *node = _attrs[row];
         
             attrCell.textLabel.text = node.name;
             attrCell.imageView.image = nil;
@@ -144,7 +144,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
         {
             SubtitleCell *childCell = [SubtitleCell cellForTableView:tableView];
             
-            JBAChildType *node = [_childTypes objectAtIndex:row];
+            JBAChildType *node = _childTypes[row];
 
             childCell.textLabel.text = node.name;
             childCell.imageView.image = [UIImage imageNamed:@"folder.png"];
@@ -182,7 +182,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
     switch (section) {
             case JBATableAttributesSection:
             {
-                JBAAttribute *selectedNode = [_attrs objectAtIndex:row];
+                JBAAttribute *selectedNode = _attrs[row];
         
                 // we must do read-resource-description to initialize info if
                 // this attribute description is empty
@@ -196,9 +196,8 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
                     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                     
                     NSDictionary *params = 
-                        [NSDictionary dictionaryWithObjectsAndKeys:
-                         @"read-resource-description", @"operation",
-                         (self.path == nil?[NSArray arrayWithObject:@"/"]: self.path), @"address", nil];
+                        @{@"operation": @"read-resource-description",
+                         @"address": (self.path == nil?@[@"/"]: self.path)};
 
                     [[JBAOperationsManager sharedManager] 
                         postJBossRequestWithParams:params
@@ -206,23 +205,23 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
                                  [SVProgressHUD dismiss];
 
                                  // we are only interested for the attributes
-                                 NSDictionary *attrs = [JSON objectForKey:@"attributes"];
+                                 NSDictionary *attrs = JSON[@"attributes"];
 
                                  for (JBAAttribute *node in _attrs) {
-                                     NSDictionary *info = [attrs objectForKey:node.name];
+                                     NSDictionary *info = attrs[node.name];
                                      node.type = [JBAManagementModel 
-                                                  typeFromString:[[info objectForKey:@"type"]objectForKey:@"TYPE_MODEL_VALUE"]];                                  
+                                                  typeFromString:info[@"type"][@"TYPE_MODEL_VALUE"]];                                  
 
                                      // for LIST type extract the type of object the list holds
                                      if (node.type == LIST) {
                                          node.valueType = [JBAManagementModel 
-                                                            typeFromString:[[info objectForKey:@"value-type"]objectForKey:@"TYPE_MODEL_VALUE"]];                                        
+                                                            typeFromString:info[@"value-type"][@"TYPE_MODEL_VALUE"]];                                        
                                      }
 
-                                     node.descr = [info objectForKey:@"description"];
+                                     node.descr = info[@"description"];
                                      
-                                     if (   [[info objectForKey:@"access-type"] isEqualToString:@"read-only"]
-                                         || [[info objectForKey:@"access-type"] isEqualToString:@"metric"]) {                                     
+                                     if (   [info[@"access-type"] isEqualToString:@"read-only"]
+                                         || [info[@"access-type"] isEqualToString:@"metric"]) {                                     
                                          node.isReadOnly = YES;
                                      }
 
@@ -253,7 +252,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
 
             case JBATableChildTypesSection:
             {
-                JBAChildType *selectedNode = [_childTypes objectAtIndex:row];
+                JBAChildType *selectedNode = _childTypes[row];
 
                 JBAChildResourcesViewController *controller = [[JBAChildResourcesViewController alloc] initWithStyle:UITableViewStyleGrouped];
 
@@ -291,31 +290,28 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
 - (void)refresh {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
-    NSDictionary *step1 = [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"read-resource", @"operation",
-                            (self.path==nil? [NSArray arrayWithObject:@"/"]: self.path), @"address", nil];
+    NSDictionary *step1 = @{@"operation": @"read-resource",
+                            @"address": (self.path==nil? @[@"/"]: self.path)};
     
     // will identify the child types of this resource
-    NSDictionary *step2 = [NSDictionary dictionaryWithObjectsAndKeys:
-                           @"read-children-types", @"operation",
-                           (self.path==nil? [NSArray arrayWithObject:@"/"]: self.path), @"address", nil];
+    NSDictionary *step2 = @{@"operation": @"read-children-types",
+                           @"address": (self.path==nil? @[@"/"]: self.path)};
 
     NSDictionary *params =
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"composite", @"operation",
-         [NSArray arrayWithObjects:step1, step2, nil], @"steps", nil];
+        @{@"operation": @"composite",
+         @"steps": @[step1, step2]};
     
     [[JBAOperationsManager sharedManager]
         postJBossRequestWithParams:params
              success:^(NSDictionary *JSON) {
                  [SVProgressHUD dismiss];
                  
-                 if (  ![[[JSON objectForKey:@"step-1"] objectForKey:@"outcome"] isEqualToString:@"success"]
-                    || ![[[JSON objectForKey:@"step-2"] objectForKey:@"outcome"] isEqualToString:@"success"])
+                 if (  ![JSON[@"step-1"][@"outcome"] isEqualToString:@"success"]
+                    || ![JSON[@"step-2"][@"outcome"] isEqualToString:@"success"])
                      return;
 
-                 NSDictionary *readResource = [[JSON objectForKey:@"step-1"] objectForKey:@"result"];
-                 NSArray *readChildrenTypes = [[JSON objectForKey:@"step-2"] objectForKey:@"result"];
+                 NSDictionary *readResource = JSON[@"step-1"][@"result"];
+                 NSArray *readChildrenTypes = JSON[@"step-2"][@"result"];
                  
                  NSMutableArray *attrs = [[NSMutableArray alloc] init];
                  NSMutableArray *childTypes = [[NSMutableArray alloc] init];
@@ -325,7 +321,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
                      if ([readChildrenTypes containsObject:key]) { // is it a children type?
                          JBAChildType *node = [[JBAChildType alloc] init];
                          node.name = key;
-                         node.value = [readResource objectForKey:key];
+                         node.value = readResource[key];
 
                          [childTypes addObject:node];
 
@@ -333,7 +329,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
                          JBAAttribute *node = [[JBAAttribute alloc] init];
                          
                          node.name = key;
-                         node.value = [readResource objectForKey:key];
+                         node.value = readResource[key];
               
                          [attrs addObject:node];
                      }

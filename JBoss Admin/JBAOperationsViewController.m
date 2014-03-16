@@ -56,12 +56,12 @@
     self.title = @"Operations";
     
     //private static final String[] genericOps = {"add", "read-operation-description", "read-resource-description", "read-operation-names"};
-    _genericOps = [NSArray arrayWithObjects:@"add", @"read-operation-description", @"read-resource-description", @"read-operation-names" , nil];
+    _genericOps = @[@"add", @"read-operation-description", @"read-resource-description", @"read-operation-names"];
     
     // Check if user requested to see generic operations
     // raise a flag so that the operation names received from 
     // the server are filtered and display only generic operations
-    if ([[self.path objectAtIndex:[self.path count]-1] isEqualToString:@"*"])
+    if ([(self.path)[[self.path count]-1] isEqualToString:@"*"])
         _filterGeneric = YES;
     
     [self refresh];
@@ -83,7 +83,7 @@
     
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
-    JBAOperation *operation = [_operations objectAtIndex:row];
+    JBAOperation *operation = _operations[row];
 
     cell.textLabel.text = operation.name;
     cell.imageView.image =[UIImage imageNamed:@"operations.png"];
@@ -96,7 +96,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     
-    __block JBAOperation *operation = [_operations objectAtIndex:row];
+    __block JBAOperation *operation = _operations[row];
     
     if (operation.descr == nil) {
         // first time clicked, need to retrieve operation info
@@ -105,56 +105,55 @@
         [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
         
         NSDictionary *params = 
-            [NSDictionary dictionaryWithObjectsAndKeys:
-             @"read-operation-description", @"operation",
-             (self.path == nil?[NSArray arrayWithObject:@"/"]: self.path), @"address",
-             operation.name, @"name", nil];
+            @{@"operation": @"read-operation-description",
+             @"address": (self.path == nil?@[@"/"]: self.path),
+             @"name": operation.name};
         
         [[JBAOperationsManager sharedManager]
             postJBossRequestWithParams:params
                 success:^(NSDictionary *JSON) {
                  [SVProgressHUD dismiss];
                  
-                    operation.descr = [JSON objectForKey:@"description"];
+                    operation.descr = JSON[@"description"];
 
                     NSMutableArray *parameters = [[NSMutableArray alloc] init];
                     
-                    NSDictionary *reqParams = [JSON objectForKey:@"request-properties"];
+                    NSDictionary *reqParams = JSON[@"request-properties"];
                     
                     for (NSString *name in [reqParams allKeys]) {
-                        NSDictionary *info = [reqParams objectForKey:name];
+                        NSDictionary *info = reqParams[name];
                         
                         JBAOperationParameter *param = [[JBAOperationParameter alloc] init];
                         param.name = name;
                         param.type = [JBAManagementModel 
-                                      typeFromString:[[info objectForKey:@"type"]objectForKey:@"TYPE_MODEL_VALUE"]];                                        
+                                      typeFromString:info[@"type"][@"TYPE_MODEL_VALUE"]];                                        
                         
                         // for LIST type extract the type of object the list holds
                         if (param.type == LIST) {
                             param.valueType = [JBAManagementModel 
-                                               typeFromString:[[info objectForKey:@"value-type"]objectForKey:@"TYPE_MODEL_VALUE"]];                                        
+                                               typeFromString:info[@"value-type"][@"TYPE_MODEL_VALUE"]];                                        
                         }
                         
-                        param.descr = [info objectForKey:@"description"];
+                        param.descr = info[@"description"];
                         
                         // Initialize operation parameters
                         // see: https://docs.jboss.org/author/display/AS71/Description+of+the+Management+Model
                         
                         // nillable – boolean
                         // true if null is a valid value. If not present, false is the default.
-                        param.nillable = [info objectForKey:@"nillable"] == nil? NO: [[info objectForKey:@"nillable"] boolValue]; 
+                        param.nillable = info[@"nillable"] == nil? NO: [info[@"nillable"] boolValue]; 
                         
                         // required – boolean
                         // Only relevant to parameters. true if the parameter must be present in the request object used to invoke 
                         // the operation; false if it can omitted. If not present, true is the default
-                        param.required = [info objectForKey:@"required"] == nil? YES: [[info objectForKey:@"required"] boolValue];
+                        param.required = info[@"required"] == nil? YES: [info[@"required"] boolValue];
                         
                         // default value if present
-                        param.defaultValue = [info objectForKey:@"default"];
+                        param.defaultValue = info[@"default"];
                         
                         // default false for boolean values when defaultValue is nil
                         if (param.type == BOOLEAN)
-                            param.value = (param.defaultValue == nil? [NSNumber numberWithBool:NO]: param.defaultValue);
+                            param.value = (param.defaultValue == nil? @NO: param.defaultValue);
                         else 
                             param.value = param.defaultValue;
                         
@@ -169,7 +168,7 @@
                     if ([operation.name isEqualToString:@"add"]) {
                         JBAOperationParameter *param = [[JBAOperationParameter alloc] init];
                         //extract the child type from path (e.g. "/deployment=" )
-                        NSString *basePath = [self.path objectAtIndex:[self.path count]-2];
+                        NSString *basePath = (self.path)[[self.path count]-2];
                         
                         param.name = [NSString stringWithFormat:@"%@=<name>/", basePath];
                         param.type = STRING;
@@ -184,12 +183,12 @@
                     
                     operation.parameters = parameters;
                     
-                    NSDictionary *repParams = [JSON objectForKey:@"reply-properties"];
+                    NSDictionary *repParams = JSON[@"reply-properties"];
                     
-                    if ([repParams objectForKey:@"type"] != nil) { // for void operation "type" is-non-existant
+                    if (repParams[@"type"] != nil) { // for void operation "type" is-non-existant
                         JBAOperationReply *reply= [[JBAOperationReply alloc] init];
                         reply.type = [JBAManagementModel
-                                      typeFromString:[[repParams objectForKey:@"type"]objectForKey:@"TYPE_MODEL_VALUE"]];                                        
+                                      typeFromString:repParams[@"type"][@"TYPE_MODEL_VALUE"]];                                        
 
                         operation.reply = reply;
                     }
@@ -222,9 +221,8 @@
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
 
     NSDictionary *params = 
-        [NSDictionary dictionaryWithObjectsAndKeys:
-         @"read-operation-names", @"operation",
-         (self.path == nil?[NSArray arrayWithObject:@"/"]: self.path), @"address", nil];
+        @{@"operation": @"read-operation-names",
+         @"address": (self.path == nil?@[@"/"]: self.path)};
     
     [[JBAOperationsManager sharedManager]
      postJBossRequestWithParams:params
@@ -272,10 +270,10 @@
 -(void)displayEditorForOperation:(JBAOperation *)operation {
     // reset values prior of edit to dismiss any previous values
     for (NSUInteger i = 0; i < [operation.parameters count]; i++) {
-        JBAOperationParameter *parameter = [operation.parameters objectAtIndex:i];
+        JBAOperationParameter *parameter = (operation.parameters)[i];
         
         if (parameter.type == BOOLEAN) 
-            parameter.value = (parameter.defaultValue == nil? [NSNumber numberWithBool:NO]: parameter.defaultValue);
+            parameter.value = (parameter.defaultValue == nil? @NO: parameter.defaultValue);
         else
             parameter.value = parameter.defaultValue;
     }

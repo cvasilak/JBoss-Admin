@@ -98,7 +98,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
                 ToggleSwitchCell *toggleCell = [ToggleSwitchCell cellForTableView:tableView];
 
                 [toggleCell.toggler addTarget:self action:@selector(switchValueChanged:) forControlEvents:UIControlEventValueChanged];
-                toggleCell.toggler.on = [[self.items objectAtIndex:row] boolValue];
+                toggleCell.toggler.on = [(self.items)[row] boolValue];
 
                 cell = toggleCell;
                 
@@ -115,7 +115,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
                     editCell.txtField.keyboardType = UIKeyboardTypeDefault;
                 
                 editCell.txtField.placeholder = [JBAManagementModel stringFromType:self.valueType];
-                editCell.txtField.text = [[self.items objectAtIndex:row] cellDisplay];
+                editCell.txtField.text = [(self.items)[row] cellDisplay];
                 editCell.txtField.userInteractionEnabled = !self.isReadOnlyMode;
                 editCell.txtField.delegate = self;
                 [editCell.txtField addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditingDidEndOnExit];                    
@@ -181,7 +181,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
     NSUInteger fromRow = [fromIndexPath row];
     NSUInteger toRow = [toIndexPath row];
     
-    id object = [self.items objectAtIndex:fromRow];
+    id object = (self.items)[fromRow];
     [self.items removeObjectAtIndex:fromRow];
     [self.items insertObject:object atIndex:toRow];
 }
@@ -192,7 +192,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.items removeObjectAtIndex:row];
 
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] 
+        [tableView deleteRowsAtIndexPaths:@[indexPath] 
                          withRowAnimation:UITableViewRowAnimationFade];
     }
 }
@@ -201,7 +201,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 - (void)switchValueChanged:(id)sender {
     UISwitch *toggler = (UISwitch *) sender;
     NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell*)[[toggler superview] superview]];    
-    [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithBool:toggler.on]];
+    (self.items)[[indexPath row]] = @(toggler.on);
 }
 
 #pragma mark - UITextFieldDelegate methods
@@ -215,9 +215,9 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
     // TODO couldn't find value to test, need more checks
     if (![textField.text isEqualToString:@""]) {
         if (self.valueType == INT || self.valueType == LONG || self.valueType == BIG_INTEGER)
-            [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithLongLong:[textField.text longLongValue]]];
+            (self.items)[[indexPath row]] = @([textField.text longLongValue]);
         else if (self.valueType == DOUBLE || self.valueType == BIG_DECIMAL)
-            [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithDouble:[textField.text doubleValue]]];
+            (self.items)[[indexPath row]] = @([textField.text doubleValue]);
         else if (self.valueType == OBJECT) { // TODO: better handling
             id value = [textField.text objectFromJSONString];
             
@@ -231,11 +231,11 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
                 return;
 
             } else {
-                [self.items replaceObjectAtIndex:[indexPath row] withObject:value];                
+                (self.items)[[indexPath row]] = value;                
             }
         }
         else // string
-            [self.items replaceObjectAtIndex:[indexPath row] withObject:textField.text];
+            (self.items)[[indexPath row]] = textField.text;
     }
 }
 
@@ -259,13 +259,13 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 - (void)addValue {
     // TODO couldn't find value to test, need more checks
     if (self.valueType == BOOLEAN)
-        [self.items addObject:[NSNumber numberWithBool:NO]];
+        [self.items addObject:@NO];
      else
         [self.items addObject:@""];
     
     NSIndexPath *index = [NSIndexPath indexPathForRow:[self.items count]-1 inSection:JBATableEditorSection];
     
-    [self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:index] withRowAnimation:UITableViewRowAnimationBottom];
+    [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationBottom];
 }
 
 @end

@@ -127,19 +127,19 @@ typedef NS_ENUM(NSUInteger, JBATranFailureOriginRows) {
             switch (row) {
                 case JBATranTableSecTotalRow:
                     cell.metricNameLabel.text = @"Total";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-transactions"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"number-of-transactions"] cellDisplay];
                     break;
                 case JBATranTableSecCommitedRow:
                     cell.metricNameLabel.text = @"Commited";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-committed-transactions"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"number-of-transactions"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"number-of-committed-transactions"] cellDisplayPercentFromTotal:_metrics[@"number-of-transactions"] withMBConversion:NO];
                     break;
                 case JBATranTableSecAbortedRow:
                     cell.metricNameLabel.text = @"Aborted";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-aborted-transactions"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"number-of-transactions"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"number-of-aborted-transactions"] cellDisplayPercentFromTotal:_metrics[@"number-of-transactions"] withMBConversion:NO];
                     break;
                 case JBATranTableSecTimedOutRow:
                     cell.metricNameLabel.text = @"Timed Out";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-timed-out-transactions"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"number-of-transactions"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"number-of-timed-out-transactions"] cellDisplayPercentFromTotal:_metrics[@"number-of-transactions"] withMBConversion:NO];
                     break;
             }   
             break;
@@ -150,11 +150,11 @@ typedef NS_ENUM(NSUInteger, JBATranFailureOriginRows) {
             switch (row) {
                 case JBATranTableSecApplicationsRow:
                     cell.metricNameLabel.text = @"Applications";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-application-rollbacks"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"number-of-application-rollbacks"] cellDisplay];
                     break;
                 case JBATranTableSecResourcesRow:
                     cell.metricNameLabel.text = @"Resources";                    
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"number-of-resource-rollbacks"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"number-of-resource-rollbacks"] cellDisplay];
                     break;
                }
             break;            

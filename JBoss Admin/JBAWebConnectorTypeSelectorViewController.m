@@ -76,7 +76,7 @@
 
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
-    cell.textLabel.text = [_connectors objectAtIndex:row];
+    cell.textLabel.text = _connectors[row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;        
 
     return cell;
@@ -86,7 +86,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     
-    NSString *connector = [_connectors objectAtIndex:row];
+    NSString *connector = _connectors[row];
     
     JBAWebConnectorMetricsViewController *connectorMetricsController = [[JBAWebConnectorMetricsViewController alloc] initWithStyle:UITableViewStyleGrouped];
     connectorMetricsController.connectorName = connector;

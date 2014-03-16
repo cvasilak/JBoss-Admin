@@ -21,6 +21,7 @@
 
 @protocol JBossValue
 - (NSString *)cellDisplay;
+
 - (BOOL)canBePlotted;
 @end
 

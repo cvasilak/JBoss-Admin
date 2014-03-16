@@ -229,9 +229,9 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         if (![textFieldValue isEqualToString:@""]) {
             // TODO couldn't find value to test, need more checks
             if (self.node.type == INT || self.node.type == LONG || self.node.type == BIG_INTEGER)
-                value = [NSNumber numberWithLongLong:[textFieldValue longLongValue]];
+                value = @([textFieldValue longLongValue]);
             else if (self.node.type== DOUBLE || self.node.type == BIG_DECIMAL)
-                value = [NSNumber numberWithDouble:[textFieldValue doubleValue]];
+                value = @([textFieldValue doubleValue]);
             else if (self.node.type == OBJECT) { // TODO: better handling
                 value = [textFieldValue objectFromJSONString];
                 
@@ -260,7 +260,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         
     } else if ([cell isKindOfClass:[ToggleSwitchCell class]]) {
         ToggleSwitchCell *toggleCell = (ToggleSwitchCell *)cell;
-        value = [NSNumber numberWithBool:toggleCell.toggler.on];
+        value = @(toggleCell.toggler.on);
 
     } else if ([cell isKindOfClass:[LabelButtonCell class]]) {
         value = _tempList;
@@ -269,11 +269,10 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     NSDictionary *params =
-    [NSDictionary dictionaryWithObjectsAndKeys:
-     @"write-attribute", @"operation",
-     (self.node.path == nil?[NSArray arrayWithObject:@"/"]: self.node.path), @"address",
-     self.node.name, @"name",
-     value /* if nil it will act as a sentinel for dictionaryWithObjectsAndKeys */, @"value", nil];
+    @{@"operation": @"write-attribute",
+     @"address": (self.node.path == nil?@[@"/"]: self.node.path),
+     @"name": self.node.name,
+     @"value": value};
     
     [[JBAOperationsManager sharedManager]
      postJBossRequestWithParams:params
@@ -281,7 +280,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
          [SVProgressHUD dismiss];
          
          // if success, update this node value
-         if ([[JSON objectForKey:@"outcome"] isEqualToString:@"success"]) {
+         if ([JSON[@"outcome"] isEqualToString:@"success"]) {
              // if type LIST do a copy so subsequent edits do
              // not affect the original LIST
              if (self.node.type == LIST) {

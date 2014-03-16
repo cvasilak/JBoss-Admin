@@ -140,11 +140,11 @@ typedef NS_ENUM(NSUInteger, JBAJMSSubscriptionsRows) {
             switch (row) {
                 case JBAJMSTableSecMessagesInTopic:
                     cell.metricNameLabel.text = @"Messages In Topic";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"message-count"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"message-count"] cellDisplay];
                     break;
                 case JBAJMSTableSecInDelivery:
                     cell.metricNameLabel.text= @"In Delivery";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"delivering-count"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"message-count"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"delivering-count"] cellDisplayPercentFromTotal:_metrics[@"message-count"] withMBConversion:NO];
                     break;
             }   
             break;
@@ -155,15 +155,15 @@ typedef NS_ENUM(NSUInteger, JBAJMSSubscriptionsRows) {
             switch (row) {
                 case JBAJMSTableSecMessagesAddedRow:
                     cell.metricNameLabel.text = @"Messages Added";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"messages-added"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"messages-added"] cellDisplay];
                     break;
                 case JBAJMSTableSecMessagesDurableRow:
                     cell.metricNameLabel.text = @"Number Durable Messages";                    
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"durable-message-count"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"messages-added"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"durable-message-count"] cellDisplayPercentFromTotal:_metrics[@"messages-added"] withMBConversion:NO];
                     break;
                 case JBAJMSTableSecMessagesNoNDurableRow:
                     cell.metricNameLabel.text = @"Number NoN-Durable Messages";                    
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"non-durable-message-count"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"messages-added"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"non-durable-message-count"] cellDisplayPercentFromTotal:_metrics[@"messages-added"] withMBConversion:NO];
                     break;
             }
             break;            
@@ -174,15 +174,15 @@ typedef NS_ENUM(NSUInteger, JBAJMSSubscriptionsRows) {
             switch (row) {
                 case JBAJMSTableSecNumberOfSubscriptionsRow:
                     cell.metricNameLabel.text = @"Number of Subscriptions";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"subscription-count"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"subscription-count"] cellDisplay];
                     break;
                 case JBAJMSTableSecDurableSubscribersRow:
                     cell.metricNameLabel.text = @"Durable Subscribers";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"durable-subscription-count"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"durable-subscription-count"] cellDisplay];
                     break;
                 case JBAJMSTableSecNoNDurableSubscribersRow:
                     cell.metricNameLabel.text = @"Non-Durable Subscribers";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"non-durable-subscription-count"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"non-durable-subscription-count"] cellDisplay];
                     break;
                     
             }

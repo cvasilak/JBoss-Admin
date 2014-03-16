@@ -121,7 +121,7 @@
     
     SubtitleCell *cell = [SubtitleCell cellForTableView:tableView];
     
-    NSString *name = [_names objectAtIndex:row];
+    NSString *name = _names[row];
     cell.textLabel.text = name;
     
     NSUInteger oldRow = [_lastIndexPath row];
@@ -153,8 +153,8 @@
 
 #pragma mark - Actions
 - (void)addToServerGroup {
-    NSString *deploymentName = [_names objectAtIndex:[_lastIndexPath row]];
-    NSMutableDictionary *deploymentInfo = [_deployments objectForKey:deploymentName];
+    NSString *deploymentName = _names[[_lastIndexPath row]];
+    NSMutableDictionary *deploymentInfo = _deployments[deploymentName];
 
     UIActionSheet *yesno =
         [[UIActionSheet alloc]
@@ -164,14 +164,14 @@
                 ||  buttonIndex == 1 /* Add to Group */) {
                     
                     BOOL enable = (buttonIndex == 0? YES: NO);
-                    [deploymentInfo setObject:[NSNumber numberWithBool:enable] forKey:@"enabled"];
+                    deploymentInfo[@"enabled"] = @(enable);
                     
                     [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                     
                     [[JBAOperationsManager sharedManager]
                      addDeploymentContentWithHash:
-                     [[[[deploymentInfo objectForKey:@"content"] objectAtIndex:0] objectForKey:@"hash"] objectForKey:@"BYTES_VALUE"]
-                     andName:[deploymentInfo objectForKey:@"name"]
+                     deploymentInfo[@"content"][0][@"hash"][@"BYTES_VALUE"]
+                     andName:deploymentInfo[@"name"]
                      toServerGroups:[NSMutableArray arrayWithObject:self.group]
                      enable:enable
                      withSuccess:^(void) {

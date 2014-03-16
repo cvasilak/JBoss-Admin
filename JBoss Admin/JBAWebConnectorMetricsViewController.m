@@ -130,15 +130,15 @@ typedef NS_ENUM(NSUInteger, JBAWebConRequestPerConnectorRows) {
             switch (row) {
                 case JBAWebConTableSecProtocolRow:
                     cell.metricNameLabel.text = @"Protocol";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"protocol"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"protocol"] cellDisplay];
                     break;
                 case JBAWebConTableSecBytesSentRow:
                     cell.metricNameLabel.text = @"Bytes Sent";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"bytesSent"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"bytesSent"] cellDisplay];
                     break;
                 case JBAWebConTableSecBytesReceivedRow:
                     cell.metricNameLabel.text = @"Bytes Received";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"bytesReceived"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"bytesReceived"] cellDisplay];
                     break;
             }
             break;
@@ -150,19 +150,19 @@ typedef NS_ENUM(NSUInteger, JBAWebConRequestPerConnectorRows) {
             switch (row) {
                 case JBAWebConTableSecRequestCountRow:
                     cell.metricNameLabel.text = @"Request Count";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"requestCount"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"requestCount"] cellDisplay];
                     break;
                 case JBAWebConTableSecErrorCountRow:
                     cell.metricNameLabel.text = @"Error Count";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"errorCount"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"requestCount"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"errorCount"] cellDisplayPercentFromTotal:_metrics[@"requestCount"] withMBConversion:NO];
                     break;
                 case JBAWebConTableSecProcessingTimeRow:
                     cell.metricNameLabel.text = @"Processing Time (ms)";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"processingTime"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"processingTime"] cellDisplay];
                     break;
                 case JBAWebConTableSecMaxTimeRow:
                     cell.metricNameLabel.text = @"Max Time (ms)";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"maxTime"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"maxTime"] cellDisplay];
                     break;
             }   
             break;

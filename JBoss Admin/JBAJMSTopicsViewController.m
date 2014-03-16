@@ -76,7 +76,7 @@
 
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
-    cell.textLabel.text = [_topics objectAtIndex:row];
+    cell.textLabel.text = _topics[row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;    
     
     return cell;
@@ -87,7 +87,7 @@
     NSUInteger row = [indexPath row];
     
     JBAJMSTopicMetricsViewController *topicMetricsController = [[JBAJMSTopicMetricsViewController alloc] initWithStyle:UITableViewStyleGrouped];
-    topicMetricsController.topic = [_topics objectAtIndex:row];
+    topicMetricsController.topic = _topics[row];
     
     [self.navigationController pushViewController:topicMetricsController animated:YES];
 

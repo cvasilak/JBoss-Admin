@@ -77,7 +77,7 @@
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
 
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    cell.textLabel.text= [_hosts objectAtIndex:row];
+    cell.textLabel.text= _hosts[row];
     
     return cell;
 }
@@ -86,7 +86,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     
-    NSString *host = [_hosts objectAtIndex:row];
+    NSString *host = _hosts[row];
     
     JBADomainServersViewController *serversController = [[JBADomainServersViewController alloc] initWithStyle:UITableViewStylePlain];
     serversController.belongingHost = host;

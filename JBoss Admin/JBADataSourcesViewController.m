@@ -77,10 +77,10 @@
     
     DefaultCell *cell = [DefaultCell cellForTableView:tableView];
     
-    NSString *name = [_names objectAtIndex:row];
+    NSString *name = _names[row];
     cell.textLabel.text = name;
     
-    if ([[_datasources objectForKey:name] objectForKey:@"xa-datasource-class"] != nil) {
+    if (_datasources[name][@"xa-datasource-class"] != nil) {
         cell.imageView.image = [UIImage imageNamed:@"xa-ds.png"];
     } else {
         cell.imageView.image = nil;
@@ -95,12 +95,12 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
     
-    NSString *name = [_names objectAtIndex:row];
+    NSString *name = _names[row];
     
     JBADataSourceMetricsViewController *dataSourceMetricsController = [[JBADataSourceMetricsViewController alloc] initWithStyle:UITableViewStyleGrouped];
     dataSourceMetricsController.dataSourceName = name;
     
-    if ([[_datasources objectForKey:name] objectForKey:@"xa-datasource-class"] != nil) {
+    if (_datasources[name][@"xa-datasource-class"] != nil) {
         dataSourceMetricsController.dataSourceType = XADataSource;
     } else {
         dataSourceMetricsController.dataSourceType = StandardDataSource;

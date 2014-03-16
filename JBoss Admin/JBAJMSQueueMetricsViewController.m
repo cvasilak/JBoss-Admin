@@ -137,11 +137,11 @@ typedef NS_ENUM(NSUInteger, JBAJMSConsumerRows) {
             switch (row) {
                 case JBAJMSTableSecMessagesInQueue:
                     cell.metricNameLabel.text = @"Messages In Queue";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"message-count"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"message-count"] cellDisplay];
                     break;
                 case JBAJMSTableSecInDelivery:
                     cell.metricNameLabel.text= @"In Delivery";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"delivering-count"] cellDisplayPercentFromTotal:[_metrics objectForKey:@"message-count"] withMBConversion:NO];
+                    cell.metricValueLabel.text = [_metrics[@"delivering-count"] cellDisplayPercentFromTotal:_metrics[@"message-count"] withMBConversion:NO];
                     break;
             }   
             break;
@@ -152,11 +152,11 @@ typedef NS_ENUM(NSUInteger, JBAJMSConsumerRows) {
             switch (row) {
                 case JBAJMSTableSecMessagesAddedRow:
                     cell.metricNameLabel.text = @"Messages Added";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"messages-added"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"messages-added"] cellDisplay];
                     break;
                 case JBAJMSTableSecMessagesScheduledRow:
                     cell.metricNameLabel.text = @"Messages Scheduled";                    
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"scheduled-count"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"scheduled-count"] cellDisplay];
                     break;
             }
             break;            
@@ -167,7 +167,7 @@ typedef NS_ENUM(NSUInteger, JBAJMSConsumerRows) {
             switch (row) {
                 case JBAJMSTableSecNumberOfConsumersRow:
                     cell.metricNameLabel.text = @"Number of Consumer";
-                    cell.metricValueLabel.text = [[_metrics objectForKey:@"consumer-count"] cellDisplay];
+                    cell.metricValueLabel.text = [_metrics[@"consumer-count"] cellDisplay];
                     break;
             }
             break;
