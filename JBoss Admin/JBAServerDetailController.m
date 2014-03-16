@@ -67,7 +67,7 @@
 	static NSString *JBAServerCellEditIdentifer = @"JBAServerCellEditIdentifer";
   	static NSString *JBAServerCellEditSwitchIdentifer = @"JBAServerCellEditSwitchIdentifer";
     
-    NSUInteger row = [indexPath row];
+    NSInteger row = [indexPath row];
 	
     UITableViewCell *cell;
     
