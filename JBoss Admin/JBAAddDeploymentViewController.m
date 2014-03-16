@@ -24,7 +24,6 @@
 
 #import "DefaultCell.h"
 #import "SVProgressHUD.h"
-#import "TKProgressAlertView.h"
 #import "UIActionSheet+BlockExtensions.h"
 #import "NSFileManager+DirectoryLocations.h"
 
@@ -198,23 +197,21 @@
                 switch (buttonIndex) {
                     case 0: // If YES button pressed, proceed...
                     {
-                        TKProgressAlertView *alertView = [[TKProgressAlertView alloc]
-                                                          initWithProgressTitle:@"uploading, please wait..."];
-                        
-                        alertView.progressBar.progress = 0;
-                        
-                        [alertView show];
+                        [SVProgressHUD showProgress:0 status:@"uploading, please wait..." maskType:SVProgressHUDMaskTypeGradient];
 
                         [[JBAOperationsManager sharedManager]
                          uploadFileWithName:filename
                             withUploadProgress:^(NSInteger bytesWritten, NSInteger totalBytesWritten, NSInteger totalBytesExpectedToWrite) {
                                 double progress = totalBytesWritten / (double) fileSize;
                                 //DLog(@"Sent bytesWritten=%d totalBytesWritten=%d of totalBytesExpectedToWrite=%qi bytes (%f)", bytesWritten, totalBytesWritten, fileSize, progress);
-                                [alertView.progressBar setProgress:progress animated:YES];
+
+                                dispatch_async(dispatch_get_main_queue(), ^{
+                                    [SVProgressHUD showProgress:progress status:@"uploading, please wait..." maskType:SVProgressHUDMaskTypeGradient];
+                                });
                             } 
                             withSuccess:^(NSString *deploymentHash) {
-                                [alertView hide];
-                                
+                                [SVProgressHUD dismiss];
+
                                 JBADeploymentDetailsViewController *detailsController = [[JBADeploymentDetailsViewController alloc] initWithStyle:UITableViewStyleGrouped];
                                 
                                 detailsController.deploymentHash = deploymentHash;
@@ -224,7 +221,7 @@
                                 [self.navigationController pushViewController:detailsController animated:YES];
                                 
                             } andFailure:^(NSError *error) {
-                                [alertView hide];
+                                [SVProgressHUD dismiss];
                              
                                 UIAlertView *oops = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                                                message:[error localizedDescription]
@@ -233,7 +230,7 @@
                                                                      otherButtonTitles:nil];
                                 [oops show];
                             }];
-                        }  
+                        }
                         break;
                     }
                 }
