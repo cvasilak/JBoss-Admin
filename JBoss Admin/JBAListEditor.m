@@ -214,9 +214,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 
     // TODO couldn't find value to test, need more checks
     if (![textField.text isEqualToString:@""]) {
-        if (self.valueType == INT)
-            [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithInt:[textField.text integerValue]]];
-        else if (self.valueType == LONG || self.valueType == BIG_INTEGER)
+        if (self.valueType == INT || self.valueType == LONG || self.valueType == BIG_INTEGER)
             [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithLongLong:[textField.text longLongValue]]];
         else if (self.valueType == DOUBLE || self.valueType == BIG_DECIMAL)
             [self.items replaceObjectAtIndex:[indexPath row] withObject:[NSNumber numberWithDouble:[textField.text doubleValue]]];

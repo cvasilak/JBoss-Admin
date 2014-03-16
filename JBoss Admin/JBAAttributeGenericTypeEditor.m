@@ -228,9 +228,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         // to the server see [super updateWithValue]
         if (![textFieldValue isEqualToString:@""]) {
             // TODO couldn't find value to test, need more checks
-            if (self.node.type == INT)
-                value = [NSNumber numberWithInt:[textFieldValue integerValue]];
-            else if (self.node.type == LONG || self.node.type == BIG_INTEGER)
+            if (self.node.type == INT || self.node.type == LONG || self.node.type == BIG_INTEGER)
                 value = [NSNumber numberWithLongLong:[textFieldValue longLongValue]];
             else if (self.node.type== DOUBLE || self.node.type == BIG_DECIMAL)
                 value = [NSNumber numberWithDouble:[textFieldValue doubleValue]];

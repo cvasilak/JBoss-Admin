@@ -383,9 +383,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         parameter.value = nil; // set to nil so the parameter is not submitted to the server (see save())
     } else {
         // convert to numbers if required
-        if (parameter.type == INT)
-            parameter.value = [NSNumber numberWithInt:[textField.text integerValue]];
-        else if (parameter.type == LONG || parameter.type == BIG_INTEGER)
+        if (parameter.type == INT || parameter.type == LONG || parameter.type == BIG_INTEGER)
             parameter.value = [NSNumber numberWithLong:[textField.text longLongValue]];
         else if (parameter.type == DOUBLE || parameter.type == BIG_DECIMAL)
             parameter.value = [NSNumber numberWithDouble:[textField.text doubleValue]];
