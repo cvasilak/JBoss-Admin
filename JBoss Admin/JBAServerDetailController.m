@@ -144,7 +144,7 @@
 	}
 	
 	label.text = [_fieldLabels objectAtIndex:row];
-	NSNumber *rowAsNum = [[NSNumber alloc] initWithInt:row];
+	NSNumber *rowAsNum = [NSNumber numberWithInteger:row];
 	
 	switch (row) {
 		case kServerNameRowIndex:
@@ -209,7 +209,7 @@
 - (void)switchValueChanged: (id)sender {
     UISwitch *toggler = (UISwitch *) sender;
 
-	NSNumber *tagAsNum = [[NSNumber alloc] initWithInt:toggler.tag];
+	NSNumber *tagAsNum = [NSNumber numberWithInteger:toggler.tag];
 	[_tempValues setObject:[NSNumber numberWithBool:toggler.on] forKey:tagAsNum];
 }
 
@@ -219,7 +219,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-	NSNumber *tagAsNum = [[NSNumber alloc] initWithInt:textField.tag];
+	NSNumber *tagAsNum = [NSNumber numberWithInteger:textField.tag];
 	// textfield.text password is not initialized to '' for password fields
     if (textField.text == nil)
         return;
@@ -253,7 +253,7 @@
 #pragma mark - Action Methods
 - (void)save {
 	if (_textFieldBeingEdited != nil) {
-		NSNumber *tagAsNum = [[NSNumber alloc] initWithInt:_textFieldBeingEdited.tag];
+		NSNumber *tagAsNum = [NSNumber numberWithInteger:_textFieldBeingEdited.tag];
 		[_tempValues setObject:_textFieldBeingEdited.text forKey:tagAsNum];
 		
         [_textFieldBeingEdited resignFirstResponder];

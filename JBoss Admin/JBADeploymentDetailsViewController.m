@@ -76,7 +76,7 @@
     EditCell *editCell = [EditCell cellForTableView:tableView];                
 
 	editCell.label.text = [_fieldLabels objectAtIndex:row];
-	NSNumber *rowAsNum = [[NSNumber alloc] initWithInt:row];
+	NSNumber *rowAsNum = [NSNumber numberWithInteger:row];
 	
     switch (row) {
         case kDeploymentHashRowIndex:
@@ -120,7 +120,7 @@
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-	NSNumber *tagAsNum = [[NSNumber alloc] initWithInt:textField.tag];
+	NSNumber *tagAsNum = [NSNumber numberWithInteger:textField.tag];
 	[_tempValues setObject:textField.text forKey:tagAsNum];
 }
 
@@ -131,7 +131,7 @@
 #pragma mark - Action Calls
 - (void)finish {
 	if (_textFieldBeingEdited != nil) {
-		NSNumber *tagAsNum = [[NSNumber alloc] initWithInt:_textFieldBeingEdited.tag];
+		NSNumber *tagAsNum = [NSNumber numberWithInteger:_textFieldBeingEdited.tag];
 		[_tempValues setObject:_textFieldBeingEdited.text forKey:tagAsNum];
 		
         [_textFieldBeingEdited resignFirstResponder];
