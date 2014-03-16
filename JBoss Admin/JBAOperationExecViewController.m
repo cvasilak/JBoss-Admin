@@ -384,7 +384,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
     } else {
         // convert to numbers if required
         if (parameter.type == INT || parameter.type == LONG || parameter.type == BIG_INTEGER)
-            parameter.value = [NSNumber numberWithLong:[textField.text longLongValue]];
+            parameter.value = [NSNumber numberWithLongLong:[textField.text longLongValue]];
         else if (parameter.type == DOUBLE || parameter.type == BIG_DECIMAL)
             parameter.value = [NSNumber numberWithDouble:[textField.text doubleValue]];
         else if (parameter.type == OBJECT) { // TODO: better handling
