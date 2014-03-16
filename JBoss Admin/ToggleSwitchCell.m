@@ -39,10 +39,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 	
-    CGFloat adjustedX = 8;
+    CGFloat adjustedX = 10;
     
 	if (self.adjustX)
-        adjustedX = 26;
+        adjustedX = 36;
     
     CGRect t = CGRectInset(self.bounds, 8, 8);
 	t.origin.x += self.label.frame.size.width + adjustedX;

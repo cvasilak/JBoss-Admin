@@ -50,7 +50,7 @@
     CGFloat adjustedX = 8;
     
 	if (self.adjustX)
-        adjustedX = 26;
+        adjustedX = 36;
     
 	CGRect r = CGRectInset(self.contentView.bounds, adjustedX, 8);
 	r.size = CGSizeMake(110,27);

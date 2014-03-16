@@ -39,10 +39,10 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
 
-    CGFloat adjustedX = 8;
+    CGFloat adjustedX = 10;
     
 	if (self.adjustX)
-        adjustedX = 26;
+        adjustedX = 36;
     
     NSString *title = _button.titleLabel.text;
     
