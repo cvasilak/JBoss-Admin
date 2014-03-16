@@ -56,7 +56,7 @@
     self.navigationItem.rightBarButtonItem = nextButtonItem;
     self.navigationItem.rightBarButtonItem.enabled = NO; // initially disable it cause nothing is checked
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     [[JBAOperationsManager sharedManager] 
      fetchDeploymentsFromServerGroup:nil withSuccess:^(NSMutableDictionary *deployments) {
@@ -166,7 +166,7 @@
                     BOOL enable = (buttonIndex == 0? YES: NO);
                     [deploymentInfo setObject:[NSNumber numberWithBool:enable] forKey:@"enabled"];
                     
-                    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+                    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                     
                     [[JBAOperationsManager sharedManager]
                      addDeploymentContentWithHash:
@@ -177,7 +177,7 @@
                      withSuccess:^(void) {
                          
                          [SVProgressHUD 
-                          dismissWithSuccess:[NSString stringWithFormat:@"Successfully Added%@", (enable? @" and Enabled!":@"!")]];
+                          showSuccessWithStatus:[NSString stringWithFormat:@"Successfully Added%@", (enable? @" and Enabled!":@"!")]];
                          
                          [self dismissViewControllerAnimated:YES completion:nil];
                          

@@ -95,7 +95,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSUInteger row = [indexPath row];
 
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     JBAServer *server = [[JBAServersManager sharedJBAServersManager] serverAtIndex:row];    
     // initialize JBAOperationsManager singleton for all controllers to use

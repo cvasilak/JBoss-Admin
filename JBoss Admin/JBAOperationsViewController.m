@@ -102,7 +102,7 @@
         // first time clicked, need to retrieve operation info
         DLog(@"not operation information found, perfoming read-operation-description");
         
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];                
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
         
         NSDictionary *params = 
             [NSDictionary dictionaryWithObjectsAndKeys:
@@ -219,7 +219,7 @@
 
 #pragma mark - Actions
 - (void)refresh {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
 
     NSDictionary *params = 
         [NSDictionary dictionaryWithObjectsAndKeys:

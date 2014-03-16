@@ -200,7 +200,7 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
 -(void)refresh {
     _hasGenericOperations = NO;
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];                
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
 
     // will identify the child resources of this child type
     // Note: we reload here in case an "add" happened down the road
@@ -209,26 +209,23 @@ typedef NS_ENUM(NSUInteger, JBAChildTypesTableSections) {
                            (self.path==nil? [NSArray arrayWithObject:@"/"]: self.path), @"address", 
                            self.node.name, @"child-type", nil];
     
-
-    
-    // append child-type name and the star for "read-operation-names"
-    NSMutableArray *genericOpsPath = [[NSMutableArray alloc] initWithArray:self.path];
-    [genericOpsPath addObject:self.node.name];
-    [genericOpsPath addObject:@"*"];
-
-    NSDictionary *genericOpsParams =  [NSDictionary dictionaryWithObjectsAndKeys:
-                            @"read-operation-names", @"operation",
-                            genericOpsPath, @"address", nil];
-
-    
-    [[JBAOperationsManager sharedManager] 
+    [[JBAOperationsManager sharedManager]
      postJBossRequestWithParams:childNamesParams
      success:^(NSArray *childNames) {
          
          _names = [childNames sortedArrayUsingSelector:@selector(compare:)];
          self.node.value = _names;
 
-         [[JBAOperationsManager sharedManager] 
+         // append child-type name and the star for "read-operation-names"
+         NSMutableArray *genericOpsPath = [[NSMutableArray alloc] initWithArray:self.path];
+         [genericOpsPath addObject:self.node.name];
+         [genericOpsPath addObject:@"*"];
+
+         NSDictionary *genericOpsParams =  [NSDictionary dictionaryWithObjectsAndKeys:
+                 @"read-operation-names", @"operation",
+                 genericOpsPath, @"address", nil];
+
+         [[JBAOperationsManager sharedManager]
           postJBossRequestWithParams:genericOpsParams
           success:^(NSArray *names) {
               [SVProgressHUD dismiss];

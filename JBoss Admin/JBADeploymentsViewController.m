@@ -69,7 +69,7 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
     
     self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     [[JBAOperationsManager sharedManager] 
      fetchDeploymentsFromServerGroup:self.group withSuccess:^(NSMutableDictionary *deployments) {
@@ -230,13 +230,13 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
                                     switch (buttonIndex) {
                                         case 0: // If YES button pressed, proceed...
                                         {
-                                            [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+                                            [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                                             
                                             [[JBAOperationsManager sharedManager]
                                              removeDeploymentWithName:deploymentName
                                              belongingToGroup:self.group
                                              withSuccess:^(void) {
-                                                 [SVProgressHUD dismissWithSuccess:@"Undeployed Successfully!"];
+                                                 [SVProgressHUD showSuccessWithStatus:@"Undeployed Successfully!"];
                                                  
                                                  [_deployments removeObjectForKey:deploymentName];
                                                  [_names removeObjectAtIndex:row];
@@ -289,14 +289,14 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
                               switch (buttonIndex) {
                                   case 0: // If YES button pressed, proceed...
                                   {   
-                                      [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+                                      [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                                       
                                       [[JBAOperationsManager sharedManager]
                                        changeDeploymentStatusForDeploymentWithName:deploymentName
                                        belongingToServerGroup:self.group
                                        enable:enable 
                                        withSuccess:^(void) {
-                                           [SVProgressHUD dismissWithSuccess:(enable ? @"Enabled Successfully!": @"Disabled Successfully!")];
+                                           [SVProgressHUD showSuccessWithStatus:(enable ? @"Enabled Successfully!": @"Disabled Successfully!")];
                                            
                                            [deploymentInfo setValue:[NSNumber numberWithBool:enable] forKey:@"enabled"];
                                            

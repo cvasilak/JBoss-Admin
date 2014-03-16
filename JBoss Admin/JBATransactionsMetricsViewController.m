@@ -72,7 +72,7 @@ typedef NS_ENUM(NSUInteger, JBATranFailureOriginRows) {
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self setRefreshControl:refreshControl];
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [self refresh];
     
     [super viewDidLoad];

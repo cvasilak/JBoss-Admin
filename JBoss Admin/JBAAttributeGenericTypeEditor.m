@@ -268,7 +268,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         value = _tempList;
     }
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     NSDictionary *params =
     [NSDictionary dictionaryWithObjectsAndKeys:

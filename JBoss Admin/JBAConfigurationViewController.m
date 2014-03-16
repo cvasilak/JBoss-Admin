@@ -64,7 +64,7 @@ typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
     
     self.title = @"Configuration"; 
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     [[JBAOperationsManager sharedManager]
      fetchServerInfoWithSuccess:^(NSDictionary *serverInfo) {

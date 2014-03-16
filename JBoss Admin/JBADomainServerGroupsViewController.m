@@ -71,7 +71,7 @@
         [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
         [self setRefreshControl:refreshControl];
         
-        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
         [self refresh];
     }
     
@@ -197,7 +197,7 @@
                              
                                     BOOL enable = (buttonIndex == 0? YES: NO);
 
-                                    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+                                    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                                     
                                     [[JBAOperationsManager sharedManager]
                                      addDeploymentContentWithHash:
@@ -208,7 +208,7 @@
                                      withSuccess:^(void) {
 
                                          [SVProgressHUD 
-                                          dismissWithSuccess:[NSString stringWithFormat:@"Successfully Added%@", (enable? @" and Enabled!":@"!")]];
+                                          showSuccessWithStatus:[NSString stringWithFormat:@"Successfully Added%@", (enable? @" and Enabled!":@"!")]];
                                          
                                          [self dismissViewControllerAnimated:YES completion:nil];
                                          

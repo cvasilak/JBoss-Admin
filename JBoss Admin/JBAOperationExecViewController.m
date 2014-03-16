@@ -274,7 +274,7 @@ typedef NS_ENUM(NSUInteger, JBAHelpRows) {
         [params setObject:(self.operation.path == nil?[NSArray arrayWithObject:@"/"]: self.operation.path) forKey:@"address"];
     }
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];                
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     [[JBAOperationsManager sharedManager] 
      postJBossRequestWithParams:params

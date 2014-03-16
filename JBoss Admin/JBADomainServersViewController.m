@@ -53,7 +53,7 @@
     [refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     [self setRefreshControl:refreshControl];
     
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     [self refresh];
     
     [super viewDidLoad];
@@ -196,7 +196,7 @@
                                 switch (buttonIndex) {
                                     case 0: // If YES button pressed, proceed...
                                     {   
-                                        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+                                        [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                                         
                                         [[JBAOperationsManager sharedManager]
                                          changeStatusForServerWithName:serverName
@@ -207,17 +207,17 @@
                                              BOOL anErrorHasOccured = false;
                                              
                                              if (start && ![result isEqualToString:@"STARTED"]) {
-                                                 [SVProgressHUD dismissWithError:@"Server failed to start!"];
+                                                 [SVProgressHUD showSuccessWithStatus:@"Server failed to start!"];
                                                  anErrorHasOccured = YES;
                                              }
                                              
                                              if (!start && ![result isEqualToString:@"STOPPED"]) {
-                                                 [SVProgressHUD dismissWithError:@"Server failed to stop!"];
+                                                 [SVProgressHUD showErrorWithStatus:@"Server failed to stop!"];
                                                  anErrorHasOccured = YES;                                                
                                              }
                                              
                                              if (!anErrorHasOccured)
-                                                 [SVProgressHUD dismissWithSuccess:(start ? @"Started Successfully!": @"Stopped Successfully!")];
+                                                 [SVProgressHUD showSuccessWithStatus:(start ? @"Started Successfully!": @"Stopped Successfully!")];
                                              
                                              // if we are here the operation was success
                                              [serverInfo setValue:result forKey:@"status"];

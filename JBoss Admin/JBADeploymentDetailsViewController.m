@@ -167,7 +167,7 @@
     // the server, reflect this on our local model
     [deploymentInfo setObject:[NSNumber numberWithBool:NO] forKey:@"enabled"];
 
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     [[JBAOperationsManager sharedManager]
         addDeploymentContentWithHash:self.deploymentHash
@@ -175,7 +175,7 @@
         andRuntimeName:[deploymentInfo objectForKey:@"runtime-name"]
         withSuccess:^(void) {
     
-            [SVProgressHUD dismissWithSuccess:@"Successfully Added!"];
+            [SVProgressHUD showSuccessWithStatus:@"Successfully Added!"];
 
             [self dismissViewControllerAnimated:YES completion:nil];
             

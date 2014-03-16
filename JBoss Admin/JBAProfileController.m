@@ -193,7 +193,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
                 if (selectedNode.descr == nil) { 
                     DLog(@"not attribute information found, perfoming read-resource-description");
                     
-                    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];                
+                    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
                     
                     NSDictionary *params = 
                         [NSDictionary dictionaryWithObjectsAndKeys:
@@ -289,7 +289,7 @@ typedef NS_ENUM(NSUInteger, JBAProfileTableSections) {
 
 #pragma mark - Actions
 - (void)refresh {
-    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient networkIndicator:YES];
+    [SVProgressHUD showWithMaskType:SVProgressHUDMaskTypeGradient];
     
     NSDictionary *step1 = [NSDictionary dictionaryWithObjectsAndKeys:
                             @"read-resource", @"operation",
