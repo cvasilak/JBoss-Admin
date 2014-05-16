@@ -26,6 +26,7 @@
 #import "SubtitleCell.h"
 #import "SVProgressHUD.h"
 #import "UIActionSheet+BlockExtensions.h"
+#import "UIView+ParentView.h"
 
 @interface JBADomainServersViewController()<JBARefreshable>
 
@@ -181,8 +182,8 @@
 
 - (void)enableDisableButtonTapped:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
-    
-    UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];
+
+    UITableViewCell *buttonCell = (UITableViewCell *) [senderButton findParentViewWithClass:[UITableViewCell class]];
     NSUInteger buttonRow = [[self.tableView indexPathForCell:buttonCell] row];
     
     BOOL start = [senderButton.currentTitle isEqualToString:@"Start"];

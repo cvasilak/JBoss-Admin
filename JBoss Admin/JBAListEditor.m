@@ -26,6 +26,7 @@
 #import "EditCell.h"
 #import "ToggleSwitchCell.h"
 #import "ButtonCell.h"
+#import "UIView+ParentView.h"
 
 // Table Sections
 typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
@@ -49,23 +50,22 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 @synthesize isReadOnlyMode = _isReadOnlyMode;
 
 -(void)dealloc {
-    DLog(@"JBAListEditor dealloc");    
+    DLog(@"JBAListEditor dealloc");
 }
 
 #pragma mark - View lifecycle
 
-
 - (void)viewDidLoad {
     DLog(@"JBAListEditor viewDidLoad");
-    
-    UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close" 
-                                                                        style:UIBarButtonItemStyleBordered 
+
+    UIBarButtonItem *closeButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Close"
+                                                                        style:UIBarButtonItemStyleBordered
                                                                        target:self action:@selector(close)];
     self.navigationItem.leftBarButtonItem = closeButtonItem;
 
     if (!self.isReadOnlyMode)
         self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    
+
     [super viewDidLoad];
 }
 
@@ -81,16 +81,16 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if (section == JBATableAddSection)
         return (self.isReadOnlyMode? 0: 1);
-    
+
     return [self.items count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = [indexPath section];
     NSInteger row = [indexPath row];
-    
+
     id cell;
-    
+
     switch (section) {
         case JBATableEditorSection:
         {
@@ -101,48 +101,48 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
                 toggleCell.toggler.on = [(self.items)[row] boolValue];
 
                 cell = toggleCell;
-                
+
             } else {
-                EditCell *editCell = [EditCell cellForTableView:tableView];                
+                EditCell *editCell = [EditCell cellForTableView:tableView];
 
                 if (   self.valueType == INT
-                    || self.valueType == LONG 
+                    || self.valueType == LONG
                     || self.valueType == DOUBLE
                     || self.valueType == BIG_DECIMAL
                     || self.valueType == BIG_INTEGER)
                     editCell.txtField.keyboardType = UIKeyboardTypeDecimalPad;
                 else
                     editCell.txtField.keyboardType = UIKeyboardTypeDefault;
-                
+
                 editCell.txtField.placeholder = [JBAManagementModel stringFromType:self.valueType];
                 editCell.txtField.text = [(self.items)[row] cellDisplay];
                 editCell.txtField.userInteractionEnabled = !self.isReadOnlyMode;
                 editCell.txtField.delegate = self;
-                [editCell.txtField addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditingDidEndOnExit];                    
+                [editCell.txtField addTarget:self action:@selector(textFieldDone:) forControlEvents:UIControlEventEditingDidEndOnExit];
                 editCell.adjustX = YES;
-                
+
                 cell = editCell;
             }
-            
+
             break;
         }
-        
+
         case JBATableAddSection:
         {
             ButtonCell *addCell = [ButtonCell cellForTableView:tableView];
-            
+
             addCell.imageView.image = [UIImage imageNamed:@"add.png"];
-            
+
             addCell.textLabel.font = [UIFont italicSystemFontOfSize:16];
             addCell.textLabel.textAlignment = NSTextAlignmentCenter;
-            
-            addCell.textLabel.text = @"Add Value";                        
-            
+
+            addCell.textLabel.text = @"Add Value";
+
             cell = addCell;
-           
+
             break;
         }
-        
+
     }
     return cell;
 }
@@ -150,37 +150,37 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 #pragma mark - Table Delegate Methods
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = [indexPath section];
-    
+
     if (section == JBATableAddSection)
         [self addValue];
-    
-    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];    
+
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = [indexPath section];
-    
+
     if (self.isReadOnlyMode || section == JBATableAddSection)
         return NO;
-    
+
     return YES;
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger section = [indexPath section];
-    
+
     if (section == JBATableAddSection)
         return NO;
-    
+
     return YES;
 }
 
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath
       toIndexPath:(NSIndexPath *)toIndexPath {
-    NSUInteger fromRow = [fromIndexPath row];
-    NSUInteger toRow = [toIndexPath row];
-    
+    NSInteger fromRow = [fromIndexPath row];
+    NSInteger toRow = [toIndexPath row];
+
     id object = (self.items)[fromRow];
     [self.items removeObjectAtIndex:fromRow];
     [self.items insertObject:object atIndex:toRow];
@@ -188,11 +188,11 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     NSInteger row = [indexPath row];
-    
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [self.items removeObjectAtIndex:row];
 
-        [tableView deleteRowsAtIndexPaths:@[indexPath] 
+        [tableView deleteRowsAtIndexPaths:@[indexPath]
                          withRowAnimation:UITableViewRowAnimationFade];
     }
 }
@@ -200,7 +200,9 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 #pragma mark - Update the model as the "widget values" change
 - (void)switchValueChanged:(id)sender {
     UISwitch *toggler = (UISwitch *) sender;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell*)[[toggler superview] superview]];    
+
+    UITableViewCell *cell = (UITableViewCell *)[toggler findParentViewWithClass:[UITableViewCell class]];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     (self.items)[[indexPath row]] = @(toggler.on);
 }
 
@@ -210,7 +212,8 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:(UITableViewCell*)[[textField superview] superview]];
+    UITableViewCell *cell = (UITableViewCell *)[textField findParentViewWithClass:[UITableViewCell class]];
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
 
     // TODO couldn't find value to test, need more checks
     if (![textField.text isEqualToString:@""]) {
@@ -220,18 +223,18 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
             (self.items)[[indexPath row]] = @([textField.text doubleValue]);
         else if (self.valueType == OBJECT) { // TODO: better handling
             id value = [textField.text objectFromJSONString];
-            
+
             if (value == nil) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops!"
                                                                 message:@"Invalid JSON string that represents an Object type!"
-                                                               delegate:nil 
+                                                               delegate:nil
                                                       cancelButtonTitle:@"Bummer"
                                                       otherButtonTitles:nil];
                 [alert show];
                 return;
 
             } else {
-                (self.items)[[indexPath row]] = value;                
+                (self.items)[[indexPath row]] = value;
             }
         }
         else // string
@@ -252,7 +255,7 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
         if (_textFieldBeingEdited != nil)
             [_textFieldBeingEdited resignFirstResponder];
         }
-    
+
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -262,9 +265,9 @@ typedef NS_ENUM(NSUInteger, JBAListEditorTableSections) {
         [self.items addObject:@NO];
      else
         [self.items addObject:@""];
-    
+
     NSIndexPath *index = [NSIndexPath indexPathForRow:[self.items count]-1 inSection:JBATableEditorSection];
-    
+
     [self.tableView insertRowsAtIndexPaths:@[index] withRowAnimation:UITableViewRowAnimationBottom];
 }
 

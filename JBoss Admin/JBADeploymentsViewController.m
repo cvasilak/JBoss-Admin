@@ -347,7 +347,7 @@ typedef NS_ENUM(NSUInteger, JBADeploymentsTableSections) {
 - (void)addContentToGroupButtonTapped:(id)sender {
     UIButton *senderButton = (UIButton *)sender;
     
-    UITableViewCell *buttonCell = (UITableViewCell *)[senderButton superview];
+    UITableViewCell *buttonCell = (UITableViewCell *) [senderButton findParentViewWithClass:[UITableViewCell class]];
     NSUInteger buttonRow = [[self.tableView indexPathForCell:buttonCell] row];
     
     NSString *deploymentName = _names[buttonRow];
