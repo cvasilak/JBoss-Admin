@@ -19,8 +19,6 @@
 
 #import "CommonUtil.h"
 
-#define LESS_THAN_IOS_7 floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_6_1
-
 @implementation CommonUtil
 
 + (UINavigationController *)customizedNavigationController {
@@ -28,15 +26,9 @@
 
     UINavigationBar *navBar = [navController navigationBar];
 
-    // TODO remove once iOS 6 fades out of existence
-    if (LESS_THAN_IOS_7) {
-        [navBar setTintColor:[UIColor colorWithRed:0.26f green:0.36f blue:0.46 alpha:0.8]];
-        [navBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg-44px.png"] forBarMetrics:UIBarMetricsDefault];
-    } else {
-        [navBar setTintColor:[UIColor whiteColor]];
-        [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-        [navBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg.png"] forBarMetrics:UIBarMetricsDefault];
-    }
+    [navBar setTintColor:[UIColor whiteColor]];
+    [navBar setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [navBar setBackgroundImage:[UIImage imageNamed:@"navigation-bar-bg.png"] forBarMetrics:UIBarMetricsDefault];
 
     return navController;
 }
