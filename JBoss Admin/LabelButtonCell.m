@@ -56,7 +56,7 @@
         
     CGRect t = CGRectInset(self.contentView.bounds, 8, 8);
 	t.origin.x += self.label.frame.size.width + adjustedX;
-	t.size.width = [title sizeWithFont:_button.titleLabel.font].width + 20;
+	t.size.width = [title sizeWithAttributes:@{NSFontAttributeName: _button.titleLabel.font}].width + 20;
     _button.frame = t;    
 }
 @end

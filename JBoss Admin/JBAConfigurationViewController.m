@@ -147,7 +147,9 @@ typedef NS_ENUM(NSUInteger, JBAServerConfRows) {
                     metricCell.metricValueLabel.text = [info[@"server-state"] cellDisplay];
                     break;
             }
-            metricCell.maxNameWidth = ([@"release-codename" sizeWithFont:metricCell.metricNameLabel.font]).width;
+            
+            metricCell.maxNameWidth = ([@"release-codename"
+                                        sizeWithAttributes:@{NSFontAttributeName:metricCell.metricNameLabel.font}]).width;
             cell = metricCell;
             break;
         }

@@ -189,7 +189,9 @@ typedef NS_ENUM(NSUInteger, JBAJMSSubscriptionsRows) {
             break;
         }
     }
-    cell.maxNameWidth = ([@"Number NoN-Durable Messages" sizeWithFont:cell.metricNameLabel.font]).width;
+
+    cell.maxNameWidth = ([@"Number NoN-Durable Messages"
+                          sizeWithAttributes:@{NSFontAttributeName:cell.metricNameLabel.font}]).width;
     return cell;
 }
 

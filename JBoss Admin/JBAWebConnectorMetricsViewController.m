@@ -168,7 +168,8 @@ typedef NS_ENUM(NSUInteger, JBAWebConRequestPerConnectorRows) {
             break;
         }
       }
-    cell.maxNameWidth = ([@"Processing Time (ms)" sizeWithFont:cell.metricNameLabel.font]).width;
+    cell.maxNameWidth = ([@"Processing Time (ms)"
+                          sizeWithAttributes:@{NSFontAttributeName:cell.metricNameLabel.font}]).width;
     return cell;
 }
 

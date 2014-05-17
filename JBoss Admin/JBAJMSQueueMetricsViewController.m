@@ -173,7 +173,8 @@ typedef NS_ENUM(NSUInteger, JBAJMSConsumerRows) {
             break;
         }
     }
-    cell.maxNameWidth = ([@"Number of Consumer" sizeWithFont:cell.metricNameLabel.font]).width;
+    cell.maxNameWidth = ([@"Number of Consumer  "
+                          sizeWithAttributes:@{NSFontAttributeName:cell.metricNameLabel.font}]).width;
     return cell;
 }
 
