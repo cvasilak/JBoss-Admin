@@ -16,15 +16,13 @@
       "scale" : "2x"
     },
     {
-      "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "wildfly_icon_57px.png",
+      "size" : "57x57",
       "scale" : "1x"
     },
     {
-      "size" : "57x57",
       "idiom" : "iphone",
-      "filename" : "wildfly_icon_114px.png",
+      "size" : "57x57",
       "scale" : "2x"
     },
     {
