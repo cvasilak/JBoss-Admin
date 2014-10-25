@@ -30,7 +30,7 @@ I would love to hear any comments of yours, so please drop me an [email][4]!
 Enjoy!
  
 [0]: http://www.cvasilak.org/images/jboss-admin-logo.png "JBoss Admin"
-[1]: http://vimeo.com/40247548
+[1]: https://vimeo.com/110002867
 [2]: https://twitter.com/#!/maxandersen
 [3]: http://planet.jboss.org/post/using_jboss_admin_iphone_app_together_with_jboss_tools
 [4]: mailto:cvasilak@gmail.gom?subject=JBoss-Admin
